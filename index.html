@@ -8,17 +8,17 @@
 <title>Ravi S Ghosh — Resume</title>
 
 <!-- SEO & Open Graph (item 13) -->
-<meta name="description" content="Ravi S Ghosh — Delivery Manager, Healthcare & Life Sciences Analytics. 23+ years in healthcare IT. Data engineering, interoperability, AI/ML delivery leadership."/>
+<meta name="description" content="Ravi S Ghosh — Senior Manager, Healthcare & Life Sciences Analytics. 23+ years in healthcare IT. Data engineering, interoperability, AI/ML delivery leadership."/>
 <meta name="keywords" content="Ravi S Ghosh, healthcare IT, delivery manager, data engineering, FHIR, HL7, interoperability, Tredence, GSK, Emids"/>
 <meta name="author" content="Ravi S Ghosh"/>
-<meta property="og:title" content="Ravi S Ghosh — Delivery Manager, Healthcare & Life Sciences Analytics"/>
+<meta property="og:title" content="Ravi S Ghosh — Senior Manager, Healthcare & Life Sciences Analytics"/>
 <meta property="og:description" content="23+ years in healthcare IT. Data engineering, interoperability, AI/ML delivery. Currently at Tredence Inc."/>
 <meta property="og:type" content="profile"/>
 <meta property="og:url" content="https://cv.ravisghosh.com"/>
 <meta property="og:image" content="https://raw.githubusercontent.com/ravisghosh/cv/main/photo-headshot.jpg"/>
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Ravi S Ghosh — Resume"/>
-<meta name="twitter:description" content="Delivery Manager, Healthcare & Life Sciences Analytics"/>
+<meta name="twitter:description" content="Senior Manager, Healthcare & Life Sciences Analytics"/>
 <meta name="twitter:image" content="https://raw.githubusercontent.com/ravisghosh/cv/main/photo-headshot.jpg"/>
 
 <!-- Favicon (item 14) -->
@@ -106,7 +106,13 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
 .summary-block ul li{position:relative;padding:3px 0 3px 14px;font-size:12.5px;color:var(--fg2)}
 .summary-block ul li::before{content:'·';position:absolute;left:0;color:var(--acc);font-weight:700;font-size:16px;line-height:1.1}
 
-/* Download buttons */
+/* Universal card hover animation (item 5) */
+.card,.cert-item,.award-card,.client-card,.vol-card,.int-card,.summary-block,.stat-card,.contact-item{
+  transition:border-color .18s,box-shadow .18s,transform .18s}
+.card:hover,.cert-item:hover,.award-card:hover,.client-card:hover,
+.vol-card:hover,.int-card:hover,.summary-block:hover,.contact-item:hover{
+  border-color:var(--acc2);box-shadow:0 4px 14px rgba(46,107,62,.13);transform:translateY(-1px)}
+.stat-card:hover{border-color:var(--acc2);box-shadow:0 4px 14px rgba(46,107,62,.13)}
 .dl-bar{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
 .dl-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;
   border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;
@@ -129,13 +135,16 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
 .tag-o{background:#f4f0e6;color:#7a5c1a}
 .tag-b{background:#e6eff4;color:#1a4a7a}
 
-/* ── Career timeline — fixed layout (item: year overlap fix) ── */
+/* ── Career timeline ── */
 .career-timeline{position:relative}
-/* The vertical line sits in its own absolutely positioned column */
 .tl-spine{position:absolute;left:52px;top:8px;bottom:8px;width:2px;background:var(--border2);border-radius:2px;z-index:0}
 .org-card{position:relative;display:grid;grid-template-columns:52px 14px 1fr;align-items:start;margin-bottom:12px;gap:0}
-.org-year-label{grid-column:1;padding-right:6px;padding-top:14px;text-align:right;
-  font-size:10px;font-weight:600;color:var(--fg3);line-height:1.25;z-index:1}
+.org-year-label{grid-column:1;padding-right:6px;padding-top:10px;text-align:right;
+  font-size:10px;font-weight:600;color:var(--fg3);line-height:1.4;z-index:1;
+  display:flex;flex-direction:column;align-items:flex-end;gap:1px}
+.org-year-label .yr-end{color:var(--acc2)}
+.org-year-label .yr-sep{font-size:9px;opacity:.5;line-height:1}
+.org-year-label .yr-start{color:var(--fg3)}
 .org-dot-col{grid-column:2;padding-top:16px;display:flex;justify-content:center;z-index:1}
 .org-dot{width:10px;height:10px;border-radius:50%;background:var(--acc);
   border:2px solid var(--bg);box-shadow:0 0 0 2px var(--acc);flex-shrink:0}
@@ -199,7 +208,7 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
 .cert-org{font-size:10.5px;color:var(--fg3);margin-top:1px}
 .cert-link{font-size:10px;color:var(--acc);margin-top:2px;display:block}
 
-/* Recognition */
+/* Awards */
 .award-card{background:var(--card);border:1px solid var(--border);
   border-left:3px solid var(--acc3);border-radius:var(--r);
   padding:14px 18px;margin-bottom:10px;box-shadow:var(--shadow)}
@@ -334,7 +343,7 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
   .contact-item{padding:5px 10px}
   .card{box-shadow:none;padding:6px 10px}
   .tag,.cv-tag{font-size:8.5px;padding:0 5px}
-  #t-career,#t-projects,#t-education,#t-skills,#t-Recognition,
+  #t-career,#t-projects,#t-education,#t-skills,#t-awards,
   #t-clients,#t-interests-volunteer,#t-contact{page-break-before:always}
   #t-home{page-break-before:avoid}
 }
@@ -368,7 +377,7 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
   <button class="compact-close" onclick="closeCompact()">✕ Close compact view</button>
   <div class="cv-page">
     <h1>Ravi S Ghosh</h1>
-    <div class="cv-tagline">Delivery Manager — Healthcare &amp; Life Sciences Analytics</div>
+    <div class="cv-tagline">Senior Manager — Healthcare &amp; Life Sciences Analytics</div>
     <div class="cv-contacts">
       <span>mail@ravisghosh.com</span><span>+91-805 015 8015</span>
       <span>linkedin.com/in/ravisghosh</span><span>ravisghosh.com</span>
@@ -430,7 +439,7 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
       onerror="this.style.display='none';document.getElementById('sb-avatar').style.display='flex'"/>
     <div id="sb-avatar" style="display:none;width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#2e6b3e,#4a9960);align-items:center;justify-content:center;font-size:22px;font-weight:700;color:#fff;margin:0 auto 14px">RG</div>
     <div class="sb-name">Ravi S Ghosh</div>
-    <div class="sb-title">Senior Manager · Healthcare &amp; Life Sciences Analytics</div>
+    <div class="sb-title">Delivery Manager · Healthcare &amp; Life Sciences Analytics</div>
   </div>
   <div class="nav-section">
     <div class="nav-label">Profile</div>
@@ -459,7 +468,7 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
       <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/></svg>Skills
     </a>
     <a class="nav-item" onclick="show('awards')" href="#awards">
-      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>Awards
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>Recognition
     </a>
   </div>
   <div class="nav-section">
@@ -511,7 +520,7 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
     <div id="hero-avatar" style="display:none;width:88px;height:88px;border-radius:50%;background:linear-gradient(135deg,#2e6b3e,#4a9960);align-items:center;justify-content:center;font-size:28px;font-weight:700;color:#fff;flex-shrink:0">RG</div>
     <div class="profile-info">
       <h1>Ravi S Ghosh</h1>
-      <div class="profile-tagline">Senior Manager · Healthcare &amp; Life Sciences Analytics</div>
+      <div class="profile-tagline">Delivery Manager · Healthcare &amp; Life Sciences Analytics</div>
       <div class="profile-loc">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
         Bangalore, India
@@ -520,7 +529,7 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
   </div>
   <div class="stat-grid">
     <div class="stat-card"><div class="stat-num" data-target="23">0</div><div class="stat-lbl">Years in Healthcare IT</div></div>
-    <div class="stat-card"><div class="stat-num">$8M</div><div class="stat-lbl">Annual Portfolio (Emids)</div></div>
+    <div class="stat-card"><div class="stat-num">$8M</div><div class="stat-lbl">Annual Portfolio</div></div>
     <div class="stat-card"><div class="stat-num" data-target="80">0</div><div class="stat-lbl">Team Members Led</div></div>
     <div class="stat-card"><div class="stat-num" data-target="20">0</div><div class="stat-lbl">Projects Delivered</div></div>
   </div>
@@ -547,7 +556,7 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
     <div class="tl-spine"></div>
 
     <div class="org-card">
-      <div class="org-year-label">2025<br>–Now</div>
+      <div class="org-year-label"><span class="yr-end">Now</span><span class="yr-sep">|</span><span class="yr-start">2025</span></div>
       <div class="org-dot-col"><div class="org-dot org-dot-cur"></div></div>
       <div class="org-inner">
         <div class="org-header" onclick="toggleOrg(this)">
@@ -566,7 +575,7 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
     </div>
 
     <div class="org-card">
-      <div class="org-year-label">2024<br>–2025</div>
+      <div class="org-year-label"><span class="yr-end">2025</span><span class="yr-sep">|</span><span class="yr-start">2024</span></div>
       <div class="org-dot-col"><div class="org-dot"></div></div>
       <div class="org-inner">
         <div class="org-header" onclick="toggleOrg(this)">
@@ -590,7 +599,7 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
     </div>
 
     <div class="org-card">
-      <div class="org-year-label">2016<br>–2024</div>
+      <div class="org-year-label"><span class="yr-end">2024</span><span class="yr-sep">|</span><span class="yr-start">2016</span></div>
       <div class="org-dot-col"><div class="org-dot"></div></div>
       <div class="org-inner">
         <div class="org-header" onclick="toggleOrg(this)">
@@ -608,7 +617,7 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
     </div>
 
     <div class="org-card">
-      <div class="org-year-label">2013<br>–2016</div>
+      <div class="org-year-label"><span class="yr-end">2016</span><span class="yr-sep">|</span><span class="yr-start">2013</span></div>
       <div class="org-dot-col"><div class="org-dot"></div></div>
       <div class="org-inner">
         <div class="org-header" onclick="toggleOrg(this)">
@@ -623,7 +632,7 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
     </div>
 
     <div class="org-card">
-      <div class="org-year-label">2001<br>–2013</div>
+      <div class="org-year-label"><span class="yr-end">2013</span><span class="yr-sep">|</span><span class="yr-start">2001</span></div>
       <div class="org-dot-col"><div class="org-dot"></div></div>
       <div class="org-inner">
         <div class="org-header" onclick="toggleOrg(this)">
