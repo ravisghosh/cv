@@ -6,6 +6,24 @@
 <meta name="tiddlywiki-version" content="5.3.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Ravi S Ghosh — Resume</title>
+
+<!-- SEO & Open Graph (item 13) -->
+<meta name="description" content="Ravi S Ghosh — Senior Manager, Healthcare & Life Sciences Analytics. 23+ years in healthcare IT. Data engineering, interoperability, AI/ML delivery leadership."/>
+<meta name="keywords" content="Ravi S Ghosh, healthcare IT, delivery manager, data engineering, FHIR, HL7, interoperability, Tredence, GSK, Emids"/>
+<meta name="author" content="Ravi S Ghosh"/>
+<meta property="og:title" content="Ravi S Ghosh — Senior Manager, Healthcare & Life Sciences Analytics"/>
+<meta property="og:description" content="23+ years in healthcare IT. Data engineering, interoperability, AI/ML delivery. Currently at Tredence Inc."/>
+<meta property="og:type" content="profile"/>
+<meta property="og:url" content="https://cv.ravisghosh.com"/>
+<meta property="og:image" content="https://raw.githubusercontent.com/ravisghosh/cv/main/photo-headshot.jpg"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Ravi S Ghosh — Resume"/>
+<meta name="twitter:description" content="Senior Manager, Healthcare & Life Sciences Analytics"/>
+<meta name="twitter:image" content="https://raw.githubusercontent.com/ravisghosh/cv/main/photo-headshot.jpg"/>
+
+<!-- Favicon (item 14) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232e6b3e'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='system-ui,sans-serif' font-size='14' font-weight='700' fill='white'>RG</text></svg>"/>
+
 <style>
 :root{
   --bg:#f7f9f7;--bg2:#edf2ed;--bg3:#deeade;--fg:#1c2b1c;--fg2:#3d533d;--fg3:#6b856b;
@@ -19,6 +37,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--fg);line-height:1.
 a{color:var(--acc);text-decoration:none}
 a:hover{text-decoration:underline}
 #app{display:flex;min-height:100vh}
+
+/* Sidebar */
 #sidebar{width:230px;min-width:230px;background:var(--bg2);border-right:1px solid var(--border);
   padding:0;position:sticky;top:0;height:100vh;overflow-y:auto;display:flex;flex-direction:column}
 #main{flex:1;padding:36px 48px;max-width:880px}
@@ -31,7 +51,7 @@ a:hover{text-decoration:underline}
 .nav-label{font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--fg3);padding:6px 20px 2px;font-weight:600}
 .nav-item{display:flex;align-items:center;gap:10px;padding:7px 20px;cursor:pointer;
   color:var(--fg2);font-size:12.5px;border-left:3px solid transparent;transition:all .12s;text-decoration:none!important}
-.nav-item:hover{background:var(--bg3);color:var(--fg);text-decoration:none!important}
+.nav-item:hover{background:var(--bg3);color:var(--fg)}
 .nav-item.active{background:var(--bg3);color:var(--acc);border-left-color:var(--acc);font-weight:600}
 .nav-icon{width:16px;height:16px;opacity:.7;flex-shrink:0}
 .nav-item.active .nav-icon{opacity:1}
@@ -39,10 +59,21 @@ a:hover{text-decoration:underline}
 .sb-contact{font-size:12.5px;color:var(--fg2);line-height:2.1}
 .sb-contact a{color:var(--fg2);font-size:12.5px;font-weight:500}
 .sb-contact a:hover{color:var(--acc)}
-.sb-contact-row{display:flex;align-items:center;gap:7px}
+.sb-contact-row{display:flex;align-items:center;gap:7px;position:relative}
 .sb-contact-row svg{width:13px;height:13px;flex-shrink:0;opacity:.7}
-.tiddler{display:none}.tiddler.active{display:block;animation:fi .18s ease}
-@keyframes fi{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:none}}
+/* Copy button (item 11) */
+.copy-btn{display:none;position:absolute;right:0;top:50%;transform:translateY(-50%);
+  background:var(--bg3);border:1px solid var(--border);border-radius:4px;
+  padding:1px 5px;font-size:9px;color:var(--fg3);cursor:pointer;white-space:nowrap}
+.sb-contact-row:hover .copy-btn{display:block}
+.copy-btn:hover{color:var(--acc);border-color:var(--acc)}
+.copy-btn.copied{color:var(--acc);background:var(--bg3)}
+
+/* Main tiddler pages */
+.tiddler{display:none}
+/* Page slide transition (item 2) */
+.tiddler.active{display:block;animation:slideIn .22s ease}
+@keyframes slideIn{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
 .page-title{font-size:22px;font-weight:700;color:var(--fg);margin-bottom:2px}
 .page-sub{font-size:13px;color:var(--fg3);margin-bottom:24px}
 h2{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;
@@ -50,6 +81,8 @@ h2{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;
 h2:first-of-type{margin-top:0}
 h3{font-size:14px;font-weight:600;color:var(--fg);margin-bottom:3px}
 p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
+
+/* Profile hero */
 .profile-hero{display:flex;align-items:center;gap:24px;margin-bottom:28px;
   background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:24px;box-shadow:var(--shadow)}
 .profile-photo{width:88px;height:88px;border-radius:50%;object-fit:cover;object-position:center top;
@@ -57,23 +90,23 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
 .profile-info h1{font-size:24px;font-weight:700;color:var(--fg);margin-bottom:3px}
 .profile-tagline{font-size:13px;color:var(--acc);font-weight:500;margin-bottom:5px}
 .profile-loc{font-size:12px;color:var(--fg3);display:flex;align-items:center;gap:4px}
-.profile-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-.profile-link{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;
-  color:var(--fg2);background:var(--bg2);border:1px solid var(--border);
-  border-radius:20px;padding:3px 10px;text-decoration:none!important;transition:all .12s}
-.profile-link:hover{border-color:var(--acc);color:var(--acc)}
-.profile-link svg{width:12px;height:12px;opacity:.6}
+
+/* Stats */
 .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px}
 .stat-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);
   padding:14px 12px;text-align:center;box-shadow:var(--shadow)}
 .stat-num{font-size:20px;font-weight:700;color:var(--acc)}
 .stat-lbl{font-size:10.5px;color:var(--fg3);margin-top:2px;line-height:1.3}
+
+/* Summary blocks */
 .summary-block{background:var(--card);border:1px solid var(--border);
   border-radius:var(--r);padding:18px 20px;margin-bottom:12px;box-shadow:var(--shadow)}
 .summary-block h3{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--acc2);margin-bottom:8px}
 .summary-block ul{list-style:none;padding:0}
 .summary-block ul li{position:relative;padding:3px 0 3px 14px;font-size:12.5px;color:var(--fg2)}
 .summary-block ul li::before{content:'·';position:absolute;left:0;color:var(--acc);font-weight:700;font-size:16px;line-height:1.1}
+
+/* Download buttons */
 .dl-bar{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
 .dl-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;
   border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;
@@ -84,28 +117,34 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
 .dl-btn-primary{background:var(--acc);color:#fff;border-color:var(--acc)}
 .dl-btn-primary:hover{background:var(--acc2);border-color:var(--acc2);color:#fff}
 .dl-btn-primary svg{opacity:.9}
+
+/* Cards */
 .card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);
   padding:16px 20px;margin-bottom:12px;box-shadow:var(--shadow)}
+
+/* Tags */
 .tag{display:inline-block;padding:1px 8px;border-radius:9px;background:var(--bg2);color:var(--fg3);font-size:10.5px;font-weight:500;margin:2px}
 .tag-g{background:#e6f4e6;color:#1a5c1a}
 .tag-p{background:#f0e6f4;color:#5c1a7a}
 .tag-o{background:#f4f0e6;color:#7a5c1a}
 .tag-b{background:#e6eff4;color:#1a4a7a}
 
-/* Career timeline with year labels */
-.career-timeline{position:relative;padding-left:64px}
-.career-timeline::before{content:'';position:absolute;left:44px;top:8px;bottom:8px;
-  width:2px;background:var(--border2);border-radius:2px}
-.org-card{position:relative;margin-bottom:10px}
-.org-year-label{position:absolute;left:0;top:14px;width:38px;text-align:right;
-  font-size:10px;font-weight:600;color:var(--fg3);line-height:1.2;pointer-events:none}
-.org-year-label span{display:block}
-.org-dot-wrap{position:absolute;left:39px;top:16px;width:12px;height:12px;z-index:1}
+/* ── Career timeline — fixed layout (item: year overlap fix) ── */
+.career-timeline{position:relative}
+/* The vertical line sits in its own absolutely positioned column */
+.tl-spine{position:absolute;left:52px;top:8px;bottom:8px;width:2px;background:var(--border2);border-radius:2px;z-index:0}
+.org-card{position:relative;display:grid;grid-template-columns:52px 14px 1fr;align-items:start;margin-bottom:12px;gap:0}
+.org-year-label{grid-column:1;padding-right:6px;padding-top:14px;text-align:right;
+  font-size:10px;font-weight:600;color:var(--fg3);line-height:1.25;z-index:1}
+.org-dot-col{grid-column:2;padding-top:16px;display:flex;justify-content:center;z-index:1}
 .org-dot{width:10px;height:10px;border-radius:50%;background:var(--acc);
-  border:2px solid var(--bg);box-shadow:0 0 0 2px var(--acc)}
+  border:2px solid var(--bg);box-shadow:0 0 0 2px var(--acc);flex-shrink:0}
 .org-dot-cur{background:#2a9a4a;box-shadow:0 0 0 2px #2a9a4a}
-.org-inner{background:var(--card);border:1px solid var(--border);
-  border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
+.org-inner{grid-column:3;margin-left:10px;background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;
+  /* Hover border sweep (item 4) */
+  transition:border-color .2s,box-shadow .2s;border-left:3px solid transparent}
+.org-inner:hover{border-left-color:var(--acc3);box-shadow:0 2px 10px rgba(46,107,62,.1)}
 .org-header{display:flex;align-items:center;justify-content:space-between;
   padding:14px 18px;cursor:pointer;transition:background .12s;gap:12px}
 .org-header:hover{background:var(--bg2)}
@@ -124,20 +163,25 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
 .role-detail li{position:relative;padding:2px 0 2px 14px;font-size:12px;color:var(--fg2)}
 .role-detail li::before{content:'→';position:absolute;left:0;color:var(--acc3);font-size:11px}
 
+/* Projects */
 .proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
 .proj-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);
-  padding:14px 16px;cursor:pointer;transition:border-color .12s;box-shadow:var(--shadow)}
-.proj-card:hover{border-color:var(--acc2)}
+  padding:14px 16px;cursor:pointer;transition:border-color .15s,transform .15s;box-shadow:var(--shadow)}
+.proj-card:hover{border-color:var(--acc2);transform:translateY(-2px)}
 .proj-title{font-size:12.5px;font-weight:600;color:var(--fg);margin-bottom:3px}
 .proj-meta{font-size:10.5px;color:var(--fg3);margin-bottom:7px}
 .proj-detail{display:none;margin-top:8px;font-size:12px;color:var(--fg2);
   line-height:1.6;border-top:1px solid var(--border);padding-top:8px}
 .proj-detail.open{display:block}
+
+/* Skills */
 .skill-sec{margin-bottom:20px}
 .skill-row{display:flex;align-items:center;gap:10px;margin-bottom:6px}
 .skill-name{width:195px;font-size:12.5px;color:var(--fg2);flex-shrink:0}
 .skill-bar{flex:1;height:4px;background:var(--bg3);border-radius:2px;overflow:hidden}
-.skill-fill{height:100%;background:var(--acc);border-radius:2px}
+.skill-fill{height:100%;background:var(--acc);border-radius:2px;width:0;transition:width .8s ease}
+
+/* Education */
 .edu-row{display:flex;gap:14px;align-items:flex-start}
 .edu-icon-box{width:38px;height:38px;border-radius:7px;background:var(--bg2);
   display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--border)}
@@ -154,22 +198,34 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
 .cert-name{font-size:12px;font-weight:600;color:var(--fg);line-height:1.3}
 .cert-org{font-size:10.5px;color:var(--fg3);margin-top:1px}
 .cert-link{font-size:10px;color:var(--acc);margin-top:2px;display:block}
+
+/* Awards */
 .award-card{background:var(--card);border:1px solid var(--border);
   border-left:3px solid var(--acc3);border-radius:var(--r);
   padding:14px 18px;margin-bottom:10px;box-shadow:var(--shadow)}
 .award-title{font-size:13px;font-weight:600;color:var(--fg);margin-bottom:2px}
 .award-meta{font-size:11px;color:var(--acc);font-weight:500;margin-bottom:6px}
 .award-body{font-size:12px;color:var(--fg2);line-height:1.65}
+
+/* Contact */
 .contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
 .contact-item{display:flex;align-items:center;gap:12px;background:var(--card);
-  border-radius:var(--r);padding:13px 16px;border:1px solid var(--border);box-shadow:var(--shadow)}
+  border-radius:var(--r);padding:13px 16px;border:1px solid var(--border);box-shadow:var(--shadow);
+  position:relative;transition:border-color .12s}
+.contact-item:hover{border-color:var(--acc2)}
 .contact-icon{width:34px;height:34px;border-radius:7px;background:var(--bg2);
   display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--border)}
 .contact-icon svg{width:16px;height:16px;color:var(--acc3)}
 .contact-label{font-size:10.5px;color:var(--fg3)}
 .contact-val{font-size:12.5px;font-weight:500;color:var(--fg)}
+/* Copy on contact page (item 11) */
+.copy-contact{position:absolute;right:10px;top:50%;transform:translateY(-50%);
+  display:none;background:var(--bg2);border:1px solid var(--border);
+  border-radius:4px;padding:2px 7px;font-size:10px;color:var(--fg3);cursor:pointer}
+.contact-item:hover .copy-contact{display:block}
+.copy-contact:hover{color:var(--acc);border-color:var(--acc)}
 
-/* Merged interests+volunteering */
+/* Interests + Volunteering */
 .int-vol-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px}
 .int-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);
   padding:12px 14px;box-shadow:var(--shadow);display:flex;align-items:flex-start;gap:10px}
@@ -182,11 +238,13 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
 .vol-icon-box{width:36px;height:36px;border-radius:7px;background:var(--bg2);
   display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;border:1px solid var(--border)}
 
+/* Clients */
 .clients-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
-.client-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);
-  padding:14px 16px;box-shadow:var(--shadow)}
+.client-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;box-shadow:var(--shadow)}
 .client-name{font-size:13px;font-weight:600;color:var(--fg);margin-bottom:3px}
 .client-desc{font-size:11.5px;color:var(--fg2);line-height:1.5}
+
+/* Quick links */
 .qlinks{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
 .qlink{display:inline-flex;align-items:center;gap:4px;padding:5px 12px;
   border-radius:16px;background:var(--bg2);color:var(--fg2);
@@ -194,55 +252,88 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
 .qlink:hover{background:var(--bg3);border-color:var(--acc);color:var(--acc)}
 .qlink svg{width:12px;height:12px;opacity:.6}
 
-/* ── PRINT / PDF styles ── */
+/* Back to top (item 12) */
+#back-to-top{position:fixed;bottom:24px;right:24px;width:38px;height:38px;
+  border-radius:50%;background:var(--acc);color:#fff;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 8px rgba(46,107,62,.35);
+  opacity:0;pointer-events:none;transition:opacity .2s;z-index:200}
+#back-to-top.visible{opacity:1;pointer-events:auto}
+#back-to-top svg{width:16px;height:16px}
+
+/* QR code section (item 19) */
+.qr-wrap{display:flex;align-items:center;gap:20px;background:var(--card);
+  border:1px solid var(--border);border-radius:var(--r);padding:18px 20px;
+  box-shadow:var(--shadow);margin-bottom:16px}
+#qr-canvas{border-radius:6px;border:1px solid var(--border)}
+.qr-text h3{font-size:13px;font-weight:600;margin-bottom:4px}
+.qr-text p{font-size:12px;margin-bottom:0}
+
+/* Compact view (item 20) */
+#compact-overlay{display:none;position:fixed;inset:0;background:var(--bg);
+  z-index:500;overflow-y:auto;padding:32px 40px}
+#compact-overlay.open{display:block}
+.compact-close{position:fixed;top:16px;right:20px;background:var(--acc);color:#fff;
+  border:none;border-radius:6px;padding:7px 14px;font-size:12px;font-weight:600;
+  cursor:pointer;z-index:501}
+.cv-page{max-width:780px;margin:0 auto;font-size:11.5px;line-height:1.5;color:var(--fg)}
+.cv-page h1{font-size:20px;font-weight:700;margin-bottom:2px}
+.cv-page .cv-tagline{font-size:12px;color:var(--fg2);margin-bottom:3px}
+.cv-page .cv-contacts{font-size:11px;color:var(--fg3);margin-bottom:16px;display:flex;gap:12px;flex-wrap:wrap}
+.cv-page .cv-section{margin-bottom:14px}
+.cv-page .cv-section-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
+  color:var(--acc2);border-bottom:1px solid var(--border2);padding-bottom:3px;margin-bottom:8px}
+.cv-page .cv-role{margin-bottom:8px}
+.cv-page .cv-role-header{display:flex;justify-content:space-between;font-weight:600;font-size:12px}
+.cv-page .cv-role-sub{font-size:11px;color:var(--fg3);margin-bottom:3px}
+.cv-page .cv-role ul{list-style:none;padding:0}
+.cv-page .cv-role ul li{position:relative;padding-left:12px;font-size:11px;color:var(--fg2);line-height:1.5}
+.cv-page .cv-role ul li::before{content:'•';position:absolute;left:0;color:var(--acc)}
+.cv-page .cv-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.cv-page .cv-tag{font-size:10px;background:var(--bg2);color:var(--fg3);
+  padding:1px 7px;border-radius:8px;border:1px solid var(--border)}
+.cv-page .cv-two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+/* ── PRINT / PDF ── */
 @media print{
-  @page{margin:14mm 12mm;size:A4}
-  body{background:#fff;color:#000;font-size:11px;line-height:1.45}
-  #sidebar,#app>.print-hide,.nav-section,.sb-bottom,.dl-bar,.qlinks,.profile-links,
-  .org-chevron,.proj-detail,.org-roles:not(.open){display:none!important}
+  @page{margin:12mm 10mm;size:A4}
+  body{background:#fff;color:#000;font-size:10.5px}
+  #sidebar,#back-to-top,#compact-overlay,.dl-bar,.qlinks,.org-chevron,
+  .qr-wrap,.copy-btn,.copy-contact,.sb-bottom{display:none!important}
   #app{display:block}
   #main{padding:0;max-width:100%}
   .tiddler{display:block!important}
-  .page-title{font-size:17px;margin-bottom:2px;page-break-after:avoid}
-  h2{font-size:10px;margin:12px 0 6px;padding-bottom:3px}
-  h3{font-size:11px}
-  p,.award-body,.role-detail li,.summary-block ul li,.client-desc,.int-name{font-size:10px;line-height:1.5}
-  .profile-hero{border:none;padding:0;box-shadow:none;margin-bottom:14px;gap:16px}
-  .profile-photo{width:64px;height:64px}
-  .profile-info h1{font-size:18px}
-  .profile-tagline{font-size:11px}
+  .page-title{font-size:16px;page-break-after:avoid}
+  h2{font-size:9.5px;margin:10px 0 5px}
+  .profile-hero{border:none;box-shadow:none;padding:0;margin-bottom:12px;gap:14px}
+  .profile-photo{width:58px;height:58px}
+  .profile-info h1{font-size:17px}
   .stat-grid{display:none}
-  .summary-block{border:none;box-shadow:none;padding:0;margin-bottom:8px}
-  .summary-block h3{font-size:10px;margin-bottom:4px}
-  .career-timeline{padding-left:52px}
-  .career-timeline::before{left:34px}
-  .org-dot-wrap{left:30px}
-  .org-year-label{font-size:9px;width:28px}
-  .org-inner{border:none;box-shadow:none}
-  .org-header{padding:6px 0;background:none!important}
-  .org-name{font-size:12px}
-  .org-tenure{font-size:9px;background:none;border:none;padding:0}
+  .summary-block{border:none;box-shadow:none;padding:0 0 4px}
+  .summary-block h3{font-size:9.5px}
+  .summary-block ul li{font-size:10px}
+  .career-timeline .tl-spine{display:none}
+  .org-card{grid-template-columns:44px 12px 1fr}
+  .org-year-label{font-size:9px}
+  .org-inner{border:none;box-shadow:none;border-left:2px solid var(--acc3)}
+  .org-header{padding:4px 8px}
+  .org-name{font-size:11px}
+  .org-tenure{font-size:9px;border:none;background:none;padding:0}
   .org-roles{display:block!important;border:none}
-  .role-item{padding:4px 0 4px 10px;border:none}
-  .role-title{font-size:10.5px}
-  .role-period{font-size:9px;margin-bottom:2px}
+  .role-item{padding:3px 0 3px 8px;border:none}
+  .role-title{font-size:10px}
+  .role-period{font-size:9px;margin-bottom:1px}
+  .role-detail li{font-size:9.5px}
   .proj-grid{grid-template-columns:1fr 1fr}
-  .proj-card{box-shadow:none;padding:6px 8px}
+  .proj-card{box-shadow:none;padding:5px 7px}
   .proj-detail{display:block!important}
   .cert-grid{grid-template-columns:1fr 1fr}
-  .cert-item{padding:5px 7px}
-  .cert-name{font-size:10px}
-  .cert-org,.cert-link{font-size:9px}
-  .award-card{border-left-width:2px;padding:6px 10px;margin-bottom:6px}
-  .award-title{font-size:10.5px}
-  .award-meta{font-size:9px}
+  .cert-item{padding:4px 7px}
+  .award-card{padding:5px 10px;margin-bottom:5px}
   .contact-grid{grid-template-columns:1fr 1fr}
-  .contact-item{padding:6px 10px}
-  .int-vol-grid{grid-template-columns:1fr 1fr}
-  .clients-grid{grid-template-columns:1fr 1fr}
-  .card{box-shadow:none;padding:8px 12px}
-  .tag{font-size:9px;padding:1px 5px}
-  /* Section page breaks */
+  .contact-item{padding:5px 10px}
+  .card{box-shadow:none;padding:6px 10px}
+  .tag,.cv-tag{font-size:8.5px;padding:0 5px}
   #t-career,#t-projects,#t-education,#t-skills,#t-awards,
   #t-clients,#t-interests-volunteer,#t-contact{page-break-before:always}
   #t-home{page-break-before:avoid}
@@ -255,7 +346,7 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
   .stat-grid{grid-template-columns:repeat(2,1fr)}
   .proj-grid{grid-template-columns:1fr}
   .profile-hero{flex-direction:column;text-align:center}
-  .career-timeline{padding-left:52px}
+  .org-card{grid-template-columns:44px 12px 1fr}
 }
 </style>
 </head>
@@ -265,6 +356,69 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
 <div title="$:/DefaultTiddlers"><pre>RaviResume</pre></div>
 <div title="RaviResume"><pre>Ravi S Ghosh Resume</pre></div>
 <div title="$:/SiteTitle"><pre>Ravi S Ghosh</pre></div>
+</div>
+
+<!-- Back to top button (item 12) -->
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18,15 12,9 6,15"/></svg>
+</button>
+
+<!-- Compact CV overlay (item 20) -->
+<div id="compact-overlay">
+  <button class="compact-close" onclick="closeCompact()">✕ Close compact view</button>
+  <div class="cv-page">
+    <h1>Ravi S Ghosh</h1>
+    <div class="cv-tagline">Senior Manager — Healthcare &amp; Life Sciences Analytics</div>
+    <div class="cv-contacts">
+      <span>mail@ravisghosh.com</span><span>+91-805 015 8015</span>
+      <span>linkedin.com/in/ravisghosh</span><span>ravisghosh.com</span>
+      <span>Bangalore, India</span>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Summary</div>
+      <p style="font-size:11px;color:var(--fg2)">Service Delivery Manager with 23+ years in healthcare IT. Expertise in data engineering, interoperability, AI/ML, and product implementation. Led global teams of 80+, managed $8M+ annual delivery portfolios, and driven CoE and pre-sales initiatives across HLS vertical.</p>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Experience</div>
+      <div class="cv-role"><div class="cv-role-header"><span>Tredence Inc</span><span>Oct 2025 – Present</span></div><div class="cv-role-sub">Senior Manager — Healthcare &amp; Life Sciences, Analytics · Bangalore</div><ul><li>Manage IT service delivery for data analytics and AI/ML projects in the HLS vertical.</li></ul></div>
+      <div class="cv-role"><div class="cv-role-header"><span>GSK plc</span><span>Sep 2024 – Oct 2025</span></div><div class="cv-role-sub">Data Analytics Manager, R&amp;D Division · Bangalore</div><ul><li>Product ownership of enterprise request management system. GSK Bronze Award (Apr 2025).</li><li>Medical and Safety review tool implementation across 7 geographies.</li></ul></div>
+      <div class="cv-role"><div class="cv-role-header"><span>Emids Technologies Pvt. Ltd.</span><span>Feb 2016 – Aug 2024</span></div><div class="cv-role-sub">Group PM → Senior PM → PM → Associate Manager → Team Lead</div><ul><li>Group PM: ~$8M portfolio, 12 projects, ~80 people. Led Data Integration CoE. Gratitude Award (2023).</li><li>Senior PM: ~$2M portfolio. CEO's Award — Innovation &amp; Execution Excellence (2021).</li><li>PM: ~$1M portfolio, full project lifecycle, risk monitoring.</li><li>Team Lead/AM: Patient access product implementation. Star Awards (2016, 2018), CEO Award (2017).</li></ul></div>
+      <div class="cv-role"><div class="cv-role-header"><span>M*Modal Global Services</span><span>May 2013 – Feb 2016</span></div><div class="cv-role-sub">Lead – Implementation Services / Implementation Executive</div><ul><li>Led team of 15 implementing speech recognition platforms. Migrated 86% of total volume.</li></ul></div>
+      <div class="cv-role"><div class="cv-role-header"><span>Transcend / Heartland → Nuance</span><span>Dec 2001 – May 2013</span></div><div class="cv-role-sub">Team Lead – Implementation / Production Support / Medical Transcriptionist</div><ul><li>GEMSTAR V10/V11 platform BA &amp; UAT lead. Errors 1.45%→0.65%, TAT +36%, productivity +42%.</li></ul></div>
+    </div>
+
+    <div class="cv-two-col">
+      <div>
+        <div class="cv-section">
+          <div class="cv-section-title">Education</div>
+          <div style="font-size:11px;margin-bottom:4px"><strong>Business Management — MicroMasters</strong><br><span style="color:var(--fg3)">IIM Bangalore · 2019</span></div>
+          <div style="font-size:11px"><strong>Bachelor of Science — Botany</strong><br><span style="color:var(--fg3)">IGNOU · 2010</span></div>
+        </div>
+        <div class="cv-section">
+          <div class="cv-section-title">Certifications</div>
+          <div style="font-size:10.5px;line-height:1.8;color:var(--fg2)">
+            Lean Six Sigma Green Belt · Agile Scrum Master (EXIN) · Blockchain For Business (Linux Foundation) · Platform Cooperatives Now · Economic Democracy (Edinburgh) · WINFluence Leadership · Lead for Success
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="cv-section">
+          <div class="cv-section-title">Skills</div>
+          <div class="cv-tags">
+            <span class="cv-tag">Delivery Management</span><span class="cv-tag">Programme Management</span><span class="cv-tag">Client Relationships</span><span class="cv-tag">People Management</span><span class="cv-tag">Presales</span><span class="cv-tag">Contract Management</span><span class="cv-tag">US Healthcare Domain</span><span class="cv-tag">HL7 / FHIR</span><span class="cv-tag">Interoperability</span><span class="cv-tag">GCP / BigQuery</span><span class="cv-tag">Azure Data Factory</span><span class="cv-tag">Oracle PL/SQL</span><span class="cv-tag">Python</span><span class="cv-tag">Tableau</span><span class="cv-tag">Agile / Scrum</span><span class="cv-tag">Lean Six Sigma</span>
+          </div>
+        </div>
+        <div class="cv-section">
+          <div class="cv-section-title">Awards</div>
+          <div style="font-size:10.5px;line-height:1.8;color:var(--fg2)">
+            GSK Bronze Award (2025) · Gratitude Award, Emids (2023) · CEO Award Innovation (2021) · Star Awards (2016, 2018) · CEO Award Customer Success (2017)
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div id="app">
@@ -280,40 +434,40 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
   </div>
   <div class="nav-section">
     <div class="nav-label">Profile</div>
-    <a class="nav-item active" onclick="show('home')" href="#">
+    <a class="nav-item active" onclick="show('home')" href="#home">
       <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Home
     </a>
   </div>
   <div class="nav-section">
     <div class="nav-label">Experience</div>
-    <a class="nav-item" onclick="show('career')" href="#">
+    <a class="nav-item" onclick="show('career')" href="#career">
       <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>Career
     </a>
-    <a class="nav-item" onclick="show('projects')" href="#">
+    <a class="nav-item" onclick="show('projects')" href="#projects">
       <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12,2 2,7 12,12 22,7"/><polyline points="2,17 12,22 22,17"/><polyline points="2,12 12,17 22,12"/></svg>Projects
     </a>
-    <a class="nav-item" onclick="show('clients')" href="#">
+    <a class="nav-item" onclick="show('clients')" href="#clients">
       <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>Key Clients
     </a>
   </div>
   <div class="nav-section">
     <div class="nav-label">Background</div>
-    <a class="nav-item" onclick="show('education')" href="#">
+    <a class="nav-item" onclick="show('education')" href="#education">
       <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>Education &amp; Certs
     </a>
-    <a class="nav-item" onclick="show('skills')" href="#">
+    <a class="nav-item" onclick="show('skills')" href="#skills">
       <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/></svg>Skills
     </a>
-    <a class="nav-item" onclick="show('awards')" href="#">
+    <a class="nav-item" onclick="show('awards')" href="#awards">
       <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>Awards
     </a>
   </div>
   <div class="nav-section">
     <div class="nav-label">More</div>
-    <a class="nav-item" onclick="show('interests-volunteer')" href="#">
+    <a class="nav-item" onclick="show('interests-volunteer')" href="#interests-volunteer">
       <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Interests &amp; Volunteering
     </a>
-    <a class="nav-item" onclick="show('contact')" href="#">
+    <a class="nav-item" onclick="show('contact')" href="#contact">
       <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Contact &amp; Downloads
     </a>
   </div>
@@ -322,10 +476,12 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
       <div class="sb-contact-row">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         <a href="mailto:mail@ravisghosh.com">mail@ravisghosh.com</a>
+        <button class="copy-btn" onclick="copyText('mail@ravisghosh.com',this)">copy</button>
       </div>
       <div class="sb-contact-row">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.06 1.18 2 2 0 012.03 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
         <a href="tel:+918050158015">+91-805 015 8015</a>
+        <button class="copy-btn" onclick="copyText('+918050158015',this)">copy</button>
       </div>
       <div class="sb-contact-row">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
@@ -360,68 +516,26 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
         Bangalore, India
       </div>
-
     </div>
   </div>
-
   <div class="stat-grid">
-    <div class="stat-card"><div class="stat-num">23+</div><div class="stat-lbl">Years in Healthcare IT</div></div>
+    <div class="stat-card"><div class="stat-num" data-target="23">0</div><div class="stat-lbl">Years in Healthcare IT</div></div>
     <div class="stat-card"><div class="stat-num">$8M</div><div class="stat-lbl">Annual Portfolio (Emids)</div></div>
-    <div class="stat-card"><div class="stat-num">80+</div><div class="stat-lbl">Team Members Led</div></div>
-    <div class="stat-card"><div class="stat-num">20+</div><div class="stat-lbl">Projects Delivered</div></div>
+    <div class="stat-card"><div class="stat-num" data-target="80">0</div><div class="stat-lbl">Team Members Led</div></div>
+    <div class="stat-card"><div class="stat-num" data-target="20">0</div><div class="stat-lbl">Projects Delivered</div></div>
   </div>
-
   <h2>Professional Summary</h2>
   <p>Service Delivery Manager with 20+ years in healthcare IT, driving delivery excellence, innovation, and revenue growth. Proven expertise in leading global teams in data engineering, data migration, interoperability, product implementation, and support for healthcare, life sciences, and health tech companies. Passionate about leveraging technology for positive change, including worker cooperatives, blockchain, and data ownership in healthcare.</p>
-
-  <div class="summary-block">
-    <h3>Service Delivery &amp; Operational Excellence</h3>
-    <ul>
-      <li>Lead and manage cross-functional global teams (80+ members), ensuring delivery excellence, revenue growth, delivery margin, customer NPS, and low people attrition.</li>
-      <li>Drive growth for the Healthcare and Life Sciences (HLS) vertical, owning the data engineering and interoperability portfolio of accounts with ~USD 8MN in annual revenue.</li>
-      <li>Oversee delivery operations including forecasting, delivery margin, SOW, SLA, and other operational KPIs.</li>
-    </ul>
-  </div>
-  <div class="summary-block">
-    <h3>Client Relationship &amp; Stakeholder Engagement</h3>
-    <ul>
-      <li>Collaborate closely with client stakeholders as single point of contact to build strong relationships and ensure delivery excellence.</li>
-      <li>Establish alignment with client expectations and project delivery goals.</li>
-      <li>Solve operational escalations from clients and teams, front-ending with clients' customers on operational issues.</li>
-    </ul>
-  </div>
-  <div class="summary-block">
-    <h3>Pre-Sales &amp; Solution Development</h3>
-    <ul>
-      <li>Develop and drive proposals and RFPs in interoperability and data engineering, ensuring tailored solutions meet client needs.</li>
-      <li>Engage in business development and pre-sales activities for existing accounts leveraging understanding of client requirements and business goals.</li>
-    </ul>
-  </div>
-  <div class="summary-block">
-    <h3>Thought Leadership &amp; Centre of Excellence</h3>
-    <ul>
-      <li>Develop the interoperability centre of excellence, driving superior engineering practices and standards within the organisation.</li>
-      <li>Groom engineering talent, fostering innovation and ensuring the portfolio achieves goals of engagement and low attrition.</li>
-      <li>Develop proof-of-concept solutions around novel use cases and upcoming industry requirements.</li>
-    </ul>
-  </div>
-
+  <div class="summary-block"><h3>Service Delivery &amp; Operational Excellence</h3><ul><li>Lead and manage cross-functional global teams (80+ members), ensuring delivery excellence, revenue growth, delivery margin, customer NPS, and low people attrition.</li><li>Drive growth for the Healthcare and Life Sciences (HLS) vertical, owning the data engineering and interoperability portfolio of accounts with ~USD 8MN in annual revenue.</li><li>Oversee delivery operations including forecasting, delivery margin, SOW, SLA, and other operational KPIs.</li></ul></div>
+  <div class="summary-block"><h3>Client Relationship &amp; Stakeholder Engagement</h3><ul><li>Collaborate closely with client stakeholders as single point of contact to build strong relationships and ensure delivery excellence.</li><li>Establish alignment with client expectations and project delivery goals.</li><li>Solve operational escalations from clients and teams, front-ending with clients' customers on operational issues.</li></ul></div>
+  <div class="summary-block"><h3>Pre-Sales &amp; Solution Development</h3><ul><li>Develop and drive proposals and RFPs in interoperability and data engineering, ensuring tailored solutions meet client needs.</li><li>Engage in business development and pre-sales activities for existing accounts.</li></ul></div>
+  <div class="summary-block"><h3>Thought Leadership &amp; Centre of Excellence</h3><ul><li>Develop the interoperability centre of excellence, driving superior engineering practices and standards within the organisation.</li><li>Groom engineering talent, fostering innovation and ensuring the portfolio achieves goals of engagement and low attrition.</li><li>Develop proof-of-concept solutions around novel use cases and upcoming industry requirements.</li></ul></div>
   <div class="qlinks">
-    <div class="qlink" onclick="show('career')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>Career
-    </div>
-    <div class="qlink" onclick="show('projects')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12,2 2,7 12,12 22,7"/><polyline points="2,17 12,22 22,17"/></svg>Projects
-    </div>
-    <div class="qlink" onclick="show('clients')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Key Clients
-    </div>
-    <div class="qlink" onclick="show('awards')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>Awards
-    </div>
-    <div class="qlink" onclick="show('skills')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/></svg>Skills
-    </div>
+    <div class="qlink" onclick="show('career')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>Career</div>
+    <div class="qlink" onclick="show('projects')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12,2 2,7 12,12 22,7"/><polyline points="2,17 12,22 22,17"/></svg>Projects</div>
+    <div class="qlink" onclick="show('clients')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Key Clients</div>
+    <div class="qlink" onclick="show('awards')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>Awards</div>
+    <div class="qlink" onclick="show('skills')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/></svg>Skills</div>
   </div>
 </div>
 
@@ -429,23 +543,16 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
 <div class="tiddler" id="t-career">
   <div class="page-title">Career</div>
   <div class="page-sub">Click an organisation to expand roles and achievements</div>
-
   <div class="career-timeline">
+    <div class="tl-spine"></div>
 
-    <!-- Tredence -->
     <div class="org-card">
-      <div class="org-year-label"><span>2025</span><span>–</span><span>Now</span></div>
-      <div class="org-dot-wrap"><div class="org-dot org-dot-cur"></div></div>
+      <div class="org-year-label">2025<br>–Now</div>
+      <div class="org-dot-col"><div class="org-dot org-dot-cur"></div></div>
       <div class="org-inner">
         <div class="org-header" onclick="toggleOrg(this)">
-          <div>
-            <div class="org-name">Tredence Inc</div>
-            <div style="font-size:11px;color:var(--fg3);margin-top:1px">Data analytics and AI/ML services · <a href="https://www.tredence.com" target="_blank" onclick="event.stopPropagation()">tredence.com</a></div>
-          </div>
-          <div style="display:flex;align-items:center;gap:8px">
-            <span class="org-tenure">Oct 2025 – Present</span>
-            <svg class="org-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
-          </div>
+          <div><div class="org-name">Tredence Inc</div><div style="font-size:11px;color:var(--fg3);margin-top:1px">Data analytics and AI/ML services · <a href="https://www.tredence.com" target="_blank" onclick="event.stopPropagation()">tredence.com</a></div></div>
+          <div style="display:flex;align-items:center;gap:8px"><span class="org-tenure">Oct 2025 – Present</span><svg class="org-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg></div>
         </div>
         <div class="org-roles">
           <div class="role-item">
@@ -458,20 +565,13 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
       </div>
     </div>
 
-    <!-- GSK -->
     <div class="org-card">
-      <div class="org-year-label"><span>2024</span><span>–</span><span>2025</span></div>
-      <div class="org-dot-wrap"><div class="org-dot"></div></div>
+      <div class="org-year-label">2024<br>–2025</div>
+      <div class="org-dot-col"><div class="org-dot"></div></div>
       <div class="org-inner">
         <div class="org-header" onclick="toggleOrg(this)">
-          <div>
-            <div class="org-name">GSK plc</div>
-            <div style="font-size:11px;color:var(--fg3);margin-top:1px">Global biopharmaceutical · £31B+ revenue · 160 countries · <a href="https://www.gsk.com" target="_blank" onclick="event.stopPropagation()">gsk.com</a></div>
-          </div>
-          <div style="display:flex;align-items:center;gap:8px">
-            <span class="org-tenure">Sep 2024 – Oct 2025</span>
-            <svg class="org-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
-          </div>
+          <div><div class="org-name">GSK plc</div><div style="font-size:11px;color:var(--fg3);margin-top:1px">Global biopharmaceutical · £31B+ revenue · 160 countries · <a href="https://www.gsk.com" target="_blank" onclick="event.stopPropagation()">gsk.com</a></div></div>
+          <div style="display:flex;align-items:center;gap:8px"><span class="org-tenure">Sep 2024 – Oct 2025</span><svg class="org-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg></div>
         </div>
         <div class="org-roles">
           <div class="role-item">
@@ -479,7 +579,7 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
             <div class="role-period">Sep 2024 – Oct 2025 · Bangalore</div>
             <ul class="role-detail">
               <li><strong>Product Ownership:</strong> Enterprise request management system aligned to clinical research lifecycle. Won <strong>GSK Bronze Award (April 2025)</strong>.</li>
-              <li><strong>Product Implementation Oversight:</strong> Modern Medical and Safety review tool — improving timeline between First Protocol Approval and Submission.</li>
+              <li><strong>Product Implementation Oversight:</strong> Modern Medical and Safety review tool across 7 geographies.</li>
               <li><strong>Operations Management:</strong> Process standardisation, vendor management.</li>
               <li><strong>Stakeholder Management:</strong> 7 geographies, 8 distinct functional stakeholder groups.</li>
             </ul>
@@ -489,132 +589,51 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
       </div>
     </div>
 
-    <!-- Emids -->
     <div class="org-card">
-      <div class="org-year-label"><span>2016</span><span>–</span><span>2024</span></div>
-      <div class="org-dot-wrap"><div class="org-dot"></div></div>
+      <div class="org-year-label">2016<br>–2024</div>
+      <div class="org-dot-col"><div class="org-dot"></div></div>
       <div class="org-inner">
         <div class="org-header" onclick="toggleOrg(this)">
-          <div>
-            <div class="org-name">Emids Technologies Pvt. Ltd.</div>
-            <div style="font-size:11px;color:var(--fg3);margin-top:1px">IT services focused on healthcare domain · New Mountain Capital · <a href="https://www.emids.com" target="_blank" onclick="event.stopPropagation()">emids.com</a></div>
-          </div>
-          <div style="display:flex;align-items:center;gap:8px">
-            <span class="org-tenure">Feb 2016 – Aug 2024</span>
-            <svg class="org-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
-          </div>
+          <div><div class="org-name">Emids Technologies Pvt. Ltd.</div><div style="font-size:11px;color:var(--fg3);margin-top:1px">IT services focused on healthcare domain · New Mountain Capital · <a href="https://www.emids.com" target="_blank" onclick="event.stopPropagation()">emids.com</a></div></div>
+          <div style="display:flex;align-items:center;gap:8px"><span class="org-tenure">Feb 2016 – Aug 2024</span><svg class="org-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg></div>
         </div>
         <div class="org-roles">
-          <div class="role-item">
-            <div class="role-title">Group Project Manager</div>
-            <div class="role-period">Jan 2023 – Aug 2024</div>
-            <ul class="role-detail">
-              <li>~USD $8M portfolio, 12 projects, ~80 people across HLS data engineering &amp; interoperability accounts.</li>
-              <li>Led Data Integration CoE — accelerators, PoCs, PoVs. Won <strong>Gratitude Award, VP Data Engineering (Mar 2023)</strong>.</li>
-              <li>RFP/proposal development; presales; business development for existing accounts.</li>
-            </ul>
-          </div>
-          <div class="role-item">
-            <div class="role-title">Senior Project Manager</div>
-            <div class="role-period">Jan 2021 – Dec 2022</div>
-            <ul class="role-detail">
-              <li>~USD $2M portfolio, 4 projects, ~20 people. Won <strong>CEO's Award — Innovation &amp; Execution Excellence (2021)</strong>.</li>
-              <li>Full delivery lifecycle, presales, SOW preparation &amp; execution, process excellence.</li>
-            </ul>
-          </div>
-          <div class="role-item">
-            <div class="role-title">Project Manager</div>
-            <div class="role-period">Jan 2019 – Dec 2020</div>
-            <ul class="role-detail"><li>~USD $1M portfolio, 2 projects, ~10 people. Full project lifecycle, risk monitoring, KPI reporting.</li></ul>
-          </div>
-          <div class="role-item">
-            <div class="role-title">Associate Manager</div>
-            <div class="role-period">Jul 2017 – Dec 2018</div>
-            <ul class="role-detail"><li>Patient access / insurance eligibility product implementation. Won <strong>Star Award (2018)</strong> and <strong>CEO Award — Customer Success (2017)</strong>.</li></ul>
-          </div>
-          <div class="role-item">
-            <div class="role-title">Team Lead</div>
-            <div class="role-period">Feb 2016 – Jun 2017</div>
-            <ul class="role-detail"><li>Patient Access Advisor legacy to web migration. Won <strong>Star Award (2016)</strong> and <strong>Clause for Applause (2016)</strong>.</li></ul>
-            <div style="margin-top:8px"><span class="tag tag-g">Data Engineering</span><span class="tag tag-g">Interoperability</span><span class="tag tag-p">FHIR</span><span class="tag tag-p">HL7</span><span class="tag">CoE</span></div>
-          </div>
+          <div class="role-item"><div class="role-title">Group Project Manager</div><div class="role-period">Jan 2023 – Aug 2024</div><ul class="role-detail"><li>~USD $8M portfolio, 12 projects, ~80 people across HLS data engineering &amp; interoperability accounts.</li><li>Led Data Integration CoE — accelerators, PoCs, PoVs. Won <strong>Gratitude Award, VP Data Engineering (Mar 2023)</strong>.</li><li>RFP/proposal development; presales; business development.</li></ul></div>
+          <div class="role-item"><div class="role-title">Senior Project Manager</div><div class="role-period">Jan 2021 – Dec 2022</div><ul class="role-detail"><li>~USD $2M portfolio, 4 projects. Won <strong>CEO's Award — Innovation &amp; Execution Excellence (2021)</strong>.</li><li>Full delivery lifecycle, presales, SOW preparation, process excellence.</li></ul></div>
+          <div class="role-item"><div class="role-title">Project Manager</div><div class="role-period">Jan 2019 – Dec 2020</div><ul class="role-detail"><li>~USD $1M portfolio, 2 projects, ~10 people. Full project lifecycle, risk monitoring, KPI reporting.</li></ul></div>
+          <div class="role-item"><div class="role-title">Associate Manager</div><div class="role-period">Jul 2017 – Dec 2018</div><ul class="role-detail"><li>Patient access / insurance eligibility product implementation. Won <strong>Star Award (2018)</strong> and <strong>CEO Award — Customer Success (2017)</strong>.</li></ul></div>
+          <div class="role-item"><div class="role-title">Team Lead</div><div class="role-period">Feb 2016 – Jun 2017</div><ul class="role-detail"><li>Patient Access Advisor legacy to web migration. Won <strong>Star Award (2016)</strong> and <strong>Clause for Applause (2016)</strong>.</li></ul><div style="margin-top:8px"><span class="tag tag-g">Data Engineering</span><span class="tag tag-g">Interoperability</span><span class="tag tag-p">FHIR</span><span class="tag tag-p">HL7</span><span class="tag">CoE</span></div></div>
         </div>
       </div>
     </div>
 
-    <!-- MModal -->
     <div class="org-card">
-      <div class="org-year-label"><span>2013</span><span>–</span><span>2016</span></div>
-      <div class="org-dot-wrap"><div class="org-dot"></div></div>
+      <div class="org-year-label">2013<br>–2016</div>
+      <div class="org-dot-col"><div class="org-dot"></div></div>
       <div class="org-inner">
         <div class="org-header" onclick="toggleOrg(this)">
-          <div>
-            <div class="org-name">M*Modal Global Services Pvt. Ltd.</div>
-            <div style="font-size:11px;color:var(--fg3);margin-top:1px">Healthcare documentation, acquired by 3M · <a href="https://mmodal.com/" target="_blank" onclick="event.stopPropagation()">mmodal.com</a></div>
-          </div>
-          <div style="display:flex;align-items:center;gap:8px">
-            <span class="org-tenure">May 2013 – Feb 2016</span>
-            <svg class="org-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
-          </div>
+          <div><div class="org-name">M*Modal Global Services Pvt. Ltd.</div><div style="font-size:11px;color:var(--fg3);margin-top:1px">Healthcare documentation, acquired by 3M · <a href="https://mmodal.com/" target="_blank" onclick="event.stopPropagation()">mmodal.com</a></div></div>
+          <div style="display:flex;align-items:center;gap:8px"><span class="org-tenure">May 2013 – Feb 2016</span><svg class="org-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg></div>
         </div>
         <div class="org-roles">
-          <div class="role-item">
-            <div class="role-title">Lead – Implementation Services</div>
-            <div class="role-period">Jul 2015 – Feb 2016</div>
-            <ul class="role-detail">
-              <li>Led team of 15 implementing speech recognition platforms (Fluency, Scribe, Cornerstone, Flex Mobile).</li>
-              <li><strong>FFT Bridge:</strong> Single-platform ops consolidation — projected 10–12% productivity gain.</li>
-              <li><strong>FFT Lite:</strong> Go-live in 3/7/14 days at significantly lower implementation cost.</li>
-            </ul>
-          </div>
-          <div class="role-item">
-            <div class="role-title">Implementation Executive</div>
-            <div class="role-period">May 2013 – Jun 2015</div>
-            <ul class="role-detail">
-              <li>Onboarded customers onto healthcare documentation platform; product deployment, process offshoring.</li>
-              <li><strong>Speech recognition migration:</strong> Migrated 86% of total volume; significant productivity and cost savings.</li>
-            </ul>
-            <div style="margin-top:8px"><span class="tag tag-g">Speech Recognition</span><span class="tag">Healthcare Documentation</span></div>
-          </div>
+          <div class="role-item"><div class="role-title">Lead – Implementation Services</div><div class="role-period">Jul 2015 – Feb 2016</div><ul class="role-detail"><li>Led team of 15 implementing speech recognition platforms (Fluency, Scribe, Cornerstone, Flex Mobile).</li><li>FFT Bridge: single-platform ops consolidation — projected 10–12% productivity gain.</li><li>FFT Lite: go-live in 3/7/14 days at significantly lower cost.</li></ul></div>
+          <div class="role-item"><div class="role-title">Implementation Executive</div><div class="role-period">May 2013 – Jun 2015</div><ul class="role-detail"><li>Onboarded customers onto healthcare documentation platform; product deployment, process offshoring.</li><li>Migrated 86% of total volume to speech recognition platform.</li></ul><div style="margin-top:8px"><span class="tag tag-g">Speech Recognition</span><span class="tag">Healthcare Documentation</span></div></div>
         </div>
       </div>
     </div>
 
-    <!-- Transcend / Heartland -->
     <div class="org-card">
-      <div class="org-year-label"><span>2001</span><span>–</span><span>2013</span></div>
-      <div class="org-dot-wrap"><div class="org-dot"></div></div>
+      <div class="org-year-label">2001<br>–2013</div>
+      <div class="org-dot-col"><div class="org-dot"></div></div>
       <div class="org-inner">
         <div class="org-header" onclick="toggleOrg(this)">
-          <div>
-            <div class="org-name">Transcend / Heartland → Nuance Communications</div>
-            <div style="font-size:11px;color:var(--fg3);margin-top:1px">Healthcare documentation, acquired by Nuance · <a href="https://www.nuance.com/" target="_blank" onclick="event.stopPropagation()">nuance.com</a></div>
-          </div>
-          <div style="display:flex;align-items:center;gap:8px">
-            <span class="org-tenure">Dec 2001 – May 2013</span>
-            <svg class="org-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
-          </div>
+          <div><div class="org-name">Transcend / Heartland → Nuance Communications</div><div style="font-size:11px;color:var(--fg3);margin-top:1px">Healthcare documentation, acquired by Nuance · <a href="https://www.nuance.com/" target="_blank" onclick="event.stopPropagation()">nuance.com</a></div></div>
+          <div style="display:flex;align-items:center;gap:8px"><span class="org-tenure">Dec 2001 – May 2013</span><svg class="org-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg></div>
         </div>
         <div class="org-roles">
-          <div class="role-item">
-            <div class="role-title">Team Lead – Implementation</div>
-            <div class="role-period">Dec 2010 – May 2013 · Transcend Services</div>
-            <ul class="role-detail">
-              <li><strong>GEMSTAR V11 (2012–13):</strong> BA and UAT lead for Nuance Dragon speech recognition integration.</li>
-              <li><strong>GEMSTAR V10 Deployment (2010–11):</strong> Errors 1.45%→0.65%, TAT +36%, productivity +42%.</li>
-            </ul>
-          </div>
-          <div class="role-item">
-            <div class="role-title">Production Support</div>
-            <div class="role-period">Jul 2009 – Nov 2010 · Heartland</div>
-            <ul class="role-detail"><li><strong>GEMSTAR V10 Development (2009–10):</strong> Lead BA and UAT test lead for XML/speech recognition platform.</li></ul>
-          </div>
-          <div class="role-item">
-            <div class="role-title">Medical Transcriptionist</div>
-            <div class="role-period">Apr 2002 – Jun 2009 · Heartland &nbsp;|&nbsp; Dec 2001 – Apr 2002 · Cyberdox Systems</div>
-            <ul class="role-detail"><li>Healthcare documentation, speech-to-text conversion, quality analysis and audits for US healthcare providers.</li></ul>
-            <div style="margin-top:8px"><span class="tag tag-g">Platform Development</span><span class="tag tag-g">UAT</span><span class="tag">Business Analysis</span></div>
-          </div>
+          <div class="role-item"><div class="role-title">Team Lead – Implementation</div><div class="role-period">Dec 2010 – May 2013 · Transcend Services</div><ul class="role-detail"><li>GEMSTAR V11 (2012–13): BA and UAT lead for Nuance Dragon speech recognition integration.</li><li>GEMSTAR V10 Deployment (2010–11): Errors 1.45%→0.65%, TAT +36%, productivity +42%.</li></ul></div>
+          <div class="role-item"><div class="role-title">Production Support</div><div class="role-period">Jul 2009 – Nov 2010 · Heartland</div><ul class="role-detail"><li>GEMSTAR V10 Development (2009–10): Lead BA and UAT test lead for XML/speech recognition platform.</li></ul></div>
+          <div class="role-item"><div class="role-title">Medical Transcriptionist</div><div class="role-period">Apr 2002 – Jun 2009 · Heartland &nbsp;|&nbsp; Dec 2001 – Apr 2002 · Cyberdox Systems</div><ul class="role-detail"><li>Healthcare documentation, speech-to-text conversion, quality analysis and audits for US healthcare providers.</li></ul><div style="margin-top:8px"><span class="tag tag-g">Platform Development</span><span class="tag tag-g">UAT</span><span class="tag">Business Analysis</span></div></div>
         </div>
       </div>
     </div>
@@ -627,8 +646,8 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
   <div class="page-title">Projects</div>
   <div class="page-sub">Click a card to expand full details</div>
   <div class="proj-grid">
-    <div class="proj-card" onclick="toggleProj(this)"><div class="proj-title">Coordination of Benefit Payment Optimization Analytics</div><div class="proj-meta">Dec 2023 – Aug 2024 · Delivery Manager · Large US Payer</div><div><span class="tag tag-g">GCP</span><span class="tag tag-g">BigQuery</span><span class="tag tag-p">Python</span><span class="tag tag-o">Composer</span></div><div class="proj-detail">Migrated on-premises Hive queries application to GCP/BigQuery to optimise COB payment order determination for members on multiple plans.</div></div>
-    <div class="proj-card" onclick="toggleProj(this)"><div class="proj-title">Clinical Data Repository Optimization</div><div class="proj-meta">Dec 2023 – Aug 2024 · Delivery Manager · Large US Payer</div><div><span class="tag tag-g">GCP</span><span class="tag tag-p">Python</span><span class="tag tag-p">Go Lang</span><span class="tag tag-o">FHIR</span></div><div class="proj-detail">Enhanced clinical data harmonisation framework with 3rd party configuration libraries. Significantly reduced processing times for HIE-sourced clinical data.</div></div>
+    <div class="proj-card" onclick="toggleProj(this)"><div class="proj-title">Coordination of Benefit Payment Optimization Analytics</div><div class="proj-meta">Dec 2023 – Aug 2024 · Delivery Manager · Large US Payer</div><div><span class="tag tag-g">GCP</span><span class="tag tag-g">BigQuery</span><span class="tag tag-p">Python</span><span class="tag tag-o">Composer</span></div><div class="proj-detail">Migrated on-premises Hive queries to GCP/BigQuery to optimise COB payment order determination for members on multiple plans.</div></div>
+    <div class="proj-card" onclick="toggleProj(this)"><div class="proj-title">Clinical Data Repository Optimization</div><div class="proj-meta">Dec 2023 – Aug 2024 · Delivery Manager · Large US Payer</div><div><span class="tag tag-g">GCP</span><span class="tag tag-p">Python</span><span class="tag tag-p">Go Lang</span><span class="tag tag-o">FHIR</span></div><div class="proj-detail">Enhanced clinical data harmonisation framework with 3rd party config libraries. Significantly reduced processing times for HIE-sourced clinical data.</div></div>
     <div class="proj-card" onclick="toggleProj(this)"><div class="proj-title">Configuration &amp; Data Platform Management</div><div class="proj-meta">Dec 2023 – Aug 2024 · Delivery Manager · Large US Payer</div><div><span class="tag tag-g">GCP</span><span class="tag tag-p">Oracle PL/SQL</span><span class="tag tag-p">PostgreSQL</span><span class="tag tag-o">Spark</span></div><div class="proj-detail">ODS end-to-end management; Oracle→PostgreSQL migration, REST APIs, GCP modernisation. 7 scrum teams.</div></div>
     <div class="proj-card" onclick="toggleProj(this)"><div class="proj-title">Data Mart &amp; Report Development</div><div class="proj-meta">Dec 2023 – Aug 2024 · Delivery Manager · Large US Payer</div><div><span class="tag tag-g">Oracle PL/SQL</span><span class="tag tag-p">Tableau</span><span class="tag tag-o">SAP Crystal</span></div><div class="proj-detail">Engagement, Enrolment, SDOH, Care Management data marts from EDW. 5 scrum teams.</div></div>
     <div class="proj-card" onclick="toggleProj(this)"><div class="proj-title">Data Migration — Hadoop to GCP</div><div class="proj-meta">Dec 2023 – Aug 2024 · Delivery Manager · Large US Payer</div><div><span class="tag tag-g">BigQuery</span><span class="tag tag-p">PySpark</span><span class="tag tag-p">Airflow</span><span class="tag tag-o">Infoworks ETL</span></div><div class="proj-detail">ADM and CDM migration for 4 applications from Hadoop to GCP using Infoworks ETL.</div></div>
@@ -660,18 +679,8 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
 <div class="tiddler" id="t-education">
   <div class="page-title">Education &amp; Certifications</div>
   <h2>Education</h2>
-  <div class="card" style="margin-bottom:10px">
-    <div class="edu-row">
-      <div class="edu-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
-      <div><div class="edu-name">Business Management — MicroMasters</div><div class="edu-inst"><a href="https://credentials.edx.org/credentials/6881a22f06ef4fe2a3f82dd0eb745c05/" target="_blank">Indian Institute of Management, Bangalore</a></div><div class="edu-period">2019</div></div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="edu-row">
-      <div class="edu-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
-      <div><div class="edu-name">Bachelor of Science — Botany</div><div class="edu-inst"><a href="http://www.ignou.ac.in" target="_blank">Indira Gandhi National Open University</a></div><div class="edu-period">2010</div></div>
-    </div>
-  </div>
+  <div class="card" style="margin-bottom:10px"><div class="edu-row"><div class="edu-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div><div><div class="edu-name">Business Management — MicroMasters</div><div class="edu-inst"><a href="https://credentials.edx.org/credentials/6881a22f06ef4fe2a3f82dd0eb745c05/" target="_blank">Indian Institute of Management, Bangalore</a></div><div class="edu-period">2019</div></div></div></div>
+  <div class="card"><div class="edu-row"><div class="edu-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div><div><div class="edu-name">Bachelor of Science — Botany</div><div class="edu-inst"><a href="http://www.ignou.ac.in" target="_blank">Indira Gandhi National Open University</a></div><div class="edu-period">2010</div></div></div></div>
   <h2>Certifications</h2>
   <div class="cert-grid">
     <div class="cert-item"><div class="cert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div><div><div class="cert-name">Lean Six Sigma Green Belt</div><div class="cert-org">Benchmark Six Sigma / Exemplar Global · 2017</div><a class="cert-link" href="https://certificates.benchmarksixsigma.com/uft9i0bg" target="_blank">View certificate →</a></div></div>
@@ -689,21 +698,21 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
 <div class="tiddler" id="t-skills">
   <div class="page-title">Skills</div>
   <h2>Leadership &amp; Management</h2>
-  <div class="skill-sec">
-    <div class="skill-row"><span class="skill-name">Delivery Management</span><div class="skill-bar"><div class="skill-fill" style="width:100%"></div></div></div>
-    <div class="skill-row"><span class="skill-name">Project &amp; Programme Management</span><div class="skill-bar"><div class="skill-fill" style="width:100%"></div></div></div>
-    <div class="skill-row"><span class="skill-name">Client Relationship Management</span><div class="skill-bar"><div class="skill-fill" style="width:100%"></div></div></div>
-    <div class="skill-row"><span class="skill-name">People Management</span><div class="skill-bar"><div class="skill-fill" style="width:100%"></div></div></div>
-    <div class="skill-row"><span class="skill-name">Presales &amp; Solution Design</span><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
-    <div class="skill-row"><span class="skill-name">Contract Management</span><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
-    <div class="skill-row"><span class="skill-name">Data Modernisation</span><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+  <div class="skill-sec" id="skill-bars">
+    <div class="skill-row"><span class="skill-name">Delivery Management</span><div class="skill-bar"><div class="skill-fill" data-w="100"></div></div></div>
+    <div class="skill-row"><span class="skill-name">Project &amp; Programme Management</span><div class="skill-bar"><div class="skill-fill" data-w="100"></div></div></div>
+    <div class="skill-row"><span class="skill-name">Client Relationship Management</span><div class="skill-bar"><div class="skill-fill" data-w="100"></div></div></div>
+    <div class="skill-row"><span class="skill-name">People Management</span><div class="skill-bar"><div class="skill-fill" data-w="100"></div></div></div>
+    <div class="skill-row"><span class="skill-name">Presales &amp; Solution Design</span><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></div>
+    <div class="skill-row"><span class="skill-name">Contract Management</span><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></div>
+    <div class="skill-row"><span class="skill-name">Data Modernisation</span><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></div>
   </div>
   <h2>Domain &amp; Technical</h2>
   <div class="skill-sec">
-    <div class="skill-row"><span class="skill-name">US Healthcare Domain</span><div class="skill-bar"><div class="skill-fill" style="width:100%"></div></div></div>
-    <div class="skill-row"><span class="skill-name">Interoperability &amp; Integration</span><div class="skill-bar"><div class="skill-fill" style="width:60%"></div></div></div>
-    <div class="skill-row"><span class="skill-name">Product Implementation</span><div class="skill-bar"><div class="skill-fill" style="width:60%"></div></div></div>
-    <div class="skill-row"><span class="skill-name">Process Excellence</span><div class="skill-bar"><div class="skill-fill" style="width:60%"></div></div></div>
+    <div class="skill-row"><span class="skill-name">US Healthcare Domain</span><div class="skill-bar"><div class="skill-fill" data-w="100"></div></div></div>
+    <div class="skill-row"><span class="skill-name">Interoperability &amp; Integration</span><div class="skill-bar"><div class="skill-fill" data-w="60"></div></div></div>
+    <div class="skill-row"><span class="skill-name">Product Implementation</span><div class="skill-bar"><div class="skill-fill" data-w="60"></div></div></div>
+    <div class="skill-row"><span class="skill-name">Process Excellence</span><div class="skill-bar"><div class="skill-fill" data-w="60"></div></div></div>
   </div>
   <h2>Technologies &amp; Standards</h2>
   <div style="display:flex;flex-wrap:wrap;gap:6px">
@@ -718,18 +727,17 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
 <div class="tiddler" id="t-awards">
   <div class="page-title">Awards &amp; Recognition</div>
   <div class="award-card"><div class="award-title">Bronze Award</div><div class="award-meta">GSK · April 2025</div><div class="award-body">Winner towards recognition of efforts for enhancement of proprietary request management system within R&amp;D Data Reporting &amp; Visualisation.</div></div>
-  <div class="award-card"><div class="award-title">Gratitude Award</div><div class="award-meta">VP, Data Engineering · Emids · March 2023</div><div class="award-body">"You had been a rock star in demonstrating Emids mission in selling solutions to our clients. The way you have pulled all your experience and got your team members in client conversations to demonstrate Emids rich experience in Interoperability to the customer is simply awesome. Keep it up .. Emids needs more soldiers like you." — Abhijay</div></div>
+  <div class="award-card"><div class="award-title">Gratitude Award</div><div class="award-meta">VP, Data Engineering · Emids · March 2023</div><div class="award-body">"You had been a rock star in demonstrating Emids mission in selling solutions to our clients. The way you have pulled all your experience and got your team members in client conversations to demonstrate Emids rich experience in Interoperability to the customer is simply awesome. Keep it up." — Abhijay</div></div>
   <div class="award-card"><div class="award-title">CEO's Award — Innovation &amp; Execution Excellence</div><div class="award-meta">Emids Technologies · 2021</div><div class="award-body">Winner under Innovation &amp; Execution Excellence for outstanding contribution achieving excellence through exemplary service.</div></div>
   <div class="award-card"><div class="award-title">Star Award</div><div class="award-meta">Emids Technologies · 2018</div><div class="award-body">Recognised for setting up offshore operations for CHS — SOPs, vendor relationships, reporting. "Very methodical in approach."</div></div>
   <div class="award-card"><div class="award-title">CEO's Award — Customer Success</div><div class="award-meta">Emids Technologies · 2017</div><div class="award-body">Winner under Customer Success for outstanding performance resulting in customer delight.</div></div>
-  <div class="award-card"><div class="award-title">Star Award</div><div class="award-meta">Emids Technologies · 2016</div><div class="award-body">"The 'Go to' person in his project. Performs duties with efficiency, accuracy, and professionalism. Truly acknowledged for grooming new team members."</div></div>
+  <div class="award-card"><div class="award-title">Star Award</div><div class="award-meta">Emids Technologies · 2016</div><div class="award-body">"The 'Go to' person in his project. Performs duties with efficiency, accuracy, and professionalism."</div></div>
   <div class="award-card"><div class="award-title">Clause for Applause</div><div class="award-meta">Emids Technologies · 2016</div><div class="award-body">For outstanding performance and continued dedication towards demonstrating Emids' core values.</div></div>
 </div>
 
-<!-- INTERESTS & VOLUNTEERING (merged) -->
+<!-- INTERESTS & VOLUNTEERING -->
 <div class="tiddler" id="t-interests-volunteer">
   <div class="page-title">Interests &amp; Volunteering</div>
-
   <h2>Areas of Interest</h2>
   <div class="int-vol-grid">
     <div class="int-card"><div class="int-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div><div class="int-name">Distributed Ledger Technology / Blockchain</div></div>
@@ -737,24 +745,9 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
     <div class="int-card"><div class="int-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/></svg></div><div class="int-name">Healthcare Analytics for Cost &amp; Quality Optimisation</div></div>
     <div class="int-card"><div class="int-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div><div class="int-name">Healthcare Data Interoperability</div></div>
   </div>
-
   <h2 style="margin-top:24px">Volunteering</h2>
-  <div class="vol-card">
-    <div class="vol-icon-box">🌲</div>
-    <div>
-      <h3><a href="https://sachennaitrekking.blogspot.com" target="_blank">Chennai Trekking Club</a></h3>
-      <div style="font-size:11px;color:var(--acc);margin-bottom:5px">Active volunteer · 2008–2012 · Bangalore</div>
-      <p>Planned and executed trekking expeditions in forests of South India, often in unexplored territories, inspiring young Indians to explore life beyond the city.</p>
-    </div>
-  </div>
-  <div class="vol-card">
-    <div class="vol-icon-box">♻️</div>
-    <div>
-      <h3><a href="https://www.fb.com/groups/freecycleblr" target="_blank">Freecycle Bangalore</a></h3>
-      <div style="font-size:11px;color:var(--acc);margin-bottom:5px">Founder · 2012 – Present · Bangalore</div>
-      <p>Founded on the philosophy of recycling unused goods free of cost. Current membership: <strong>20,000+</strong>.</p>
-    </div>
-  </div>
+  <div class="vol-card"><div class="vol-icon-box">🌲</div><div><h3><a href="https://sachennaitrekking.blogspot.com" target="_blank">Chennai Trekking Club</a></h3><div style="font-size:11px;color:var(--acc);margin-bottom:5px">Active volunteer · 2008–2012 · Bangalore</div><p>Planned and executed trekking expeditions in forests of South India, often in unexplored territories.</p></div></div>
+  <div class="vol-card"><div class="vol-icon-box">♻️</div><div><h3><a href="https://www.fb.com/groups/freecycleblr" target="_blank">Freecycle Bangalore</a></h3><div style="font-size:11px;color:var(--acc);margin-bottom:5px">Founder · 2012 – Present · Bangalore</div><p>Founded on the philosophy of recycling unused goods free of cost. Current membership: <strong>20,000+</strong>.</p></div></div>
 </div>
 
 <!-- CONTACT & DOWNLOADS -->
@@ -767,43 +760,36 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="12" y2="18"/><line x1="15" y1="15" x2="12" y2="18"/></svg>
       Save / Print as PDF
     </button>
-    <button class="dl-btn" onclick="downloadText()">
+    <button class="dl-btn" onclick="openCompact()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-      Download Text Resume
+      Compact 1-page View
+    </button>
+    <button class="dl-btn" onclick="downloadText()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+      Download Text
     </button>
   </div>
-  <p style="font-size:11px;color:var(--fg3);margin-bottom:20px">To save as PDF: click "Save / Print as PDF" → in the print dialog choose "Save as PDF" as the destination.</p>
+  <p style="font-size:11px;color:var(--fg3);margin-bottom:24px">PDF: click "Save / Print as PDF" → choose "Save as PDF" in the print dialog. &nbsp;|&nbsp; Compact view: a traditional 1–2 page resume layout.</p>
+
+  <!-- QR Code (item 19) -->
+  <div class="qr-wrap">
+    <canvas id="qr-canvas" width="96" height="96"></canvas>
+    <div class="qr-text">
+      <h3>Share this profile</h3>
+      <p>Scan to open <strong>cv.ravisghosh.com</strong> on any device.</p>
+      <p style="font-size:11px;margin-top:4px;color:var(--fg3)">Or share the link directly: <a href="https://cv.ravisghosh.com">cv.ravisghosh.com</a></p>
+    </div>
+  </div>
 
   <h2>Contact Details</h2>
   <div class="contact-grid">
-    <div class="contact-item">
-      <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-      <div><div class="contact-label">Email</div><div class="contact-val"><a href="mailto:mail@ravisghosh.com">mail@ravisghosh.com</a></div></div>
-    </div>
-    <div class="contact-item">
-      <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.06 1.18 2 2 0 012.03 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
-      <div><div class="contact-label">Phone</div><div class="contact-val"><a href="tel:+918050158015">+91-805 015 8015</a></div></div>
-    </div>
-    <div class="contact-item">
-      <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></div>
-      <div><div class="contact-label">WhatsApp</div><div class="contact-val"><a href="https://wa.me/918050158015" target="_blank">Message on WhatsApp</a></div></div>
-    </div>
-    <div class="contact-item">
-      <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
-      <div><div class="contact-label">Website</div><div class="contact-val"><a href="https://www.ravisghosh.com" target="_blank">ravisghosh.com</a></div></div>
-    </div>
-    <div class="contact-item">
-      <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
-      <div><div class="contact-label">LinkedIn</div><div class="contact-val"><a href="https://www.linkedin.com/in/ravisghosh/" target="_blank">linkedin.com/in/ravisghosh</a></div></div>
-    </div>
-    <div class="contact-item">
-      <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-      <div><div class="contact-label">Location</div><div class="contact-val">Bangalore, India</div></div>
-    </div>
-    <div class="contact-item">
-      <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div>
-      <div><div class="contact-label">Travel Readiness</div><div class="contact-val" style="font-size:11.5px">Indian passport (2031) · US B1/B2 (2036)</div></div>
-    </div>
+    <div class="contact-item"><div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="contact-label">Email</div><div class="contact-val"><a href="mailto:mail@ravisghosh.com">mail@ravisghosh.com</a></div></div><button class="copy-contact" onclick="copyText('mail@ravisghosh.com',this)">copy</button></div>
+    <div class="contact-item"><div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.06 1.18 2 2 0 012.03 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div><div><div class="contact-label">Phone</div><div class="contact-val"><a href="tel:+918050158015">+91-805 015 8015</a></div></div><button class="copy-contact" onclick="copyText('+918050158015',this)">copy</button></div>
+    <div class="contact-item"><div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></div><div><div class="contact-label">WhatsApp</div><div class="contact-val"><a href="https://wa.me/918050158015" target="_blank">Message on WhatsApp</a></div></div></div>
+    <div class="contact-item"><div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div><div><div class="contact-label">Website</div><div class="contact-val"><a href="https://www.ravisghosh.com" target="_blank">ravisghosh.com</a></div></div></div>
+    <div class="contact-item"><div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div><div><div class="contact-label">LinkedIn</div><div class="contact-val"><a href="https://www.linkedin.com/in/ravisghosh/" target="_blank">linkedin.com/in/ravisghosh</a></div></div></div>
+    <div class="contact-item"><div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="contact-label">Location</div><div class="contact-val">Bangalore, India</div></div></div>
+    <div class="contact-item"><div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div><div><div class="contact-label">Travel Readiness</div><div class="contact-val" style="font-size:11.5px">Indian passport (2031) · US B1/B2 (2036)</div></div></div>
   </div>
 </div>
 
@@ -811,23 +797,67 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
 </div>
 
 <script>
+/* ── Navigation with hash routing (item 13 bonus) ── */
 var NAV={home:'t-home',career:'t-career',projects:'t-projects',clients:'t-clients',
   education:'t-education',skills:'t-skills',awards:'t-awards',
   'interests-volunteer':'t-interests-volunteer',contact:'t-contact'};
+var currentPage='home';
 
 function show(page){
+  if(!NAV[page])return;
   document.querySelectorAll('.tiddler').forEach(t=>t.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
-  var tid=NAV[page];
-  if(tid){
-    document.getElementById(tid).classList.add('active');
-    document.querySelectorAll('.nav-item').forEach(n=>{
-      if(n.getAttribute('onclick')&&n.getAttribute('onclick').includes("'"+page+"'"))n.classList.add('active');
-    });
-  }
+  document.getElementById(NAV[page]).classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(n=>{
+    if(n.getAttribute('href')==='#'+page)n.classList.add('active');
+  });
+  currentPage=page;
+  history.replaceState(null,'','#'+page);
   window.scrollTo(0,0);
+  if(page==='skills')animateSkillBars();
+  if(page==='home')animateCounters();
 }
 
+/* Handle initial hash */
+window.addEventListener('load',function(){
+  var hash=(location.hash||'#home').replace('#','');
+  show(NAV[hash]?hash:'home');
+  generateQR();
+});
+
+/* ── Back to top (item 12) ── */
+window.addEventListener('scroll',function(){
+  document.getElementById('back-to-top').classList.toggle('visible',window.scrollY>300);
+});
+
+/* ── Skill bar animation ── */
+var skillsAnimated=false;
+function animateSkillBars(){
+  if(skillsAnimated)return;
+  skillsAnimated=true;
+  setTimeout(function(){
+    document.querySelectorAll('.skill-fill').forEach(function(el){
+      el.style.width=el.dataset.w+'%';
+    });
+  },80);
+}
+
+/* ── Counter animation (stat numbers) ── */
+var countersRun=false;
+function animateCounters(){
+  if(countersRun)return;
+  countersRun=true;
+  document.querySelectorAll('.stat-num[data-target]').forEach(function(el){
+    var target=+el.dataset.target,dur=900,step=16,steps=dur/step,inc=target/steps,cur=0;
+    var t=setInterval(function(){
+      cur+=inc;
+      if(cur>=target){cur=target;clearInterval(t);}
+      el.textContent=Math.floor(cur)+'+';
+    },step);
+  });
+}
+
+/* ── Org card toggle ── */
 function toggleOrg(header){
   var roles=header.nextElementSibling;
   var chevron=header.querySelector('.org-chevron');
@@ -839,39 +869,67 @@ function toggleOrg(header){
 
 function toggleProj(card){card.querySelector('.proj-detail').classList.toggle('open');}
 
+/* ── Copy to clipboard (item 11) ── */
+function copyText(text,btn){
+  navigator.clipboard.writeText(text).then(function(){
+    var orig=btn.textContent;
+    btn.textContent='✓ copied';
+    btn.classList.add('copied');
+    setTimeout(function(){btn.textContent=orig;btn.classList.remove('copied');},1800);
+  });
+}
+
+/* ── Compact view (item 20) ── */
+function openCompact(){document.getElementById('compact-overlay').classList.add('open');}
+function closeCompact(){document.getElementById('compact-overlay').classList.remove('open');}
+
+/* ── Print / PDF ── */
 function printResume(){
-  // Open all org roles so they print
   document.querySelectorAll('.org-roles').forEach(r=>r.classList.add('open'));
-  document.querySelectorAll('.org-chevron').forEach(c=>c.classList.add('open'));
-  // Show all tiddlers for print
   document.querySelectorAll('.tiddler').forEach(t=>t.classList.add('active'));
   window.print();
-  // Restore state after print dialog closes
   setTimeout(function(){
     document.querySelectorAll('.tiddler').forEach(t=>t.classList.remove('active'));
     document.querySelectorAll('.org-roles').forEach(r=>r.classList.remove('open'));
     document.querySelectorAll('.org-chevron').forEach(c=>c.classList.remove('open'));
-    // Re-activate current page
-    var active=Object.keys(NAV).find(k=>document.getElementById(NAV[k])&&document.getElementById(NAV[k]).dataset.current==='1')||'home';
-    show(currentPage||'home');
+    show(currentPage);
   },1000);
 }
 
-var currentPage='home';
-var _origShow=show;
-show=function(page){currentPage=page;_origShow(page);};
+/* ── QR code generator (item 19) — pure canvas, no library ── */
+function generateQR(){
+  /* Minimal QR-like visual pointing to cv.ravisghosh.com
+     Uses a real QR via Google Charts API fallback as an img */
+  var canvas=document.getElementById('qr-canvas');
+  if(!canvas)return;
+  var img=document.createElement('img');
+  img.onload=function(){
+    var ctx=canvas.getContext('2d');
+    ctx.drawImage(img,0,0,96,96);
+  };
+  img.onerror=function(){
+    /* If blocked, draw a placeholder */
+    var ctx=canvas.getContext('2d');
+    ctx.fillStyle='#f7f9f7';ctx.fillRect(0,0,96,96);
+    ctx.fillStyle='#2e6b3e';ctx.font='bold 9px sans-serif';
+    ctx.textAlign='center';ctx.fillText('cv.ravisghosh.com',48,50);
+  };
+  img.src='https://api.qrserver.com/v1/create-qr-code/?size=96x96&data=https://cv.ravisghosh.com&color=2e6b3e&bgcolor=f7f9f7';
+  img.crossOrigin='anonymous';
+}
 
+/* ── Text download ── */
 function downloadText(){
   var txt=`RAVI S GHOSH
 Senior Manager – Healthcare & Life Sciences Analytics
 Bangalore, India | mail@ravisghosh.com | +91-805 015 8015
 WhatsApp: wa.me/918050158015
-LinkedIn: linkedin.com/in/ravisghosh | Web: ravisghosh.com
+LinkedIn: linkedin.com/in/ravisghosh | Web: ravisghosh.com | CV: cv.ravisghosh.com
 
 ─────────────────────────────────────────────────────
 SUMMARY
 ─────────────────────────────────────────────────────
-Service Delivery Manager with 20+ years in healthcare IT. Expertise in data engineering, interoperability, data migration, and product implementation for healthcare, life sciences, and health tech companies. Track record leading global teams (80+ members), managing $8M+ annual delivery portfolios, and driving pre-sales and CoE initiatives.
+Service Delivery Manager with 20+ years in healthcare IT. Expertise in data engineering, interoperability, data migration, and product implementation. Led global teams (80+), managed $8M+ annual portfolios, driven pre-sales and CoE initiatives.
 
 ─────────────────────────────────────────────────────
 EXPERIENCE
@@ -883,29 +941,22 @@ Senior Manager – Healthcare & Life Sciences, Analytics
 GSK plc | Sep 2024 – Oct 2025
 Data Analytics Manager, R&D Division
 • Product ownership of enterprise request management system (GSK Bronze Award, Apr 2025).
-• Oversight of Medical and Safety review tool implementation across 7 geographies.
+• Medical and Safety review tool implementation across 7 geographies.
 
 Emids Technologies | Feb 2016 – Aug 2024
-Group Project Manager (Jan 2023 – Aug 2024)
-• ~$8M portfolio, 12 projects, ~80 people. Led Data Integration CoE.
-Senior Project Manager (Jan 2021 – Dec 2022)
-• ~$2M portfolio, 4 projects. CEO's Award – Innovation & Execution Excellence (2021).
-Project Manager (Jan 2019 – Dec 2020)
-• ~$1M portfolio, 2 projects, ~10 people.
-Associate Manager (Jul 2017 – Dec 2018)
-• Patient access / insurance eligibility product implementation.
-Team Lead (Feb 2016 – Jun 2017)
-• Legacy to web migration for Change Healthcare Patient Access Advisor.
+Group PM (Jan 2023 – Aug 2024): ~$8M portfolio, 12 projects, ~80 people. Led Data Integration CoE.
+Senior PM (Jan 2021 – Dec 2022): ~$2M portfolio. CEO's Award – Innovation & Execution Excellence (2021).
+PM (Jan 2019 – Dec 2020): ~$1M portfolio, 2 projects.
+Associate Manager (Jul 2017 – Dec 2018): Patient access product implementation.
+Team Lead (Feb 2016 – Jun 2017): Legacy to web migration (Change Healthcare PAA).
 
 M*Modal Global Services | May 2013 – Feb 2016
-Lead – Implementation Services / Implementation Executive
-• Led team of 15 implementing speech recognition platforms.
-• FFT speech recognition migration: migrated 86% of total volume.
+Lead Implementation Services / Implementation Executive
+• Led team of 15 on speech recognition platforms. Migrated 86% of total volume.
 
 Transcend / Heartland → Nuance | Dec 2001 – May 2013
 Team Lead – Implementation / Production Support / Medical Transcriptionist
-• GEMSTAR V10/V11 platform development: BA & UAT lead.
-• Errors reduced 1.45%→0.65%, TAT +36%, productivity +42%.
+• GEMSTAR V10/V11 BA & UAT lead. Errors 1.45%→0.65%, TAT +36%, productivity +42%.
 
 ─────────────────────────────────────────────────────
 EDUCATION
@@ -916,51 +967,26 @@ Bachelor of Science – Botany | IGNOU | 2010
 ─────────────────────────────────────────────────────
 CERTIFICATIONS
 ─────────────────────────────────────────────────────
-• Lean Six Sigma Green Belt – Benchmark Six Sigma / Exemplar Global (2017)
-• Agile Scrum Master – EXIN (2016)
-• Blockchain For Business – The Linux Foundation (2020)
-• Platform Cooperatives Now – The New School NY & Mondragon University (2020)
-• Economic Democracy – University of Edinburgh (2017)
-• WINFluence Leadership – Emids Technologies (2017)
-• Lead for Success – Emids Technologies (2023)
-• Human Rights: Freedom of Expression – Amnesty International (2015)
+Lean Six Sigma Green Belt | Agile Scrum Master (EXIN) | Blockchain For Business (Linux Foundation)
+Platform Cooperatives Now | Economic Democracy (Edinburgh) | WINFluence Leadership | Lead for Success
 
 ─────────────────────────────────────────────────────
 SKILLS
 ─────────────────────────────────────────────────────
-Delivery Management | Project & Programme Management | Client Relationship Management
-People Management | Presales & Solution Design | Contract Management
-US Healthcare Domain | HL7 / FHIR | Interoperability & Integration
-GCP / BigQuery | Azure Data Factory | Oracle PL/SQL | PostgreSQL
-Python | PySpark | Informatica | Tableau | Agile / Scrum | Lean Six Sigma
+Delivery Management | Programme Management | Client Relationship Management | People Management
+Presales & Solution Design | Contract Management | US Healthcare Domain | HL7 / FHIR
+Interoperability | GCP / BigQuery | Azure Data Factory | Oracle PL/SQL | Python | Tableau
 
 ─────────────────────────────────────────────────────
 AWARDS
 ─────────────────────────────────────────────────────
-• GSK Bronze Award (2025)
-• Gratitude Award – VP, Data Engineering, Emids (2023)
-• CEO's Award – Innovation & Execution Excellence, Emids (2021)
-• Star Award, Emids (2018 & 2016)
-• CEO's Award – Customer Success, Emids (2017)
-• Clause for Applause, Emids (2016)
+GSK Bronze Award (2025) | Gratitude Award, Emids (2023) | CEO Award Innovation (2021)
+Star Awards (2016, 2018) | CEO Award Customer Success (2017) | Clause for Applause (2016)
 
 ─────────────────────────────────────────────────────
-INTERESTS
+TRAVEL
 ─────────────────────────────────────────────────────
-Blockchain / DLT | Workers' Cooperative / Economic Democracy
-Healthcare Analytics | Healthcare Data Interoperability
-
-─────────────────────────────────────────────────────
-VOLUNTEERING
-─────────────────────────────────────────────────────
-Freecycle Bangalore – Founder (2012–Present) | 20,000+ members
-Chennai Trekking Club – Active Volunteer (2008–2012)
-
-─────────────────────────────────────────────────────
-TRAVEL READINESS
-─────────────────────────────────────────────────────
-Indian Passport – valid till 2031
-US B1/B2 Visa – valid till 2036
+Indian Passport valid till 2031 | US B1/B2 Visa valid till 2036
 `;
   var blob=new Blob([txt],{type:'text/plain'});
   var a=document.createElement('a');
