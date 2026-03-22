@@ -250,12 +250,14 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
 /* Clients */
 .clients-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
 .client-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;box-shadow:var(--shadow)}
-.client-logo{height:36px;max-width:120px;object-fit:contain;display:block;margin-bottom:10px;opacity:.85}
+.client-logo-wrap{height:32px;display:flex;align-items:center;margin-bottom:10px}
+.client-logo{height:100%;max-width:120px;object-fit:contain;object-position:left center;opacity:.85}
 .client-name{font-size:13px;font-weight:600;color:var(--fg);margin-bottom:3px}
 .client-desc{font-size:11.5px;color:var(--fg2);line-height:1.5}
 
 /* Org logo in career */
-.org-logo{height:22px;max-width:90px;object-fit:contain;opacity:.8;flex-shrink:0;margin-left:auto}
+.org-logo-wrap{width:90px;height:32px;display:flex;align-items:center;flex-shrink:0;margin-left:auto}
+.org-logo{width:100%;height:100%;object-fit:contain;object-position:right center;opacity:.8}
 
 /* Quick links */
 .qlinks{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
@@ -566,7 +568,7 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
         <div class="org-header" onclick="toggleOrg(this)">
           <div style="display:flex;align-items:center;gap:12px;flex:1;min-width:0">
             <div><div class="org-name">Tredence Inc</div><div style="font-size:11px;color:var(--fg3);margin-top:1px">Data analytics and AI/ML services · <a href="https://www.tredence.com" target="_blank" onclick="event.stopPropagation()">tredence.com</a></div></div>
-            <img class="org-logo" src="https://raw.githubusercontent.com/ravisghosh/cv/main/logo/Tredence.svg" alt="Tredence"/>
+            <div class="org-logo-wrap"><img class="org-logo" src="https://raw.githubusercontent.com/ravisghosh/cv/main/logo/Tredence.svg" alt="Tredence"/></div>
           </div>
           <div style="display:flex;align-items:center;gap:8px;flex-shrink:0"><span class="org-tenure">Oct 2025 – Present</span><svg class="org-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg></div>
         </div>
@@ -588,7 +590,7 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
         <div class="org-header" onclick="toggleOrg(this)">
           <div style="display:flex;align-items:center;gap:12px;flex:1;min-width:0">
             <div><div class="org-name">GSK plc</div><div style="font-size:11px;color:var(--fg3);margin-top:1px">Global biopharmaceutical · £31B+ revenue · 160 countries · <a href="https://www.gsk.com" target="_blank" onclick="event.stopPropagation()">gsk.com</a></div></div>
-            <img class="org-logo" src="https://raw.githubusercontent.com/ravisghosh/cv/main/logo/GSK.svg" alt="GSK"/>
+            <div class="org-logo-wrap"><img class="org-logo" src="https://raw.githubusercontent.com/ravisghosh/cv/main/logo/GSK.svg" alt="GSK"/></div>
           </div>
           <div style="display:flex;align-items:center;gap:8px;flex-shrink:0"><span class="org-tenure">Sep 2024 – Oct 2025</span><svg class="org-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg></div>
         </div>
@@ -615,7 +617,7 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
         <div class="org-header" onclick="toggleOrg(this)">
           <div style="display:flex;align-items:center;gap:12px;flex:1;min-width:0">
             <div><div class="org-name">Emids Technologies Pvt. Ltd.</div><div style="font-size:11px;color:var(--fg3);margin-top:1px">IT services focused on healthcare domain · New Mountain Capital · <a href="https://www.emids.com" target="_blank" onclick="event.stopPropagation()">emids.com</a></div></div>
-            <img class="org-logo" src="https://raw.githubusercontent.com/ravisghosh/cv/main/logo/emids.svg" alt="Emids"/>
+            <div class="org-logo-wrap"><img class="org-logo" src="https://raw.githubusercontent.com/ravisghosh/cv/main/logo/emids.svg" alt="Emids"/></div>
           </div>
           <div style="display:flex;align-items:center;gap:8px;flex-shrink:0"><span class="org-tenure">Feb 2016 – Aug 2024</span><svg class="org-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg></div>
         </div>
@@ -636,7 +638,7 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
         <div class="org-header" onclick="toggleOrg(this)">
           <div style="display:flex;align-items:center;gap:12px;flex:1;min-width:0">
             <div><div class="org-name">M*Modal Global Services Pvt. Ltd.</div><div style="font-size:11px;color:var(--fg3);margin-top:1px">Healthcare documentation, acquired by 3M · <a href="https://mmodal.com/" target="_blank" onclick="event.stopPropagation()">mmodal.com</a></div></div>
-            <img class="org-logo" src="https://raw.githubusercontent.com/ravisghosh/cv/main/logo/mmodal.svg" alt="MModal"/>
+            <div class="org-logo-wrap"><img class="org-logo" src="https://raw.githubusercontent.com/ravisghosh/cv/main/logo/mmodal.svg" alt="MModal"/></div>
           </div>
           <div style="display:flex;align-items:center;gap:8px;flex-shrink:0"><span class="org-tenure">May 2013 – Feb 2016</span><svg class="org-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg></div>
         </div>
@@ -654,7 +656,7 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
         <div class="org-header" onclick="toggleOrg(this)">
           <div style="display:flex;align-items:center;gap:12px;flex:1;min-width:0">
             <div><div class="org-name">Transcend / Heartland → Nuance Communications</div><div style="font-size:11px;color:var(--fg3);margin-top:1px">Healthcare documentation, acquired by Nuance · <a href="https://www.nuance.com/" target="_blank" onclick="event.stopPropagation()">nuance.com</a></div></div>
-            <img class="org-logo" src="https://raw.githubusercontent.com/ravisghosh/cv/main/logo/nuance.svg" alt="Nuance"/>
+            <div class="org-logo-wrap"><img class="org-logo" src="https://raw.githubusercontent.com/ravisghosh/cv/main/logo/nuance.svg" alt="Nuance"/></div>
           </div>
           <div style="display:flex;align-items:center;gap:8px;flex-shrink:0"><span class="org-tenure">Dec 2001 – May 2013</span><svg class="org-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg></div>
         </div>
@@ -694,12 +696,12 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
   <div class="page-title">Key Accounts / Clients</div>
   <div class="page-sub">Select client engagements across the career</div>
   <div class="clients-grid">
-    <div class="client-card"><img class="client-logo" src="https://raw.githubusercontent.com/ravisghosh/cv/main/logo/GSK.svg" alt="GSK"/><div class="client-name"><a href="https://www.gsk.com" target="_blank">GSK</a></div><div class="client-desc">Global biopharmaceutical · £31B+ revenue · 160 countries · medicines, vaccines, speciality medicines.</div></div>
-    <div class="client-card"><img class="client-logo" src="https://raw.githubusercontent.com/ravisghosh/cv/main/logo/Dubai-Health.svg" alt="Dubai Health"/><div class="client-name"><a href="https://dubaihealth.ae/" target="_blank">Dubai Health</a></div><div class="client-desc">Integrated healthcare authority for the Emirate of Dubai, overseeing hospitals, clinics, and health policy.</div></div>
-    <div class="client-card"><img class="client-logo" src="https://raw.githubusercontent.com/ravisghosh/cv/main/logo/Community-Health-Systems.svg" alt="Community Health Systems"/><div class="client-name"><a href="https://www.chs.net" target="_blank">Community Health Systems</a></div><div class="client-desc">Fortune 500 · large provider of general hospital and acute care facilities across southern US.</div></div>
-    <div class="client-card"><img class="client-logo" src="https://raw.githubusercontent.com/ravisghosh/cv/main/logo/Compassus.svg" alt="Compassus"/><div class="client-name"><a href="https://www.compassus.com" target="_blank">Compassus</a></div><div class="client-desc">Home-based continuum services: home health, infusion therapy, palliative and hospice care.</div></div>
-    <div class="client-card"><img class="client-logo" src="https://raw.githubusercontent.com/ravisghosh/cv/main/logo/CVS-Health.svg" alt="CVS Health"/><div class="client-name"><a href="https://www.cvshealth.com/" target="_blank">CVS Health</a></div><div class="client-desc">World's 2nd largest healthcare company · retail pharmacy, pharmacy benefits, health insurance.</div></div>
-    <div class="client-card"><img class="client-logo" src="https://raw.githubusercontent.com/ravisghosh/cv/main/logo/Change-Healthcare.svg" alt="Change Healthcare"/><div class="client-name"><a href="https://www.changehealthcare.com/" target="_blank">Change Healthcare</a></div><div class="client-desc">Revenue and payment cycle management connecting payers, providers, and patients in US healthcare.</div></div>
+    <div class="client-card"><div class="client-logo-wrap"><img class="client-logo" src="https://raw.githubusercontent.com/ravisghosh/cv/main/logo/GSK.svg" alt="GSK"/></div><div class="client-name"><a href="https://www.gsk.com" target="_blank">GSK</a></div><div class="client-desc">Global biopharmaceutical · £31B+ revenue · 160 countries · medicines, vaccines, speciality medicines.</div></div>
+    <div class="client-card"><div class="client-logo-wrap"><img class="client-logo" src="https://raw.githubusercontent.com/ravisghosh/cv/main/logo/Dubai-Health.svg" alt="Dubai Health"/></div><div class="client-name"><a href="https://dubaihealth.ae/" target="_blank">Dubai Health</a></div><div class="client-desc">Integrated healthcare authority for the Emirate of Dubai, overseeing hospitals, clinics, and health policy.</div></div>
+    <div class="client-card"><div class="client-logo-wrap"><img class="client-logo" src="https://raw.githubusercontent.com/ravisghosh/cv/main/logo/Community-Health-Systems.svg" alt="Community Health Systems"/></div><div class="client-name"><a href="https://www.chs.net" target="_blank">Community Health Systems</a></div><div class="client-desc">Fortune 500 · large provider of general hospital and acute care facilities across southern US.</div></div>
+    <div class="client-card"><div class="client-logo-wrap"><img class="client-logo" src="https://raw.githubusercontent.com/ravisghosh/cv/main/logo/Compassus.svg" alt="Compassus"/></div><div class="client-name"><a href="https://www.compassus.com" target="_blank">Compassus</a></div><div class="client-desc">Home-based continuum services: home health, infusion therapy, palliative and hospice care.</div></div>
+    <div class="client-card"><div class="client-logo-wrap"><img class="client-logo" src="https://raw.githubusercontent.com/ravisghosh/cv/main/logo/CVS-Health.svg" alt="CVS Health"/></div><div class="client-name"><a href="https://www.cvshealth.com/" target="_blank">CVS Health</a></div><div class="client-desc">World's 2nd largest healthcare company · retail pharmacy, pharmacy benefits, health insurance.</div></div>
+    <div class="client-card"><div class="client-logo-wrap"><img class="client-logo" src="https://raw.githubusercontent.com/ravisghosh/cv/main/logo/Change-Healthcare.svg" alt="Change Healthcare"/></div><div class="client-name"><a href="https://www.changehealthcare.com/" target="_blank">Change Healthcare</a></div><div class="client-desc">Revenue and payment cycle management connecting payers, providers, and patients in US healthcare.</div></div>
   </div>
 </div>
 
