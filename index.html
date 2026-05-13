@@ -323,6 +323,11 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
 .cvl-bar-fill{height:100%;background:rgba(255,255,255,.75);border-radius:2px}
 .cvl-tag{display:inline-block;background:rgba(255,255,255,.15);color:rgba(255,255,255,.9);
   font-size:6.5pt;padding:1px 5px;border-radius:8px;margin:1px 1px}
+/* Tech tags in right column (light bg) */
+.cvl-right .cvl-tag{background:#e6f4e6;color:#1a5c1a}
+.cvl-right .cvl-tag-b{background:#e6eff4;color:#1a4a7a}
+.cvl-right .cvl-tag-p{background:#f0e6f4;color:#5c1a7a}
+.cvl-right .cvl-tag-o{background:#f4f0e6;color:#7a5c1a}
 .cvl-cert-name{font-size:7pt;color:rgba(255,255,255,.9);line-height:1.3;margin-bottom:1px}
 .cvl-cert-org{font-size:6.5pt;color:rgba(255,255,255,.6);margin-bottom:4px}
 /* MIDDLE column */
@@ -361,100 +366,123 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
 
 /* ── PRINT / PDF ── */
 @media print{
-  @page{margin:10mm 10mm;size:A4}
-  /* Remove browser-injected header/footer (date, title, URL) */
-  html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  body{background:#fff;color:#000;font-size:10px;margin:0}
-  /* Hide all chrome */
-  #sidebar,#back-to-top,#compact-overlay,.dl-bar,.qlinks,.org-chevron,
-  .qr-wrap,.copy-btn,.copy-contact,.sb-bottom,
-  .page-sub,.profile-loc,.stat-grid{display:none!important}
-  #app{display:block}
-  #main{padding:0;max-width:100%}
-  .tiddler{display:block!important}
-  /* Tighten page section spacing */
-  .tiddler + .tiddler{margin-top:0}
-  .page-title{font-size:13px;font-weight:700;margin:6px 0 2px;
-    border-bottom:1.5px solid #2e6b3e;padding-bottom:3px;color:#1c2b1c}
-  h2{font-size:8.5px;margin:6px 0 3px;padding-bottom:2px;letter-spacing:.06em}
-  p{font-size:9.5px;margin-bottom:4px;line-height:1.55}
-  /* Profile hero — compact */
-  .profile-hero{border:none;box-shadow:none;padding:0;margin-bottom:8px;
-    gap:12px;background:none}
-  .profile-photo{width:52px;height:52px}
-  .profile-info h1{font-size:16px;margin-bottom:1px}
-  .profile-tagline{font-size:10px}
-  /* Summary blocks — tighter */
-  .summary-block{border:none;box-shadow:none;padding:2px 0 2px;margin-bottom:4px;background:none}
-  .summary-block h3{font-size:8.5px;margin-bottom:3px}
-  .summary-block ul li{font-size:9px;padding:1px 0 1px 12px;line-height:1.4}
-  /* Career timeline */
-  .career-timeline .tl-spine{display:none}
-  .org-card{grid-template-columns:40px 10px 1fr;margin-bottom:4px}
-  .org-year-label{font-size:8px}
-  .org-inner{border:none;box-shadow:none;border-left:2px solid #4a9960;margin-left:6px}
-  .org-header{padding:3px 6px;background:none!important}
-  .org-name{font-size:10.5px}
-  .org-tenure{font-size:8px;border:none;background:none;padding:0}
-  .org-logo-wrap{display:none}
-  .org-roles{display:block!important;border:none}
-  .role-item{padding:2px 0 2px 6px;border-bottom:none}
-  .role-title{font-size:9.5px;margin-bottom:0}
-  .role-period{font-size:8px;margin-bottom:1px}
-  .role-detail li{font-size:9px;padding:1px 0 1px 12px;line-height:1.4}
-  /* Projects */
-  .proj-grid{grid-template-columns:1fr 1fr;gap:4px}
-  .proj-card{box-shadow:none;padding:4px 6px;border:1px solid #c5d9c5}
-  .proj-title{font-size:9.5px}
-  .proj-meta{font-size:8.5px}
-  .proj-detail{display:block!important;font-size:8.5px;padding-top:4px;margin-top:4px}
+  @page{size:A4;margin:0}
+  html,body{margin:0;padding:0;background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+  /* Hide everything except the print shell */
+  #sidebar,#back-to-top,#compact-overlay,.dl-bar,.qlinks,
+  .copy-btn,.copy-contact,#back-to-top,.page-sub{display:none!important}
+
+  /* App becomes a block, main fills page */
+  #app{display:block!important}
+  #main{padding:0;max-width:100%;margin:0}
+
+  /* All tiddlers hidden by default; printResume() adds .print-active */
+  .tiddler{display:none!important}
+  .tiddler.print-active{display:none!important} /* overridden per tiddler below */
+
+  /* The print shell replaces all tiddlers */
+  #print-shell{display:block!important;width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:9pt;color:#1c2b1c;line-height:1.45}
+
+  /* PAGE 1 — Header + 2-col body */
+  .pr-page{width:100%;page-break-after:always;display:block}
+  .pr-page:last-child{page-break-after:avoid}
+
+  /* Header band */
+  .pr-header{background:#2e6b3e;color:#fff;padding:10mm 10mm 7mm;display:flex;align-items:center;gap:14px}
+  .pr-header-photo{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid rgba(255,255,255,.4);flex-shrink:0}
+  .pr-header-avatar{width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;color:#fff;flex-shrink:0}
+  .pr-header-info{flex:1}
+  .pr-header-info h1{font-size:20pt;font-weight:700;color:#fff;margin:0 0 2px}
+  .pr-header-tagline{font-size:10pt;color:rgba(255,255,255,.85);margin-bottom:4px}
+  .pr-header-contacts{font-size:8pt;color:rgba(255,255,255,.75);display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:3px}
+  .pr-header-contacts span{display:flex;align-items:center;gap:3px}
+
+  /* 2-column body layout */
+  .pr-body{display:grid;grid-template-columns:62mm 1fr;gap:0;padding:7mm 10mm;align-items:start}
+  .pr-left{padding-right:8mm;border-right:1.5px solid #c5d9c5}
+  .pr-right{padding-left:8mm}
+
+  /* Section headings */
+  .pr-sec{margin-bottom:6mm}
+  .pr-sec-title{font-size:7.5pt;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#2e6b3e;border-bottom:1px solid #c5d9c5;padding-bottom:2px;margin-bottom:4px}
+
+  /* Summary */
+  .pr-summary{font-size:8.5pt;color:#3d533d;line-height:1.55}
+
+  /* Skill bars */
+  .pr-skill-row{display:flex;align-items:center;gap:6px;margin-bottom:3px}
+  .pr-skill-name{font-size:8pt;color:#3d533d;width:110px;flex-shrink:0;line-height:1.3}
+  .pr-skill-bar{flex:1;height:3px;background:#deeade;border-radius:2px;overflow:hidden}
+  .pr-skill-fill{height:100%;background:#2e6b3e;border-radius:2px}
+
+  /* Tags */
+  .pr-tag{display:inline-block;font-size:7pt;background:#e6f4e6;color:#1a5c1a;padding:1px 6px;border-radius:8px;margin:1px 1px}
+  .pr-tag-b{background:#e6eff4;color:#1a4a7a}
+  .pr-tag-p{background:#f0e6f4;color:#5c1a7a}
+  .pr-tag-o{background:#f4f0e6;color:#7a5c1a}
+
+  /* Experience */
+  .pr-org{margin-bottom:5mm;page-break-inside:avoid}
+  .pr-org-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1px}
+  .pr-org-name{font-size:9.5pt;font-weight:700;color:#1c2b1c}
+  .pr-org-dates{font-size:7.5pt;color:#6b856b;white-space:nowrap}
+  .pr-org-desc{font-size:7.5pt;color:#6b856b;margin-bottom:3px;font-style:italic}
+  .pr-role{margin-bottom:3px;padding-left:4px;border-left:2px solid #c5d9c5}
+  .pr-role-title{font-size:8.5pt;font-weight:600;color:#2e6b3e}
+  .pr-role-period{font-size:7.5pt;color:#6b856b;margin-bottom:2px}
+  .pr-role-ul{list-style:none;padding:0;margin:0}
+  .pr-role-ul li{position:relative;padding-left:10px;font-size:8pt;color:#3d533d;line-height:1.45;margin-bottom:1px}
+  .pr-role-ul li::before{content:'›';position:absolute;left:0;color:#4a9960;font-size:10pt;line-height:1.1}
+
+  /* Education */
+  .pr-edu{margin-bottom:3mm}
+  .pr-edu-name{font-size:8.5pt;font-weight:600;color:#1c2b1c}
+  .pr-edu-inst{font-size:7.5pt;color:#2e6b3e}
+  .pr-edu-yr{font-size:7.5pt;color:#6b856b}
+
   /* Certs */
-  .cert-grid{grid-template-columns:1fr 1fr;gap:4px}
-  .cert-item{padding:3px 6px}
-  .cert-name{font-size:9.5px}
-  .cert-org{font-size:8.5px}
-  .cert-link{font-size:8px}
+  .pr-cert-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px 6px}
+  .pr-cert{margin-bottom:2mm}
+  .pr-cert-name{font-size:8pt;font-weight:600;color:#1c2b1c;line-height:1.3}
+  .pr-cert-org{font-size:7pt;color:#6b856b}
+
   /* Awards */
-  .award-card{padding:4px 8px;margin-bottom:4px}
-  .award-title{font-size:10px}
-  .award-meta{font-size:8.5px;margin-bottom:2px}
-  .award-body{font-size:8.5px;line-height:1.45}
-  /* Contact */
-  .contact-grid{grid-template-columns:1fr 1fr;gap:4px}
-  .contact-item{padding:4px 8px}
-  .contact-label{font-size:8.5px}
-  .contact-val{font-size:9.5px}
-  /* Clients */
-  .clients-grid{grid-template-columns:1fr 1fr 1fr;gap:4px}
-  .client-card{padding:4px 8px}
-  .client-name{font-size:9.5px}
-  .client-desc{font-size:8.5px}
-  .client-logo-wrap{height:22px;margin-bottom:4px}
-  /* General card */
-  .card{box-shadow:none;padding:4px 8px}
-  .tag,.cv-tag{font-size:7.5px;padding:0 4px}
-  /* Edu */
-  .edu-name{font-size:10px}
-  .edu-inst{font-size:9px}
-  .edu-period{font-size:8.5px}
-  /* Interests */
-  .int-vol-grid{grid-template-columns:1fr 1fr;gap:4px}
-  .int-card{padding:5px 8px}
-  .int-name{font-size:9px}
-  .vol-card{padding:5px 8px;margin-bottom:4px}
-  /* Page breaks — only where truly needed */
-  #t-home{page-break-before:avoid}
-  #t-career{page-break-before:always}
-  #t-projects{page-break-before:always}
-  #t-education{page-break-before:always}
-  #t-skills{page-break-before:avoid}
-  #t-awards{page-break-before:avoid}
-  #t-clients{page-break-before:avoid}
-  #t-interests-volunteer{page-break-before:avoid}
-  #t-contact{page-break-before:avoid}
-  /* Avoid breaks inside cards */
-  .org-inner,.award-card,.cert-item,.proj-card,.card,.contact-item{
-    page-break-inside:avoid;break-inside:avoid}
+  .pr-award{margin-bottom:3mm;padding-left:5px;border-left:2px solid #4a9960;page-break-inside:avoid}
+  .pr-award-title{font-size:8.5pt;font-weight:600;color:#1c2b1c}
+  .pr-award-meta{font-size:7.5pt;color:#2e6b3e;margin-bottom:1px}
+  .pr-award-body{font-size:7.5pt;color:#3d533d;line-height:1.4}
+
+  /* Projects — 2 col grid on page 2 */
+  .pr-proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:3mm;margin-top:3mm}
+  .pr-proj{background:#f7fcf7;border:1px solid #c5d9c5;border-radius:4px;padding:3mm 3.5mm;page-break-inside:avoid}
+  .pr-proj-title{font-size:8.5pt;font-weight:600;color:#1c2b1c;margin-bottom:1px}
+  .pr-proj-meta{font-size:7.5pt;color:#6b856b;margin-bottom:3px}
+  .pr-proj-body{font-size:7.5pt;color:#3d533d;line-height:1.4}
+
+  /* Clients grid */
+  .pr-clients-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2mm}
+  .pr-client{page-break-inside:avoid}
+  .pr-client-name{font-size:8.5pt;font-weight:600;color:#1c2b1c}
+  .pr-client-desc{font-size:7.5pt;color:#3d533d;line-height:1.35}
+
+  /* Interests & volunteering */
+  .pr-int-grid{display:grid;grid-template-columns:1fr 1fr;gap:2mm}
+  .pr-int{font-size:8pt;color:#3d533d;padding:1px 0}
+  .pr-int::before{content:'◆ ';color:#4a9960;font-size:6pt}
+  .pr-vol{margin-bottom:3mm}
+  .pr-vol-name{font-size:8.5pt;font-weight:600;color:#1c2b1c}
+  .pr-vol-period{font-size:7.5pt;color:#2e6b3e}
+  .pr-vol-body{font-size:7.5pt;color:#3d533d;line-height:1.4}
+
+  /* Divider */
+  .pr-divider{height:1px;background:#deeade;margin:4mm 0}
+
+  /* Stats row */
+  .pr-stats{display:flex;gap:8mm;margin-bottom:4mm}
+  .pr-stat{text-align:center}
+  .pr-stat-num{font-size:14pt;font-weight:700;color:#2e6b3e}
+  .pr-stat-lbl{font-size:7pt;color:#6b856b}
 }
 
 @media(max-width:720px){
@@ -514,16 +542,6 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
         <div class="cvl-section-title">Core Skills</div>
         <div id="cvl-skills-bars"></div>
       </div>
-      <div class="cvl-divider"></div>
-      <div>
-        <div class="cvl-section-title">Technologies</div>
-        <div id="cvl-tech-tags" style="line-height:1.8"></div>
-      </div>
-      <div class="cvl-divider"></div>
-      <div>
-        <div class="cvl-section-title">Certifications</div>
-        <div id="cvl-certs"></div>
-      </div>
     </div>
 
     <!-- MIDDLE COLUMN -->
@@ -536,12 +554,15 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
         <div class="cvl-sec-head">Experience</div>
         <div id="cvl-experience"></div>
       </div>
-      <div class="cvl-section">
+<div class="cvl-section">
         <div class="cvl-sec-head">Key Accounts</div>
         <div id="cvl-clients" style="display:flex;flex-wrap:wrap;gap:2px"></div>
       </div>
+      <div class="cvl-section" style="margin-top:6px">
+        <div class="cvl-sec-head">Certifications</div>
+        <div id="cvl-certs"></div>
+      </div>
     </div>
-
     <!-- RIGHT COLUMN -->
     <div class="cvl-right">
       <div class="cvl-section">
@@ -552,6 +573,11 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
       <div class="cvl-section">
         <div class="cvl-sec-head">Awards &amp; Recognition</div>
         <div id="cvl-awards"></div>
+      </div>
+<div class="cvl-divider" style="background:#c5d9c5;margin:4px 0 8px"></div>
+      <div class="cvl-section">
+        <div class="cvl-sec-head">Technologies &amp; Standards</div>
+        <div id="cvl-tech-tags" style="line-height:1.9"></div>
       </div>
       <div class="cvl-divider" style="background:#c5d9c5;margin:4px 0 8px"></div>
       <div class="cvl-section">
@@ -921,19 +947,18 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
   <div class="dl-bar">
     <button class="dl-btn dl-btn-primary" onclick="printResume()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="12" y2="18"/><line x1="15" y1="15" x2="12" y2="18"/></svg>
-      Save / Print as PDF
+      Download Detailed Resume
     </button>
     <button class="dl-btn" onclick="openCompact()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-      Compact 1-page View
+      Download Compact Resume
     </button>
     <button class="dl-btn" onclick="downloadText()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
-      Download Text
+      Download Text Resume
     </button>
   </div>
-  <p style="font-size:11px;color:var(--fg3);margin-bottom:24px">PDF: click "Save / Print as PDF" → choose "Save as PDF" in the print dialog. In print settings, set <strong>Margins: None</strong> and uncheck <strong>Headers and footers</strong> for a clean output. &nbsp;|&nbsp; Compact view: 1-page landscape layout with photo.</p>
-
+<p style="font-size:11px;color:var(--fg3);margin-bottom:24px">Detailed PDF: in the print dialog set <strong>Margins: None</strong> and uncheck <strong>Headers and footers</strong> for a clean output. &nbsp;|&nbsp; Compact: 1-page landscape layout with photo — click "Save as PDF" inside the compact view.</p>
   <!-- QR Code (item 19) -->
   <div class="qr-wrap">
     <canvas id="qr-canvas" width="96" height="96"></canvas>
@@ -1115,26 +1140,30 @@ function buildCompactCV(){
   });
   document.getElementById('cvl-skills-bars').innerHTML = skillsBarsHtml;
 
-  /* ── Tech tags ── */
+  /* ── Tech tags — goes to RIGHT column ── */
   var techHtml = '';
-  document.querySelectorAll('#t-skills h2').forEach(function(h){
-    if(h.textContent.includes('Technologies')){
-      var sibling = h.nextElementSibling;
+  document.querySelectorAll('#t-skills h2').forEach(function(h2){
+    if(h2.textContent.includes('Technologies')){
+      var sibling = h2.nextElementSibling;
       if(sibling) sibling.querySelectorAll('.tag').forEach(function(t){
-        techHtml += '<span class="cvl-tag">'+t.textContent.trim()+'</span>';
+        var cls = t.classList.contains('tag-b')?'cvl-tag-b':t.classList.contains('tag-p')?'cvl-tag-p':t.classList.contains('tag-o')?'cvl-tag-o':'';
+        techHtml += '<span class="cvl-tag '+cls+'">'+t.textContent.trim()+'</span>';
       });
     }
   });
   document.getElementById('cvl-tech-tags').innerHTML = techHtml;
 
-  /* ── Certifications ── */
-  var certsHtml = '';
+  /* ── Certifications — goes to MIDDLE column, 2-col grid ── */
+  var certsHtml = '<div style="display:grid;grid-template-columns:1fr 1fr;gap:2px 8px">';
   document.querySelectorAll('.cert-item').forEach(function(item){
     var name = item.querySelector('.cert-name');
     var org = item.querySelector('.cert-org');
-    if(name) certsHtml += '<div class="cvl-cert-name">'+name.textContent.trim()+'</div>';
+    if(!name) return;
+    certsHtml += '<div style="margin-bottom:3px"><div class="cvl-cert-name">'+name.textContent.trim()+'</div>';
     if(org) certsHtml += '<div class="cvl-cert-org">'+org.textContent.trim()+'</div>';
+    certsHtml += '</div>';
   });
+  certsHtml += '</div>';
   document.getElementById('cvl-certs').innerHTML = certsHtml;
 
   /* ── Experience (from career timeline) ── */
@@ -1207,20 +1236,274 @@ function buildCompactCV(){
   document.getElementById('cvl-interests').innerHTML = intHtml;
 }
 
-/* ── Print / PDF ── */
+/* ── Print / PDF — dynamic 2-col shell ── */
 function printResume(){
-  document.querySelectorAll('.org-roles').forEach(r=>r.classList.add('open'));
-  document.querySelectorAll('.proj-detail').forEach(r=>r.classList.add('open'));
-  document.querySelectorAll('.tiddler').forEach(t=>t.classList.add('active'));
+  buildPrintShell();
   document.getElementById('compact-overlay').classList.remove('open');
+  var shell = document.getElementById('print-shell');
+  shell.style.display = 'block';
   window.print();
   setTimeout(function(){
-    document.querySelectorAll('.tiddler').forEach(t=>t.classList.remove('active'));
-    document.querySelectorAll('.org-roles').forEach(r=>r.classList.remove('open'));
-    document.querySelectorAll('.org-chevron').forEach(c=>c.classList.remove('open'));
-    document.querySelectorAll('.proj-detail').forEach(r=>r.classList.remove('open'));
-    show(currentPage);
-  },1200);
+    shell.style.display = 'none';
+  }, 1200);
+}
+
+function buildPrintShell(){
+  var shell = document.getElementById('print-shell');
+  if(!shell){ shell = document.createElement('div'); shell.id = 'print-shell'; shell.style.display='none'; document.getElementById('main').appendChild(shell); }
+
+  function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function tx(sel){ var e=document.querySelector(sel); return e?e.textContent.trim():''; }
+
+  /* Contacts */
+  var email='', phone='', linkedin='', web='', loc='Bangalore, India';
+  document.querySelectorAll('.sb-contact-row').forEach(function(row){
+    var a = row.querySelector('a');
+    if(!a) return;
+    var h = a.getAttribute('href')||'';
+    if(h.startsWith('mailto:')) email = a.textContent.trim();
+    else if(h.startsWith('tel:')) phone = a.textContent.trim();
+    else if(h.includes('linkedin')) linkedin = a.textContent.trim();
+    else if(h.includes('ravisghosh.com')) web = a.textContent.trim();
+  });
+  var travelEl = document.querySelector('#t-contact .contact-val[style*="font-size"]');
+  var travel = travelEl ? travelEl.textContent.trim() : 'Indian Passport · US B1/B2 Visa';
+
+  /* Photo */
+  var photoSrc = (document.getElementById('sb-photo')||{}).src || 'https://raw.githubusercontent.com/ravisghosh/cv/main/photo-headshot.jpg';
+  var photoEl = document.getElementById('sb-photo');
+  var photoHidden = photoEl && photoEl.style.display==='none';
+  var headerPhoto = photoHidden
+    ? '<div class="pr-header-avatar">RG</div>'
+    : '<img class="pr-header-photo" src="'+photoSrc+'" alt="Ravi S Ghosh"/>';
+
+  /* Summary */
+  var summaryMain = tx('#t-home > p');
+  var summaryBlocksHtml = '';
+  document.querySelectorAll('#t-home .summary-block').forEach(function(block){
+    var h = block.querySelector('h3'); var lis = block.querySelectorAll('li');
+    if(!h || !lis.length) return;
+    summaryBlocksHtml += '<div style="margin-bottom:3mm"><div style="font-size:8pt;font-weight:700;color:#2e6b3e;margin-bottom:2px;">'+esc(h.textContent.trim())+'</div>';
+    lis.forEach(function(li){ summaryBlocksHtml += '<div style="position:relative;padding-left:10px;font-size:7.5pt;color:#3d533d;line-height:1.45;margin-bottom:1px"><span style="position:absolute;left:0;color:#4a9960">·</span>'+esc(li.textContent.trim())+'</div>'; });
+    summaryBlocksHtml += '</div>';
+  });
+
+  /* Stat numbers */
+  var statsHtml = '';
+  document.querySelectorAll('.stat-card').forEach(function(c){
+    var num = c.querySelector('.stat-num'); var lbl = c.querySelector('.stat-lbl');
+    if(!num||!lbl) return;
+    statsHtml += '<div class="pr-stat"><div class="pr-stat-num">'+esc(num.textContent.trim())+'</div><div class="pr-stat-lbl">'+esc(lbl.textContent.trim())+'</div></div>';
+  });
+
+  /* Skills */
+  var skillsHtml = '';
+  document.querySelectorAll('#t-skills .skill-row').forEach(function(row){
+    var name = row.querySelector('.skill-name'); var fill = row.querySelector('.skill-fill');
+    if(!name||!fill) return;
+    var w = fill.dataset.w || '70';
+    skillsHtml += '<div class="pr-skill-row"><span class="pr-skill-name">'+esc(name.textContent.trim())+'</span><div class="pr-skill-bar"><div class="pr-skill-fill" style="width:'+w+'%"></div></div></div>';
+  });
+
+  /* Tech tags */
+  var techHtml = '';
+  document.querySelectorAll('#t-skills h2').forEach(function(h2){
+    if(h2.textContent.includes('Technolog')){
+      var sib = h2.nextElementSibling;
+      if(sib) sib.querySelectorAll('.tag').forEach(function(t){
+        var cls = t.classList.contains('tag-b')?'pr-tag-b':t.classList.contains('tag-p')?'pr-tag-p':t.classList.contains('tag-o')?'pr-tag-o':'';
+        techHtml += '<span class="pr-tag '+cls+'">'+esc(t.textContent.trim())+'</span>';
+      });
+    }
+  });
+
+  /* Education */
+  var eduHtml = '';
+  document.querySelectorAll('#t-education .card').forEach(function(c){
+    var n=c.querySelector('.edu-name'),i=c.querySelector('.edu-inst'),p=c.querySelector('.edu-period');
+    if(!n) return;
+    eduHtml += '<div class="pr-edu"><div class="pr-edu-name">'+esc(n.textContent.trim())+'</div>';
+    if(i) eduHtml += '<div class="pr-edu-inst">'+esc(i.textContent.trim())+'</div>';
+    if(p) eduHtml += '<div class="pr-edu-yr">'+esc(p.textContent.trim())+'</div></div>';
+  });
+
+  /* Certs */
+  var certsHtml = '<div class="pr-cert-grid">';
+  document.querySelectorAll('.cert-item').forEach(function(item){
+    var n=item.querySelector('.cert-name'),o=item.querySelector('.cert-org');
+    if(!n) return;
+    certsHtml += '<div class="pr-cert"><div class="pr-cert-name">'+esc(n.textContent.trim())+'</div>';
+    if(o) certsHtml += '<div class="pr-cert-org">'+esc(o.textContent.trim())+'</div>';
+    certsHtml += '</div>';
+  });
+  certsHtml += '</div>';
+
+  /* Awards */
+  var awardsHtml = '';
+  document.querySelectorAll('.award-card').forEach(function(c){
+    var t=c.querySelector('.award-title'),m=c.querySelector('.award-meta'),b=c.querySelector('.award-body');
+    if(!t) return;
+    awardsHtml += '<div class="pr-award"><div class="pr-award-title">'+esc(t.textContent.trim())+'</div>';
+    if(m) awardsHtml += '<div class="pr-award-meta">'+esc(m.textContent.trim())+'</div>';
+    if(b) awardsHtml += '<div class="pr-award-body">'+esc(b.textContent.trim())+'</div></div>';
+  });
+
+  /* Experience */
+  var expHtml = '';
+  document.querySelectorAll('.org-card').forEach(function(orgCard){
+    var orgName=orgCard.querySelector('.org-name');
+    var orgTenure=orgCard.querySelector('.org-tenure');
+    var descEl=orgCard.querySelector('.org-header div>div>div:nth-child(2)');
+    if(!orgName) return;
+    expHtml += '<div class="pr-org"><div class="pr-org-header"><span class="pr-org-name">'+esc(orgName.textContent.trim())+'</span>';
+    if(orgTenure) expHtml += '<span class="pr-org-dates">'+esc(orgTenure.textContent.trim())+'</span>';
+    expHtml += '</div>';
+    orgCard.querySelectorAll('.role-item').forEach(function(role){
+      var rt=role.querySelector('.role-title'),rp=role.querySelector('.role-period');
+      expHtml += '<div class="pr-role">';
+      if(rt) expHtml += '<div class="pr-role-title">'+esc(rt.textContent.trim())+'</div>';
+      if(rp) expHtml += '<div class="pr-role-period">'+esc(rp.textContent.trim())+'</div>';
+      expHtml += '<ul class="pr-role-ul">';
+      role.querySelectorAll('.role-detail li').forEach(function(li){ expHtml += '<li>'+esc(li.textContent.trim())+'</li>'; });
+      expHtml += '</ul></div>';
+    });
+    expHtml += '</div>';
+  });
+
+  /* Projects */
+  var projHtml = '';
+  document.querySelectorAll('.proj-card').forEach(function(card){
+    var t=card.querySelector('.proj-title'),m=card.querySelector('.proj-meta'),d=card.querySelector('.proj-detail');
+    if(!t) return;
+    projHtml += '<div class="pr-proj"><div class="pr-proj-title">'+esc(t.textContent.trim())+'</div>';
+    if(m) projHtml += '<div class="pr-proj-meta">'+esc(m.textContent.trim())+'</div>';
+    if(d) projHtml += '<div class="pr-proj-body">'+esc(d.textContent.trim())+'</div></div>';
+  });
+
+  /* Clients */
+  var clientsHtml = '';
+  document.querySelectorAll('.client-card').forEach(function(c){
+    var n=c.querySelector('.client-name'),d=c.querySelector('.client-desc');
+    if(!n) return;
+    clientsHtml += '<div class="pr-client"><div class="pr-client-name">'+esc(n.textContent.trim())+'</div>';
+    if(d) clientsHtml += '<div class="pr-client-desc">'+esc(d.textContent.trim())+'</div></div>';
+  });
+
+  /* Interests & volunteering */
+  var intHtml = '<div class="pr-int-grid">';
+  document.querySelectorAll('.int-name').forEach(function(el){ intHtml += '<div class="pr-int">'+esc(el.textContent.trim())+'</div>'; });
+  intHtml += '</div>';
+  var volHtml = '';
+  document.querySelectorAll('.vol-card').forEach(function(c){
+    var h3=c.querySelector('h3'),period=c.querySelector('div[style*="color:var(--acc)"]'),p=c.querySelector('p');
+    volHtml += '<div class="pr-vol">';
+    if(h3) volHtml += '<div class="pr-vol-name">'+esc(h3.textContent.trim())+'</div>';
+    if(period) volHtml += '<div class="pr-vol-period">'+esc(period.textContent.trim())+'</div>';
+    if(p) volHtml += '<div class="pr-vol-body">'+esc(p.textContent.trim())+'</div>';
+    volHtml += '</div>';
+  });
+
+  /* Assemble pages */
+  shell.innerHTML = `
+  <!-- PAGE 1: Profile + Experience -->
+  <div class="pr-page">
+    <div class="pr-header">
+      ${headerPhoto}
+      <div class="pr-header-info">
+        <h1>${esc(tx('.profile-info h1'))}</h1>
+        <div class="pr-header-tagline">${esc(tx('.profile-tagline'))}</div>
+        <div class="pr-header-contacts">
+          <span>✉ ${esc(email)}</span>
+          <span>✆ ${esc(phone)}</span>
+          <span>in ${esc(linkedin)}</span>
+          <span>⌂ ${esc(web)}</span>
+          <span>📍 ${esc(loc)}</span>
+        </div>
+      </div>
+    </div>
+    <div class="pr-body">
+      <div class="pr-left">
+        <div class="pr-sec">
+          <div class="pr-sec-title">At a Glance</div>
+          <div class="pr-stats">${statsHtml}</div>
+          <div class="pr-summary">${esc(summaryMain)}</div>
+        </div>
+        <div class="pr-divider"></div>
+        <div class="pr-sec">
+          <div class="pr-sec-title">Core Competencies</div>
+          ${skillsHtml}
+        </div>
+        <div class="pr-divider"></div>
+        <div class="pr-sec">
+          <div class="pr-sec-title">Education</div>
+          ${eduHtml}
+        </div>
+        <div class="pr-divider"></div>
+        <div class="pr-sec">
+          <div class="pr-sec-title">Certifications</div>
+          ${certsHtml}
+        </div>
+        <div class="pr-divider"></div>
+        <div class="pr-sec">
+          <div class="pr-sec-title">Technologies &amp; Standards</div>
+          ${techHtml}
+        </div>
+        <div class="pr-divider"></div>
+        <div class="pr-sec">
+          <div class="pr-sec-title">Travel</div>
+          <div style="font-size:7.5pt;color:#3d533d">${esc(travel)}</div>
+        </div>
+      </div>
+      <div class="pr-right">
+        <div class="pr-sec">
+          <div class="pr-sec-title">Professional Summary</div>
+          ${summaryBlocksHtml}
+        </div>
+        <div class="pr-divider"></div>
+        <div class="pr-sec">
+          <div class="pr-sec-title">Experience</div>
+          ${expHtml}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 2: Projects + Clients + Awards + Interests -->
+  <div class="pr-page">
+    <div class="pr-header" style="padding:6mm 10mm">
+      <div class="pr-header-info">
+        <h1 style="font-size:14pt">${esc(tx('.profile-info h1'))} — Projects, Clients &amp; More</h1>
+      </div>
+    </div>
+    <div style="padding:7mm 10mm">
+      <div class="pr-sec">
+        <div class="pr-sec-title">Projects</div>
+        <div class="pr-proj-grid">${projHtml}</div>
+      </div>
+      <div class="pr-divider"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8mm">
+        <div>
+          <div class="pr-sec">
+            <div class="pr-sec-title">Key Accounts &amp; Clients</div>
+            <div class="pr-clients-grid">${clientsHtml}</div>
+          </div>
+          <div class="pr-divider"></div>
+          <div class="pr-sec">
+            <div class="pr-sec-title">Interests</div>
+            ${intHtml}
+            <div style="margin-top:3mm">${volHtml}</div>
+          </div>
+        </div>
+        <div>
+          <div class="pr-sec">
+            <div class="pr-sec-title">Awards &amp; Recognition</div>
+            ${awardsHtml}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  `;
 }
 
 /* ── QR code generator (item 19) — pure canvas, no library ── */
