@@ -346,7 +346,18 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
 .cvl-role-ul{list-style:none;padding:0;margin:0}
 .cvl-role-ul li{position:relative;padding-left:8px;font-size:6.5pt;color:#3d533d;line-height:1.35;margin-bottom:1px}
 .cvl-role-ul li::before{content:'›';position:absolute;left:0;color:#4a9960;font-size:8pt;line-height:1.1}
-/* Certs in MIDDLE column — dark text */
+/* Certifications grid in middle column */
+.cvl-certs-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  column-gap:12px;
+  row-gap:2px;
+}
+
+.cvl-certs-grid .cvl-cert-item{
+  break-inside:avoid;
+}
+  /* Certs in MIDDLE column — dark text */
 .cvl-mid .cvl-cert-name{font-size:7pt;font-weight:600;color:#1c2b1c;line-height:1.3;margin-bottom:0}
 .cvl-mid .cvl-cert-org{font-size:6pt;color:#6b856b;margin-bottom:3px}
 
@@ -586,11 +597,6 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
       </div>
       <div class="cvl-divider"></div>
       <div>
-        <div class="cvl-section-title">Certifications</div>
-        <div id="cvl-certs"></div>
-      </div>
-      <div class="cvl-divider"></div>
-      <div>
         <div class="cvl-section-title">Travel Readiness</div>
         <div id="cvl-travel-left" class="cvl-travel-text"></div>
       </div>
@@ -610,6 +616,10 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
         <div class="cvl-sec-head">Key Accounts</div>
         <div id="cvl-clients" style="display:flex;flex-wrap:wrap;gap:2px"></div>
       </div>
+      <div class="cvl-section">
+  <div class="cvl-sec-head">Certifications</div>
+  <div id="cvl-certs-mid" class="cvl-certs-grid"></div>
+  </div>
     </div>
 
     <!-- RIGHT COLUMN -->
@@ -1190,7 +1200,7 @@ function buildCompactCV(){
     certsHtml += '<div class="cvl-cert-name">'+name.textContent.trim()+'</div>';
     if(org) certsHtml += '<div class="cvl-cert-org">'+org.textContent.trim()+'</div>';
   });
-  document.getElementById('cvl-certs').innerHTML = certsHtml;
+  document.getElementById('cvl-certs-mid').innerHTML = certsHtml;
 
   /* Tech tags — RIGHT column */
   var techHtml = '';
