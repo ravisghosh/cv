@@ -1,3 +1,5 @@
+html
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,7 +63,6 @@ a:hover{text-decoration:underline}
 .sb-contact a:hover{color:var(--acc)}
 .sb-contact-row{display:flex;align-items:center;gap:7px;position:relative}
 .sb-contact-row svg{width:13px;height:13px;flex-shrink:0;opacity:.7}
-/* Copy button (item 11) */
 .copy-btn{display:none;position:absolute;right:0;top:50%;transform:translateY(-50%);
   background:var(--bg3);border:1px solid var(--border);border-radius:4px;
   padding:1px 5px;font-size:9px;color:var(--fg3);cursor:pointer;white-space:nowrap}
@@ -71,7 +72,6 @@ a:hover{text-decoration:underline}
 
 /* Main tiddler pages */
 .tiddler{display:none}
-/* Page slide transition (item 2) */
 .tiddler.active{display:block;animation:slideIn .22s ease}
 @keyframes slideIn{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
 .page-title{font-size:22px;font-weight:700;color:var(--fg);margin-bottom:2px}
@@ -106,7 +106,7 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
 .summary-block ul li{position:relative;padding:3px 0 3px 14px;font-size:12.5px;color:var(--fg2)}
 .summary-block ul li::before{content:'·';position:absolute;left:0;color:var(--acc);font-weight:700;font-size:16px;line-height:1.1}
 
-/* Universal card hover animation (item 5) */
+/* Universal card hover animation */
 .card,.cert-item,.award-card,.client-card,.vol-card,.int-card,.summary-block,.stat-card,.contact-item{
   transition:border-color .18s,box-shadow .18s,transform .18s}
 .card:hover,.cert-item:hover,.award-card:hover,.client-card:hover,
@@ -135,7 +135,7 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
 .tag-o{background:#f4f0e6;color:#7a5c1a}
 .tag-b{background:#e6eff4;color:#1a4a7a}
 
-/* ── Career timeline ── */
+/* Career timeline */
 .career-timeline{position:relative}
 .tl-spine{position:absolute;left:52px;top:8px;bottom:8px;width:2px;background:var(--border2);border-radius:2px;z-index:0}
 .org-card{position:relative;display:grid;grid-template-columns:52px 14px 1fr;align-items:start;margin-bottom:12px;gap:0}
@@ -151,7 +151,6 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
 .org-dot-cur{background:#2a9a4a;box-shadow:0 0 0 2px #2a9a4a}
 .org-inner{grid-column:3;margin-left:10px;background:var(--card);border:1px solid var(--border);
   border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;
-  /* Hover border sweep (item 4) */
   transition:border-color .2s,box-shadow .2s;border-left:3px solid transparent}
 .org-inner:hover{border-left-color:var(--acc3);box-shadow:0 2px 10px rgba(46,107,62,.1)}
 .org-header{display:flex;align-items:center;justify-content:space-between;
@@ -227,7 +226,6 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
 .contact-icon svg{width:16px;height:16px;color:var(--acc3)}
 .contact-label{font-size:10.5px;color:var(--fg3)}
 .contact-val{font-size:12.5px;font-weight:500;color:var(--fg)}
-/* Copy on contact page (item 11) */
 .copy-contact{position:absolute;right:10px;top:50%;transform:translateY(-50%);
   display:none;background:var(--bg2);border:1px solid var(--border);
   border-radius:4px;padding:2px 7px;font-size:10px;color:var(--fg3);cursor:pointer}
@@ -267,7 +265,7 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
 .qlink:hover{background:var(--bg3);border-color:var(--acc);color:var(--acc)}
 .qlink svg{width:12px;height:12px;opacity:.6}
 
-/* Back to top (item 12) */
+/* Back to top */
 #back-to-top{position:fixed;bottom:24px;right:24px;width:38px;height:38px;
   border-radius:50%;background:var(--acc);color:#fff;border:none;cursor:pointer;
   display:flex;align-items:center;justify-content:center;
@@ -276,7 +274,7 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
 #back-to-top.visible{opacity:1;pointer-events:auto}
 #back-to-top svg{width:16px;height:16px}
 
-/* QR code section (item 19) */
+/* QR code section */
 .qr-wrap{display:flex;align-items:center;gap:20px;background:var(--card);
   border:1px solid var(--border);border-radius:var(--r);padding:18px 20px;
   box-shadow:var(--shadow);margin-bottom:16px}
@@ -284,74 +282,255 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
 .qr-text h3{font-size:13px;font-weight:600;margin-bottom:4px}
 .qr-text p{font-size:12px;margin-bottom:0}
 
-/* Compact view (item 20) */
-#compact-overlay{display:none;position:fixed;inset:0;background:var(--bg);
-  z-index:500;overflow-y:auto;padding:32px 40px}
+/* ═══════════════════════════════════════════════════
+   COMPACT VIEW — landscape one-page, 3-column
+═══════════════════════════════════════════════════ */
+#compact-overlay{display:none;position:fixed;inset:0;background:#f0f4f0;
+  z-index:500;overflow-y:auto;padding:0}
 #compact-overlay.open{display:block}
-.compact-close{position:fixed;top:16px;right:20px;background:var(--acc);color:#fff;
-  border:none;border-radius:6px;padding:7px 14px;font-size:12px;font-weight:600;
-  cursor:pointer;z-index:501}
-.cv-page{max-width:780px;margin:0 auto;font-size:11.5px;line-height:1.5;color:var(--fg)}
-.cv-page h1{font-size:20px;font-weight:700;margin-bottom:2px}
-.cv-page .cv-tagline{font-size:12px;color:var(--fg2);margin-bottom:3px}
-.cv-page .cv-contacts{font-size:11px;color:var(--fg3);margin-bottom:16px;display:flex;gap:12px;flex-wrap:wrap}
-.cv-page .cv-section{margin-bottom:14px}
-.cv-page .cv-section-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
-  color:var(--acc2);border-bottom:1px solid var(--border2);padding-bottom:3px;margin-bottom:8px}
-.cv-page .cv-role{margin-bottom:8px}
-.cv-page .cv-role-header{display:flex;justify-content:space-between;font-weight:600;font-size:12px}
-.cv-page .cv-role-sub{font-size:11px;color:var(--fg3);margin-bottom:3px}
-.cv-page .cv-role ul{list-style:none;padding:0}
-.cv-page .cv-role ul li{position:relative;padding-left:12px;font-size:11px;color:var(--fg2);line-height:1.5}
-.cv-page .cv-role ul li::before{content:'•';position:absolute;left:0;color:var(--acc)}
-.cv-page .cv-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
-.cv-page .cv-tag{font-size:10px;background:var(--bg2);color:var(--fg3);
-  padding:1px 7px;border-radius:8px;border:1px solid var(--border)}
-.cv-page .cv-two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.compact-close{position:fixed;top:12px;right:16px;background:var(--acc);color:#fff;
+  border:none;border-radius:6px;padding:6px 12px;font-size:11px;font-weight:600;
+  cursor:pointer;z-index:501;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.compact-actions{position:fixed;top:12px;right:130px;display:flex;gap:8px;z-index:501}
+.compact-print-btn{background:var(--acc2);color:#fff;border:none;border-radius:6px;
+  padding:6px 12px;font-size:11px;font-weight:600;cursor:pointer;
+  box-shadow:0 2px 8px rgba(0,0,0,.2)}
 
-/* ── PRINT / PDF ── */
+/* A4 landscape container */
+.cv-landscape-wrap{
+  width:297mm;min-height:210mm;margin:20px auto;
+  background:#fff;box-shadow:0 4px 24px rgba(0,0,0,.18);
+  display:grid;grid-template-columns:64mm 1fr 56mm;
+  font-size:8.5pt;line-height:1.45;color:#1c2b1c;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  overflow:hidden;border-radius:4px}
+
+/* LEFT column — green */
+.cvl-left{background:#2e6b3e;color:#fff;padding:14px 11px;display:flex;flex-direction:column;gap:8px}
+.cvl-photo{width:62px;height:62px;border-radius:50%;object-fit:cover;object-position:center top;
+  border:2px solid rgba(255,255,255,.4);display:block;margin:0 auto 7px}
+.cvl-avatar{width:62px;height:62px;border-radius:50%;background:rgba(255,255,255,.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:19px;font-weight:700;color:#fff;margin:0 auto 7px}
+.cvl-name{font-size:12pt;font-weight:700;color:#fff;text-align:center;line-height:1.2;margin-bottom:2px}
+.cvl-title{font-size:7pt;color:rgba(255,255,255,.8);text-align:center;line-height:1.35;margin-bottom:3px}
+.cvl-divider{height:1px;background:rgba(255,255,255,.2);margin:1px 0}
+.cvl-section-title{font-size:6.5pt;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
+  color:rgba(255,255,255,.65);margin-bottom:4px}
+.cvl-contact-row{display:flex;align-items:flex-start;gap:5px;font-size:7pt;color:rgba(255,255,255,.9);margin-bottom:3px;line-height:1.3}
+.cvl-contact-row svg{width:8px;height:8px;flex-shrink:0;margin-top:1px;opacity:.75}
+.cvl-contact-row a{color:rgba(255,255,255,.9);text-decoration:none}
+.cvl-skill-name{font-size:7pt;color:rgba(255,255,255,.85);margin-bottom:2px}
+.cvl-bar{height:3px;background:rgba(255,255,255,.2);border-radius:2px;margin-bottom:4px;overflow:hidden}
+.cvl-bar-fill{height:100%;background:rgba(255,255,255,.75);border-radius:2px}
+/* Tags in left column (dark bg) */
+.cvl-tag{display:inline-block;background:rgba(255,255,255,.15);color:rgba(255,255,255,.9);
+  font-size:6.5pt;padding:1px 5px;border-radius:8px;margin:1px 1px}
+/* Cert text in LEFT column stays white */
+.cvl-left .cvl-cert-name{font-size:6.5pt;color:rgba(255,255,255,.9);line-height:1.3;margin-bottom:0}
+.cvl-left .cvl-cert-org{font-size:6pt;color:rgba(255,255,255,.6);margin-bottom:3px}
+/* Travel text in left column */
+.cvl-travel-text{font-size:7pt;color:rgba(255,255,255,.85);line-height:1.5}
+
+/* MIDDLE column */
+.cvl-mid{padding:13px 13px;display:flex;flex-direction:column;gap:0;border-right:1px solid #deeade}
+.cvl-section{margin-bottom:8px}
+.cvl-sec-head{font-size:6.5pt;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
+  color:#2e6b3e;border-bottom:1px solid #c5d9c5;padding-bottom:2px;margin-bottom:4px}
+.cvl-summary{font-size:7pt;color:#3d533d;line-height:1.5}
+.cvl-role{margin-bottom:5px}
+.cvl-role-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0}
+.cvl-role-org{font-size:7.5pt;font-weight:700;color:#1c2b1c}
+.cvl-role-dates{font-size:6pt;color:#6b856b;white-space:nowrap;margin-left:5px}
+.cvl-role-title{font-size:6.5pt;color:#2e6b3e;font-weight:600;margin-bottom:1px}
+.cvl-role-ul{list-style:none;padding:0;margin:0}
+.cvl-role-ul li{position:relative;padding-left:8px;font-size:6.5pt;color:#3d533d;line-height:1.35;margin-bottom:1px}
+.cvl-role-ul li::before{content:'›';position:absolute;left:0;color:#4a9960;font-size:8pt;line-height:1.1}
+/* Certifications grid in middle column */
+.cvl-certs-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  column-gap:12px;
+  row-gap:2px;
+}
+
+.cvl-certs-grid .cvl-cert-item{
+  break-inside:avoid;
+}
+  /* Certs in MIDDLE column — dark text */
+.cvl-mid .cvl-cert-name{font-size:7pt;font-weight:600;color:#1c2b1c;line-height:1.3;margin-bottom:0}
+.cvl-mid .cvl-cert-org{font-size:6pt;color:#6b856b;margin-bottom:3px}
+
+/* RIGHT column */
+.cvl-right{padding:13px 11px;display:flex;flex-direction:column;gap:0;background:#f7fcf7}
+/* Tags in right column (light bg) */
+.cvl-right .cvl-tag{background:#e6f4e6;color:#1a5c1a}
+.cvl-right .cvl-tag-b{background:#e6eff4;color:#1a4a7a}
+.cvl-right .cvl-tag-p{background:#f0e6f4;color:#5c1a7a}
+.cvl-right .cvl-tag-o{background:#f4f0e6;color:#7a5c1a}
+.cvl-right-divider{height:1px;background:#c5d9c5;margin:4px 0 7px}
+.cvl-award{margin-bottom:5px;padding-bottom:4px;border-bottom:1px solid #deeade}
+.cvl-award:last-child{border-bottom:none}
+.cvl-award-title{font-size:7pt;font-weight:600;color:#1c2b1c;line-height:1.3}
+.cvl-award-org{font-size:6pt;color:#2e6b3e;margin-bottom:1px}
+.cvl-edu{margin-bottom:4px}
+.cvl-edu-name{font-size:7pt;font-weight:600;color:#1c2b1c}
+.cvl-edu-inst{font-size:6pt;color:#2e6b3e}
+.cvl-edu-yr{font-size:6pt;color:#6b856b}
+.cvl-interest{font-size:6.5pt;color:#3d533d;padding:1px 0;line-height:1.3}
+.cvl-interest::before{content:'◆ ';color:#4a9960;font-size:5pt}
+
+@media print and (orientation:landscape){
+  .compact-close,.compact-actions{display:none!important}
+  .cv-landscape-wrap{margin:0;width:100%;min-height:100vh;box-shadow:none;border-radius:0;
+    grid-template-columns:64mm 1fr 56mm}
+}
+
+/* ═══════════════════════════════════════════════════
+   DETAILED PDF PRINT — Option 1: fixed sidebar + flowing right
+   Left sidebar: photo/contact/stats/skills/edu/certs/tech/travel
+   Right panel:  summary blocks + full experience
+   Page 2:       projects (3-col) + clients + awards + interests
+═══════════════════════════════════════════════════ */
 @media print{
-  @page{margin:12mm 10mm;size:A4}
-  body{background:#fff;color:#000;font-size:10.5px}
-  #sidebar,#back-to-top,#compact-overlay,.dl-bar,.qlinks,.org-chevron,
-  .qr-wrap,.copy-btn,.copy-contact,.sb-bottom{display:none!important}
-  #app{display:block}
-  #main{padding:0;max-width:100%}
-  .tiddler{display:block!important}
-  .page-title{font-size:16px;page-break-after:avoid}
-  h2{font-size:9.5px;margin:10px 0 5px}
-  .profile-hero{border:none;box-shadow:none;padding:0;margin-bottom:12px;gap:14px}
-  .profile-photo{width:58px;height:58px}
-  .profile-info h1{font-size:17px}
-  .stat-grid{display:none}
-  .summary-block{border:none;box-shadow:none;padding:0 0 4px}
-  .summary-block h3{font-size:9.5px}
-  .summary-block ul li{font-size:10px}
-  .career-timeline .tl-spine{display:none}
-  .org-card{grid-template-columns:44px 12px 1fr}
-  .org-year-label{font-size:9px}
-  .org-inner{border:none;box-shadow:none;border-left:2px solid var(--acc3)}
-  .org-header{padding:4px 8px}
-  .org-name{font-size:11px}
-  .org-tenure{font-size:9px;border:none;background:none;padding:0}
-  .org-roles{display:block!important;border:none}
-  .role-item{padding:3px 0 3px 8px;border:none}
-  .role-title{font-size:10px}
-  .role-period{font-size:9px;margin-bottom:1px}
-  .role-detail li{font-size:9.5px}
-  .proj-grid{grid-template-columns:1fr 1fr}
-  .proj-card{box-shadow:none;padding:5px 7px}
-  .proj-detail{display:block!important}
-  .cert-grid{grid-template-columns:1fr 1fr}
-  .cert-item{padding:4px 7px}
-  .award-card{padding:5px 10px;margin-bottom:5px}
-  .contact-grid{grid-template-columns:1fr 1fr}
-  .contact-item{padding:5px 10px}
-  .card{box-shadow:none;padding:6px 10px}
-  .tag,.cv-tag{font-size:8.5px;padding:0 5px}
-  #t-career,#t-projects,#t-education,#t-skills,#t-awards,
-  #t-clients,#t-interests-volunteer,#t-contact{page-break-before:always}
-  #t-home{page-break-before:avoid}
+  @page{size:A4;margin:0}
+  html,body{margin:0;padding:0;background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+  /* Hide all site chrome */
+  #sidebar,#back-to-top,#compact-overlay,.dl-bar,.qlinks,
+  .copy-btn,.copy-contact,.page-sub{display:none!important}
+  #app{display:block!important}
+  #main{padding:0;max-width:100%;margin:0}
+  .tiddler{display:none!important}
+
+  /* Print shell is the only visible content */
+  #print-shell{display:block!important;width:100%;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    font-size:9pt;color:#1c2b1c;line-height:1.45}
+
+  /* ── Pages ── */
+  .pr-page{width:100%;page-break-after:always;display:block}
+  .pr-page:last-child{page-break-after:avoid}
+
+  /* ── Green header band ── */
+  .pr-header{background:#2e6b3e;color:#fff;padding:7mm 10mm 6mm;
+    display:flex;align-items:center;gap:14px}
+  .pr-header-photo{width:58px;height:58px;border-radius:50%;object-fit:cover;
+    object-position:center top;border:2px solid rgba(255,255,255,.4);flex-shrink:0}
+  .pr-header-avatar{width:58px;height:58px;border-radius:50%;
+    background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;
+    font-size:20px;font-weight:700;color:#fff;flex-shrink:0}
+  .pr-header-info{flex:1}
+  .pr-header-info h1{font-size:18pt;font-weight:700;color:#fff;margin:0 0 2px}
+  .pr-header-tagline{font-size:9.5pt;color:rgba(255,255,255,.85);margin-bottom:3px}
+  .pr-header-contacts{font-size:7.5pt;color:rgba(255,255,255,.75);
+    display:flex;flex-wrap:wrap;gap:3px 14px;margin-top:2px}
+
+  /* ── Two-column body: fixed left sidebar + flowing right ── */
+  .pr-body{display:grid;grid-template-columns:58mm 1fr;gap:0;align-items:start}
+
+  /* LEFT sidebar — full-height green tint */
+  .pr-left{background:#f4faf4;border-right:2px solid #2e6b3e;
+    padding:6mm 7mm;min-height:220mm}
+  /* RIGHT panel */
+  .pr-right{padding:6mm 10mm}
+
+  /* ── Section titles ── */
+  .pr-sec{margin-bottom:5mm}
+  .pr-sec-title{font-size:7pt;font-weight:700;text-transform:uppercase;letter-spacing:.09em;
+    color:#2e6b3e;border-bottom:1.5px solid #2e6b3e;padding-bottom:2px;margin-bottom:4px}
+  .pr-sec-title-right{font-size:7.5pt;font-weight:700;text-transform:uppercase;letter-spacing:.07em;
+    color:#1e4f2c;border-bottom:1px solid #c5d9c5;padding-bottom:2px;margin-bottom:5px}
+
+  /* Stat pills in sidebar */
+  .pr-stats{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:4mm}
+  .pr-stat{background:#e6f4e6;border-radius:5px;padding:3px 5px;text-align:center}
+  .pr-stat-num{font-size:11pt;font-weight:700;color:#2e6b3e;line-height:1.1}
+  .pr-stat-lbl{font-size:6pt;color:#6b856b;line-height:1.2}
+
+  /* Skill bars in sidebar */
+  .pr-skill-row{display:flex;align-items:center;gap:5px;margin-bottom:3px}
+  .pr-skill-name{font-size:7pt;color:#3d533d;width:95px;flex-shrink:0;line-height:1.3}
+  .pr-skill-bar{flex:1;height:3px;background:#c5d9c5;border-radius:2px;overflow:hidden}
+  .pr-skill-fill{height:100%;background:#2e6b3e;border-radius:2px}
+
+  /* Tags */
+  .pr-tag{display:inline-block;font-size:6.5pt;background:#e6f4e6;color:#1a5c1a;
+    padding:1px 5px;border-radius:7px;margin:1px 1px}
+  .pr-tag-b{background:#e6eff4;color:#1a4a7a}
+  .pr-tag-p{background:#f0e6f4;color:#5c1a7a}
+  .pr-tag-o{background:#f4f0e6;color:#7a5c1a}
+
+  /* Education in sidebar */
+  .pr-edu{margin-bottom:3mm}
+  .pr-edu-name{font-size:7.5pt;font-weight:600;color:#1c2b1c}
+  .pr-edu-inst{font-size:6.5pt;color:#2e6b3e}
+  .pr-edu-yr{font-size:6.5pt;color:#6b856b}
+
+  /* Certs in sidebar — 1-col tight */
+  .pr-cert{margin-bottom:2.5mm}
+  .pr-cert-name{font-size:7.5pt;font-weight:600;color:#1c2b1c;line-height:1.3}
+  .pr-cert-org{font-size:6.5pt;color:#6b856b}
+
+  /* Divider */
+  .pr-divider{height:1px;background:#c5d9c5;margin:3.5mm 0}
+
+  /* ── Right panel: Summary blocks ── */
+  .pr-summary-block{margin-bottom:4mm;page-break-inside:avoid}
+  .pr-summary-block-title{font-size:7.5pt;font-weight:700;color:#2e6b3e;
+    margin-bottom:2px;text-transform:uppercase;letter-spacing:.05em}
+  .pr-summary-li{position:relative;padding-left:9px;font-size:7.5pt;
+    color:#3d533d;line-height:1.5;margin-bottom:1px}
+  .pr-summary-li::before{content:'·';position:absolute;left:0;color:#4a9960;
+    font-weight:700;font-size:14pt;line-height:.8}
+
+  /* ── Right panel: Experience ── */
+  .pr-org{margin-bottom:4.5mm;page-break-inside:avoid}
+  .pr-org-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1px}
+  .pr-org-name{font-size:9pt;font-weight:700;color:#1c2b1c}
+  .pr-org-dates{font-size:7pt;color:#6b856b;white-space:nowrap}
+  .pr-role{margin-bottom:2px;padding-left:5px;border-left:2px solid #c5d9c5}
+  .pr-role-title{font-size:8pt;font-weight:600;color:#2e6b3e}
+  .pr-role-period{font-size:7pt;color:#6b856b;margin-bottom:2px}
+  .pr-role-ul{list-style:none;padding:0;margin:0}
+  .pr-role-ul li{position:relative;padding-left:9px;font-size:7.5pt;
+    color:#3d533d;line-height:1.45;margin-bottom:1px}
+  .pr-role-ul li::before{content:'›';position:absolute;left:0;color:#4a9960;
+    font-size:10pt;line-height:1.1}
+
+  /* ── PAGE 2 ── */
+  /* Projects — 3-col on page 2 */
+  .pr-proj-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3mm;margin-top:2mm}
+  .pr-proj{background:#f7fcf7;border:1px solid #c5d9c5;border-radius:4px;
+    padding:3mm 3.5mm;page-break-inside:avoid}
+  .pr-proj-title{font-size:8pt;font-weight:600;color:#1c2b1c;margin-bottom:1px}
+  .pr-proj-meta{font-size:7pt;color:#6b856b;margin-bottom:2px}
+  .pr-proj-body{font-size:7pt;color:#3d533d;line-height:1.4}
+
+  /* Clients — 3-col */
+  .pr-clients-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2.5mm}
+  .pr-client{page-break-inside:avoid}
+  .pr-client-name{font-size:8pt;font-weight:600;color:#1c2b1c}
+  .pr-client-desc{font-size:7pt;color:#3d533d;line-height:1.35}
+
+  /* Awards on page 2 */
+  .pr-award{margin-bottom:3mm;padding-left:5px;border-left:2px solid #4a9960;page-break-inside:avoid}
+  .pr-award-title{font-size:8pt;font-weight:600;color:#1c2b1c}
+  .pr-award-meta{font-size:7pt;color:#2e6b3e;margin-bottom:1px}
+  .pr-award-body{font-size:7pt;color:#3d533d;line-height:1.4}
+
+  /* Interests & volunteering */
+  .pr-int-grid{display:grid;grid-template-columns:1fr 1fr;gap:2mm}
+  .pr-int{font-size:7.5pt;color:#3d533d;padding:1px 0}
+  .pr-int::before{content:'◆ ';color:#4a9960;font-size:6pt}
+  .pr-vol{margin-bottom:2.5mm}
+  .pr-vol-name{font-size:8pt;font-weight:600;color:#1c2b1c}
+  .pr-vol-period{font-size:7pt;color:#2e6b3e}
+  .pr-vol-body{font-size:7pt;color:#3d533d;line-height:1.4}
+
+  /* Page 2 body padding */
+  .pr-p2-body{padding:7mm 10mm}
+  .pr-p2-grid{display:grid;grid-template-columns:1fr 1fr;gap:8mm;margin-top:5mm}
 }
 
 @media(max-width:720px){
@@ -373,66 +552,99 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
 <div title="$:/SiteTitle"><pre>Ravi S Ghosh</pre></div>
 </div>
 
-<!-- Back to top button (item 12) -->
+<!-- Back to top button -->
 <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18,15 12,9 6,15"/></svg>
 </button>
 
-<!-- Compact CV overlay (item 20) -->
+<!-- ═══════════════════════════════════════════════
+     COMPACT CV OVERLAY — landscape, 3 columns
+     LEFT:   photo, contact, skills bars, certs, travel
+     MIDDLE: summary, experience, key accounts
+     RIGHT:  education, awards, technologies, interests
+═══════════════════════════════════════════════ -->
 <div id="compact-overlay">
-  <button class="compact-close" onclick="closeCompact()">✕ Close compact view</button>
-  <div class="cv-page">
-    <h1>Ravi S Ghosh</h1>
-    <div class="cv-tagline">Senior Manager — Healthcare &amp; Life Sciences Analytics</div>
-    <div class="cv-contacts">
-      <span>mail@ravisghosh.com</span><span>+91-805 015 8015</span>
-      <span>linkedin.com/in/ravisghosh</span><span>ravisghosh.com</span>
-      <span>Bangalore, India</span>
-    </div>
+  <div class="compact-actions">
+    <button class="compact-print-btn" onclick="printCompact()">🖨 Save as PDF</button>
+  </div>
+  <button class="compact-close" onclick="closeCompact()">✕ Close</button>
+  <div class="cv-landscape-wrap" id="cv-landscape">
 
-    <div class="cv-section">
-      <div class="cv-section-title">Summary</div>
-      <p style="font-size:11px;color:var(--fg2)">Service Delivery Manager with 23+ years in healthcare IT. Expertise in data engineering, interoperability, AI/ML, and product implementation. Led global teams of 80+, managed $8M+ annual delivery portfolios, and driven CoE and pre-sales initiatives across HLS vertical.</p>
-    </div>
-
-    <div class="cv-section">
-      <div class="cv-section-title">Experience</div>
-      <div class="cv-role"><div class="cv-role-header"><span>Tredence Inc</span><span>Oct 2025 – Present</span></div><div class="cv-role-sub">Senior Manager — Healthcare &amp; Life Sciences, Analytics · Bangalore</div><ul><li>Manage IT service delivery for data analytics and AI/ML projects in the HLS vertical.</li></ul></div>
-      <div class="cv-role"><div class="cv-role-header"><span>GSK plc</span><span>Sep 2024 – Oct 2025</span></div><div class="cv-role-sub">Data Analytics Manager, R&amp;D Division · Bangalore</div><ul><li>Product ownership of enterprise request management system. GSK Bronze Award (Apr 2025).</li><li>Medical and Safety review tool implementation across 7 geographies.</li></ul></div>
-      <div class="cv-role"><div class="cv-role-header"><span>Emids Technologies Pvt. Ltd.</span><span>Feb 2016 – Aug 2024</span></div><div class="cv-role-sub">Group PM → Senior PM → PM → Associate Manager → Team Lead</div><ul><li>Group PM: ~$8M portfolio, 12 projects, ~80 people. Led Data Integration CoE. Gratitude Award (2023).</li><li>Senior PM: ~$2M portfolio. CEO's Award — Innovation &amp; Execution Excellence (2021).</li><li>PM: ~$1M portfolio, full project lifecycle, risk monitoring.</li><li>Team Lead/AM: Patient access product implementation. Star Awards (2016, 2018), CEO Award (2017).</li></ul></div>
-      <div class="cv-role"><div class="cv-role-header"><span>M*Modal Global Services</span><span>May 2013 – Feb 2016</span></div><div class="cv-role-sub">Lead – Implementation Services / Implementation Executive</div><ul><li>Led team of 15 implementing speech recognition platforms. Migrated 86% of total volume.</li></ul></div>
-      <div class="cv-role"><div class="cv-role-header"><span>Transcend / Heartland → Nuance</span><span>Dec 2001 – May 2013</span></div><div class="cv-role-sub">Team Lead – Implementation / Production Support / Medical Transcriptionist</div><ul><li>GEMSTAR V10/V11 platform BA &amp; UAT lead. Errors 1.45%→0.65%, TAT +36%, productivity +42%.</li></ul></div>
-    </div>
-
-    <div class="cv-two-col">
+    <!-- LEFT COLUMN (green) -->
+    <div class="cvl-left">
       <div>
-        <div class="cv-section">
-          <div class="cv-section-title">Education</div>
-          <div style="font-size:11px;margin-bottom:4px"><strong>Business Management — MicroMasters</strong><br><span style="color:var(--fg3)">IIM Bangalore · 2019</span></div>
-          <div style="font-size:11px"><strong>Bachelor of Science — Botany</strong><br><span style="color:var(--fg3)">IGNOU · 2010</span></div>
-        </div>
-        <div class="cv-section">
-          <div class="cv-section-title">Certifications</div>
-          <div style="font-size:10.5px;line-height:1.8;color:var(--fg2)">
-            Lean Six Sigma Green Belt · Agile Scrum Master (EXIN) · Blockchain For Business (Linux Foundation) · Platform Cooperatives Now · Economic Democracy (Edinburgh) · WINFluence Leadership · Lead for Success
-          </div>
-        </div>
+        <img id="cvl-photo" class="cvl-photo"
+          src="https://raw.githubusercontent.com/ravisghosh/cv/main/photo-headshot.jpg"
+          alt="Ravi S Ghosh"
+          onerror="this.style.display='none';document.getElementById('cvl-avatar').style.display='flex'"/>
+        <div id="cvl-avatar" style="display:none" class="cvl-avatar">RG</div>
+        <div class="cvl-name" id="cvl-name">Ravi S Ghosh</div>
+        <div class="cvl-title" id="cvl-role-title">Delivery Manager · Healthcare &amp; Life Sciences Analytics</div>
       </div>
+      <div class="cvl-divider"></div>
       <div>
-        <div class="cv-section">
-          <div class="cv-section-title">Skills</div>
-          <div class="cv-tags">
-            <span class="cv-tag">Delivery Management</span><span class="cv-tag">Programme Management</span><span class="cv-tag">Client Relationships</span><span class="cv-tag">People Management</span><span class="cv-tag">Presales</span><span class="cv-tag">Contract Management</span><span class="cv-tag">US Healthcare Domain</span><span class="cv-tag">HL7 / FHIR</span><span class="cv-tag">Interoperability</span><span class="cv-tag">GCP / BigQuery</span><span class="cv-tag">Azure Data Factory</span><span class="cv-tag">Oracle PL/SQL</span><span class="cv-tag">Python</span><span class="cv-tag">Tableau</span><span class="cv-tag">Agile / Scrum</span><span class="cv-tag">Lean Six Sigma</span>
-          </div>
-        </div>
-        <div class="cv-section">
-          <div class="cv-section-title">Awards</div>
-          <div style="font-size:10.5px;line-height:1.8;color:var(--fg2)">
-            GSK Bronze Award (2025) · Gratitude Award, Emids (2023) · CEO Award Innovation (2021) · Star Awards (2016, 2018) · CEO Award Customer Success (2017)
-          </div>
-        </div>
+        <div class="cvl-section-title">Contact</div>
+        <div class="cvl-contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span id="cvl-email">mail@ravisghosh.com</span></div>
+        <div class="cvl-contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.06 1.18 2 2 0 012.03 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg><span id="cvl-phone">+91-805 015 8015</span></div>
+        <div class="cvl-contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg><a id="cvl-linkedin" href="https://linkedin.com/in/ravisghosh" target="_blank">linkedin.com/in/ravisghosh</a></div>
+        <div class="cvl-contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg><a id="cvl-web" href="https://cv.ravisghosh.com" target="_blank">cv.ravisghosh.com</a></div>
+        <div class="cvl-contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span id="cvl-loc">Bangalore, India</span></div>
+      </div>
+      <div class="cvl-divider"></div>
+      <div>
+        <div class="cvl-section-title">Core Skills</div>
+        <div id="cvl-skills-bars"></div>
+      </div>
+      <div class="cvl-divider"></div>
+      <div>
+        <div class="cvl-section-title">Travel Readiness</div>
+        <div id="cvl-travel-left" class="cvl-travel-text"></div>
       </div>
     </div>
+
+    <!-- MIDDLE COLUMN -->
+    <div class="cvl-mid">
+      <div class="cvl-section">
+        <div class="cvl-sec-head">Professional Summary</div>
+        <div class="cvl-summary" id="cvl-summary"></div>
+      </div>
+      <div class="cvl-section">
+        <div class="cvl-sec-head">Experience</div>
+        <div id="cvl-experience"></div>
+      </div>
+      <div class="cvl-section">
+        <div class="cvl-sec-head">Key Accounts</div>
+        <div id="cvl-clients" style="display:flex;flex-wrap:wrap;gap:2px"></div>
+      </div>
+      <div class="cvl-section">
+  <div class="cvl-sec-head">Certifications</div>
+  <div id="cvl-certs-mid" class="cvl-certs-grid"></div>
+  </div>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="cvl-right">
+      <div class="cvl-section">
+        <div class="cvl-sec-head">Education</div>
+        <div id="cvl-education"></div>
+      </div>
+      <div class="cvl-right-divider"></div>
+      <div class="cvl-section">
+        <div class="cvl-sec-head">Awards &amp; Recognition</div>
+        <div id="cvl-awards"></div>
+      </div>
+      <div class="cvl-right-divider"></div>
+      <div class="cvl-section">
+        <div class="cvl-sec-head">Technologies &amp; Standards</div>
+        <div id="cvl-tech-tags" style="line-height:1.8"></div>
+      </div>
+      <div class="cvl-right-divider"></div>
+      <div class="cvl-section">
+        <div class="cvl-sec-head">Interests</div>
+        <div id="cvl-interests"></div>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -789,20 +1001,20 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
   <div class="dl-bar">
     <button class="dl-btn dl-btn-primary" onclick="printResume()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="12" y2="18"/><line x1="15" y1="15" x2="12" y2="18"/></svg>
-      Save / Print as PDF
+      Download Detailed Resume
     </button>
     <button class="dl-btn" onclick="openCompact()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-      Compact 1-page View
+      Download Compact Resume
     </button>
     <button class="dl-btn" onclick="downloadText()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
-      Download Text
+      Download Text Resume
     </button>
   </div>
-  <p style="font-size:11px;color:var(--fg3);margin-bottom:24px">PDF: click "Save / Print as PDF" → choose "Save as PDF" in the print dialog. &nbsp;|&nbsp; Compact view: a traditional 1–2 page resume layout.</p>
+  <p style="font-size:11px;color:var(--fg3);margin-bottom:24px">Detailed PDF: in the print dialog set <strong>Margins: None</strong> and uncheck <strong>Headers and footers</strong> for a clean output. &nbsp;|&nbsp; Compact: 1-page landscape layout with photo — click "Save as PDF" inside the compact view.</p>
 
-  <!-- QR Code (item 19) -->
+  <!-- QR Code -->
   <div class="qr-wrap">
     <canvas id="qr-canvas" width="96" height="96"></canvas>
     <div class="qr-text">
@@ -828,7 +1040,7 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
 </div>
 
 <script>
-/* ── Navigation with hash routing (item 13 bonus) ── */
+/* ── Navigation ── */
 var NAV={home:'t-home',career:'t-career',projects:'t-projects',clients:'t-clients',
   education:'t-education',skills:'t-skills',awards:'t-awards',
   'interests-volunteer':'t-interests-volunteer',contact:'t-contact'};
@@ -849,19 +1061,16 @@ function show(page){
   if(page==='home')animateCounters();
 }
 
-/* Handle initial hash */
 window.addEventListener('load',function(){
   var hash=(location.hash||'#home').replace('#','');
   show(NAV[hash]?hash:'home');
   generateQR();
 });
 
-/* ── Back to top (item 12) ── */
 window.addEventListener('scroll',function(){
   document.getElementById('back-to-top').classList.toggle('visible',window.scrollY>300);
 });
 
-/* ── Skill bar animation ── */
 var skillsAnimated=false;
 function animateSkillBars(){
   if(skillsAnimated)return;
@@ -873,7 +1082,6 @@ function animateSkillBars(){
   },80);
 }
 
-/* ── Counter animation (stat numbers) ── */
 var countersRun=false;
 function animateCounters(){
   if(countersRun)return;
@@ -888,7 +1096,6 @@ function animateCounters(){
   });
 }
 
-/* ── Org card toggle ── */
 function toggleOrg(header){
   var roles=header.nextElementSibling;
   var chevron=header.querySelector('.org-chevron');
@@ -900,7 +1107,6 @@ function toggleOrg(header){
 
 function toggleProj(card){card.querySelector('.proj-detail').classList.toggle('open');}
 
-/* ── Copy to clipboard (item 11) ── */
 function copyText(text,btn){
   navigator.clipboard.writeText(text).then(function(){
     var orig=btn.textContent;
@@ -910,27 +1116,487 @@ function copyText(text,btn){
   });
 }
 
-/* ── Compact view (item 20) ── */
-function openCompact(){document.getElementById('compact-overlay').classList.add('open');}
+/* ═══════════════════════════════════════════════════
+   COMPACT VIEW
+═══════════════════════════════════════════════════ */function openCompact(){
+  try{
+    buildCompactCV();
+    document.getElementById('compact-overlay').classList.add('open');
+  } catch(err){
+    console.error('Compact CV error:', err);
+    alert(err.message);
+  }
+}
 function closeCompact(){document.getElementById('compact-overlay').classList.remove('open');}
 
-/* ── Print / PDF ── */
-function printResume(){
-  document.querySelectorAll('.org-roles').forEach(r=>r.classList.add('open'));
-  document.querySelectorAll('.tiddler').forEach(t=>t.classList.add('active'));
+function printCompact(){
+  var wrap = document.getElementById('cv-landscape');
+  var origStyle = wrap.getAttribute('style')||'';
+  wrap.style.cssText = 'margin:0;width:100%;border-radius:0;box-shadow:none;';
+  var head = document.querySelector('head');
+  var printStyle = document.createElement('style');
+  printStyle.id = 'compact-print-style';
+  /* printStyle.textContent = '@page{size:A4 landscape;margin:0} body > *:not(#compact-overlay){display:none!important} #compact-overlay{position:static!important;padding:0!important} .compact-close,.compact-actions{display:none!important} .cv-landscape-wrap{width:100%!important;margin:0!important;min-height:100vh!important;}';*/
+  printStyle.textContent = `
+  @page{
+    size:A4 landscape;
+    margin:0;
+  }
+
+  html,body{
+    margin:0!important;
+    padding:0!important;
+    background:#fff!important;
+  }
+
+  #app,
+  #sidebar,
+  #main,
+  #back-to-top{
+    display:none!important;
+  }
+
+  #compact-overlay{
+    display:block!important;
+    position:static!important;
+    inset:auto!important;
+    overflow:visible!important;
+    background:#fff!important;
+    padding:0!important;
+  }
+
+  .compact-close,
+  .compact-actions{
+    display:none!important;
+  }
+
+  .cv-landscape-wrap{
+    width:100%!important;
+    min-height:100vh!important;
+    margin:0!important;
+    border-radius:0!important;
+    box-shadow:none!important;
+  }
+`;
+  head.appendChild(printStyle);
   window.print();
   setTimeout(function(){
-    document.querySelectorAll('.tiddler').forEach(t=>t.classList.remove('active'));
-    document.querySelectorAll('.org-roles').forEach(r=>r.classList.remove('open'));
-    document.querySelectorAll('.org-chevron').forEach(c=>c.classList.remove('open'));
-    show(currentPage);
-  },1000);
+    var s = document.getElementById('compact-print-style');
+    if(s) s.remove();
+    wrap.setAttribute('style', origStyle);
+  }, 1200);
 }
 
-/* ── QR code generator (item 19) — pure canvas, no library ── */
+function buildCompactCV(){
+  /* Summary */
+  var summaryEl = document.querySelector('#t-home > p');
+  document.getElementById('cvl-summary').textContent = summaryEl ? summaryEl.textContent.trim() : '';
+
+  /* Contact from sidebar */
+  document.querySelectorAll('.sb-contact-row a').forEach(function(a){
+    var href = a.getAttribute('href')||'';
+    if(href.startsWith('mailto:')) document.getElementById('cvl-email').textContent = a.textContent.trim();
+    else if(href.startsWith('tel:')) document.getElementById('cvl-phone').textContent = a.textContent.trim();
+    else if(href.includes('linkedin')) document.getElementById('cvl-linkedin').textContent = a.textContent.trim();
+    else if(href.includes('ravisghosh.com')) document.getElementById('cvl-web').textContent = a.textContent.trim();
+  });
+
+  /* Name & title */
+  var h1 = document.querySelector('.profile-info h1');
+  var tagline = document.querySelector('.profile-tagline');
+  if(h1) document.getElementById('cvl-name').textContent = h1.textContent.trim();
+  if(tagline) document.getElementById('cvl-role-title').textContent = tagline.textContent.trim();
+
+  /* Location */
+  document.querySelectorAll('.contact-val').forEach(function(el){
+    if(el.previousElementSibling && el.previousElementSibling.textContent.trim()==='Location'){
+      document.getElementById('cvl-loc').textContent = el.textContent.trim();
+    }
+  });
+
+  /* Travel — goes to LEFT column */
+  var travelEl = document.querySelector('#t-contact .contact-val[style*="font-size:11.5px"]');
+  var travelText = travelEl ? travelEl.textContent.trim() : 'Indian Passport (2031) · US B1/B2 (2036)';
+  var travelLeftEl = document.getElementById('cvl-travel-left');
+  if(travelLeftEl) travelLeftEl.textContent = travelText;
+
+  /* Skills bars */
+  var skillsBarsHtml = '';
+  document.querySelectorAll('#t-skills .skill-row').forEach(function(row){
+    var name = row.querySelector('.skill-name');
+    var fill = row.querySelector('.skill-fill');
+    if(!name || !fill) return;
+    var w = fill.dataset.w || '70';
+    skillsBarsHtml += '<div class="cvl-skill-name">'+name.textContent.trim()+'</div>'
+      +'<div class="cvl-bar"><div class="cvl-bar-fill" style="width:'+parseInt(w)+'%"></div></div>';
+  });
+  document.getElementById('cvl-skills-bars').innerHTML = skillsBarsHtml;
+
+  /* Certifications — LEFT column, single-col tight list (white text on green) */
+  var certsHtml = '';
+  document.querySelectorAll('.cert-item').forEach(function(item){
+    var name = item.querySelector('.cert-name');
+    var org = item.querySelector('.cert-org');
+    if(!name) return;
+    certsHtml += '<div class="cvl-cert-name">'+name.textContent.trim()+'</div>';
+    if(org) certsHtml += '<div class="cvl-cert-org">'+org.textContent.trim()+'</div>';
+  });
+  document.getElementById('cvl-certs-mid').innerHTML = certsHtml;
+
+  /* Tech tags — RIGHT column */
+  var techHtml = '';
+  document.querySelectorAll('#t-skills h2').forEach(function(h2){
+    if(h2.textContent.includes('Technologies')){
+      var sibling = h2.nextElementSibling;
+      if(sibling) sibling.querySelectorAll('.tag').forEach(function(t){
+        var cls = t.classList.contains('tag-b')?'cvl-tag-b':t.classList.contains('tag-p')?'cvl-tag-p':t.classList.contains('tag-o')?'cvl-tag-o':'';
+        techHtml += '<span class="cvl-tag '+cls+'">'+t.textContent.trim()+'</span>';
+      });
+    }
+  });
+  document.getElementById('cvl-tech-tags').innerHTML = techHtml;
+
+  /* Experience */
+  var expHtml = '';
+  document.querySelectorAll('.org-card').forEach(function(orgCard){
+    var orgName = orgCard.querySelector('.org-name');
+    var orgTenure = orgCard.querySelector('.org-tenure');
+    if(!orgName) return;
+    expHtml += '<div class="cvl-role"><div class="cvl-role-header"><span class="cvl-role-org">'+orgName.textContent.trim()+'</span>';
+    if(orgTenure) expHtml += '<span class="cvl-role-dates">'+orgTenure.textContent.trim()+'</span>';
+    expHtml += '</div>';
+    var firstRole = orgCard.querySelector('.role-item');
+    if(firstRole){
+      var rt = firstRole.querySelector('.role-title');
+      if(rt) expHtml += '<div class="cvl-role-title">'+rt.textContent.trim()+'</div>';
+      expHtml += '<ul class="cvl-role-ul">';
+      firstRole.querySelectorAll('.role-detail li').forEach(function(li,i){
+        if(i<2) expHtml += '<li>'+li.textContent.trim()+'</li>';
+      });
+      expHtml += '</ul>';
+    }
+    expHtml += '</div>';
+  });
+  document.getElementById('cvl-experience').innerHTML = expHtml;
+
+  /* Key clients */
+  var clientsHtml = '';
+  document.querySelectorAll('.client-card').forEach(function(card){
+    var name = card.querySelector('.client-name');
+    if(name) clientsHtml += '<span class="cvl-tag" style="background:#e6f4e6;color:#1a5c1a;font-size:6.5pt;padding:1px 5px;">'+name.textContent.trim()+'</span>';
+  });
+  document.getElementById('cvl-clients').innerHTML = clientsHtml;
+
+  /* Education */
+  var eduHtml = '';
+  document.querySelectorAll('#t-education .card').forEach(function(card){
+    var name = card.querySelector('.edu-name');
+    var inst = card.querySelector('.edu-inst');
+    var period = card.querySelector('.edu-period');
+    if(!name) return;
+    eduHtml += '<div class="cvl-edu"><div class="cvl-edu-name">'+name.textContent.trim()+'</div>';
+    if(inst) eduHtml += '<div class="cvl-edu-inst">'+inst.textContent.trim()+'</div>';
+    if(period) eduHtml += '<div class="cvl-edu-yr">'+period.textContent.trim()+'</div>';
+    eduHtml += '</div>';
+  });
+  document.getElementById('cvl-education').innerHTML = eduHtml;
+
+  /* Awards */
+  var awardsHtml = '';
+  document.querySelectorAll('.award-card').forEach(function(card,i){
+    if(i>4) return;
+    var title = card.querySelector('.award-title');
+    var meta = card.querySelector('.award-meta');
+    awardsHtml += '<div class="cvl-award">';
+    if(title) awardsHtml += '<div class="cvl-award-title">'+title.textContent.trim()+'</div>';
+    if(meta) awardsHtml += '<div class="cvl-award-org">'+meta.textContent.trim()+'</div>';
+    awardsHtml += '</div>';
+  });
+  document.getElementById('cvl-awards').innerHTML = awardsHtml;
+
+  /* Interests */
+  var intHtml = '';
+  document.querySelectorAll('.int-name').forEach(function(el){
+    intHtml += '<div class="cvl-interest">'+el.textContent.trim()+'</div>';
+  });
+  document.getElementById('cvl-interests').innerHTML = intHtml;
+}
+
+/* ═══════════════════════════════════════════════════
+   DETAILED PDF — Option 1: fixed sidebar + flowing right panel
+═══════════════════════════════════════════════════ */
+function printResume(){
+  buildPrintShell();
+  document.getElementById('compact-overlay').classList.remove('open');
+  var shell = document.getElementById('print-shell');
+  shell.style.display = 'block';
+  window.print();
+  setTimeout(function(){ shell.style.display = 'none'; }, 1200);
+}
+
+function buildPrintShell(){
+  var shell = document.getElementById('print-shell');
+  if(!shell){
+    shell = document.createElement('div');
+    shell.id = 'print-shell';
+    shell.style.display = 'none';
+    document.getElementById('main').appendChild(shell);
+  }
+
+  function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function tx(sel){ var e=document.querySelector(sel); return e?e.textContent.trim():''; }
+
+  /* Gather contacts */
+  var email='', phone='', linkedin='', web='', loc='Bangalore, India';
+  document.querySelectorAll('.sb-contact-row').forEach(function(row){
+    var a = row.querySelector('a'); if(!a) return;
+    var h = a.getAttribute('href')||'';
+    if(h.startsWith('mailto:')) email = a.textContent.trim();
+    else if(h.startsWith('tel:')) phone = a.textContent.trim();
+    else if(h.includes('linkedin')) linkedin = a.textContent.trim();
+    else if(h.includes('ravisghosh.com')) web = a.textContent.trim();
+  });
+  var travelEl = document.querySelector('#t-contact .contact-val[style*="font-size"]');
+  var travel = travelEl ? travelEl.textContent.trim() : 'Indian Passport · US B1/B2 Visa';
+
+  /* Photo */
+  var photoEl = document.getElementById('sb-photo');
+  var photoHidden = photoEl && photoEl.style.display==='none';
+  var photoSrc = photoEl ? photoEl.src : 'https://raw.githubusercontent.com/ravisghosh/cv/main/photo-headshot.jpg';
+  var headerPhoto = photoHidden
+    ? '<div class="pr-header-avatar">RG</div>'
+    : '<img class="pr-header-photo" src="'+photoSrc+'" alt="Ravi S Ghosh"/>';
+
+  /* Stats */
+  var statsHtml = '';
+  document.querySelectorAll('.stat-card').forEach(function(c){
+    var num=c.querySelector('.stat-num'), lbl=c.querySelector('.stat-lbl');
+    if(!num||!lbl) return;
+    statsHtml += '<div class="pr-stat"><div class="pr-stat-num">'+esc(num.textContent.trim())+'</div><div class="pr-stat-lbl">'+esc(lbl.textContent.trim())+'</div></div>';
+  });
+
+  /* Skills bars — LEFT sidebar (all skill rows) */
+  var skillsHtml = '';
+  document.querySelectorAll('#t-skills .skill-row').forEach(function(row){
+    var name=row.querySelector('.skill-name'), fill=row.querySelector('.skill-fill');
+    if(!name||!fill) return;
+    var w = fill.dataset.w || '70';
+    skillsHtml += '<div class="pr-skill-row"><span class="pr-skill-name">'+esc(name.textContent.trim())+'</span><div class="pr-skill-bar"><div class="pr-skill-fill" style="width:'+w+'%"></div></div></div>';
+  });
+
+  /* Tech tags */
+  var techHtml = '';
+  document.querySelectorAll('#t-skills h2').forEach(function(h2){
+    if(h2.textContent.includes('Technolog')){
+      var sib = h2.nextElementSibling;
+      if(sib) sib.querySelectorAll('.tag').forEach(function(t){
+        var cls = t.classList.contains('tag-b')?'pr-tag-b':t.classList.contains('tag-p')?'pr-tag-p':t.classList.contains('tag-o')?'pr-tag-o':'';
+        techHtml += '<span class="pr-tag '+cls+'">'+esc(t.textContent.trim())+'</span>';
+      });
+    }
+  });
+
+  /* Education */
+  var eduHtml = '';
+  document.querySelectorAll('#t-education .card').forEach(function(c){
+    var n=c.querySelector('.edu-name'),i=c.querySelector('.edu-inst'),p=c.querySelector('.edu-period');
+    if(!n) return;
+    eduHtml += '<div class="pr-edu"><div class="pr-edu-name">'+esc(n.textContent.trim())+'</div>';
+    if(i) eduHtml += '<div class="pr-edu-inst">'+esc(i.textContent.trim())+'</div>';
+    if(p) eduHtml += '<div class="pr-edu-yr">'+esc(p.textContent.trim())+'</div></div>';
+  });
+
+  /* Certifications — single column in sidebar */
+  var certsHtml = '';
+  document.querySelectorAll('.cert-item').forEach(function(item){
+    var n=item.querySelector('.cert-name'),o=item.querySelector('.cert-org');
+    if(!n) return;
+    certsHtml += '<div class="pr-cert"><div class="pr-cert-name">'+esc(n.textContent.trim())+'</div>';
+    if(o) certsHtml += '<div class="pr-cert-org">'+esc(o.textContent.trim())+'</div></div>';
+  });
+
+  /* Summary main para */
+  var summaryMain = tx('#t-home > p');
+
+  /* Summary blocks — RIGHT panel */
+  var summaryBlocksHtml = '';
+  document.querySelectorAll('#t-home .summary-block').forEach(function(block){
+    var h=block.querySelector('h3'), lis=block.querySelectorAll('li');
+    if(!h||!lis.length) return;
+    summaryBlocksHtml += '<div class="pr-summary-block"><div class="pr-summary-block-title">'+esc(h.textContent.trim())+'</div>';
+    lis.forEach(function(li){ summaryBlocksHtml += '<div class="pr-summary-li">'+esc(li.textContent.trim())+'</div>'; });
+    summaryBlocksHtml += '</div>';
+  });
+
+  /* Experience — RIGHT panel */
+  var expHtml = '';
+  document.querySelectorAll('.org-card').forEach(function(orgCard){
+    var orgName=orgCard.querySelector('.org-name');
+    var orgTenure=orgCard.querySelector('.org-tenure');
+    if(!orgName) return;
+    expHtml += '<div class="pr-org"><div class="pr-org-header"><span class="pr-org-name">'+esc(orgName.textContent.trim())+'</span>';
+    if(orgTenure) expHtml += '<span class="pr-org-dates">'+esc(orgTenure.textContent.trim())+'</span>';
+    expHtml += '</div>';
+    orgCard.querySelectorAll('.role-item').forEach(function(role){
+      var rt=role.querySelector('.role-title'),rp=role.querySelector('.role-period');
+      expHtml += '<div class="pr-role">';
+      if(rt) expHtml += '<div class="pr-role-title">'+esc(rt.textContent.trim())+'</div>';
+      if(rp) expHtml += '<div class="pr-role-period">'+esc(rp.textContent.trim())+'</div>';
+      expHtml += '<ul class="pr-role-ul">';
+      role.querySelectorAll('.role-detail li').forEach(function(li){ expHtml += '<li>'+esc(li.textContent.trim())+'</li>'; });
+      expHtml += '</ul></div>';
+    });
+    expHtml += '</div>';
+  });
+
+  /* Projects — PAGE 2, 3-col grid */
+  var projHtml = '';
+  document.querySelectorAll('.proj-card').forEach(function(card){
+    var t=card.querySelector('.proj-title'),m=card.querySelector('.proj-meta'),d=card.querySelector('.proj-detail');
+    if(!t) return;
+    projHtml += '<div class="pr-proj"><div class="pr-proj-title">'+esc(t.textContent.trim())+'</div>';
+    if(m) projHtml += '<div class="pr-proj-meta">'+esc(m.textContent.trim())+'</div>';
+    if(d) projHtml += '<div class="pr-proj-body">'+esc(d.textContent.trim())+'</div></div>';
+  });
+
+  /* Clients */
+  var clientsHtml = '';
+  document.querySelectorAll('.client-card').forEach(function(c){
+    var n=c.querySelector('.client-name'),d=c.querySelector('.client-desc');
+    if(!n) return;
+    clientsHtml += '<div class="pr-client"><div class="pr-client-name">'+esc(n.textContent.trim())+'</div>';
+    if(d) clientsHtml += '<div class="pr-client-desc">'+esc(d.textContent.trim())+'</div></div>';
+  });
+
+  /* Awards */
+  var awardsHtml = '';
+  document.querySelectorAll('.award-card').forEach(function(c){
+    var t=c.querySelector('.award-title'),m=c.querySelector('.award-meta'),b=c.querySelector('.award-body');
+    if(!t) return;
+    awardsHtml += '<div class="pr-award"><div class="pr-award-title">'+esc(t.textContent.trim())+'</div>';
+    if(m) awardsHtml += '<div class="pr-award-meta">'+esc(m.textContent.trim())+'</div>';
+    if(b) awardsHtml += '<div class="pr-award-body">'+esc(b.textContent.trim())+'</div></div>';
+  });
+
+  /* Interests */
+  var intHtml = '<div class="pr-int-grid">';
+  document.querySelectorAll('.int-name').forEach(function(el){ intHtml += '<div class="pr-int">'+esc(el.textContent.trim())+'</div>'; });
+  intHtml += '</div>';
+
+  /* Volunteering */
+  var volHtml = '';
+  document.querySelectorAll('.vol-card').forEach(function(c){
+    var h3=c.querySelector('h3'),period=c.querySelector('div[style*="color:var(--acc)"]'),p=c.querySelector('p');
+    volHtml += '<div class="pr-vol">';
+    if(h3) volHtml += '<div class="pr-vol-name">'+esc(h3.textContent.trim())+'</div>';
+    if(period) volHtml += '<div class="pr-vol-period">'+esc(period.textContent.trim())+'</div>';
+    if(p) volHtml += '<div class="pr-vol-body">'+esc(p.textContent.trim())+'</div>';
+    volHtml += '</div>';
+  });
+
+  /* Assemble */
+  shell.innerHTML = `
+  <!-- PAGE 1: Green header + sidebar + experience -->
+  <div class="pr-page">
+    <div class="pr-header">
+      ${headerPhoto}
+      <div class="pr-header-info">
+        <h1>${esc(tx('.profile-info h1'))}</h1>
+        <div class="pr-header-tagline">${esc(tx('.profile-tagline'))}</div>
+        <div class="pr-header-contacts">
+          <span>✉ ${esc(email)}</span>
+          <span>✆ ${esc(phone)}</span>
+          <span>in ${esc(linkedin)}</span>
+          <span>⌂ ${esc(web)}</span>
+          <span>📍 ${esc(loc)}</span>
+        </div>
+      </div>
+    </div>
+    <div class="pr-body">
+      <!-- LEFT SIDEBAR -->
+      <div class="pr-left">
+        <div class="pr-sec">
+          <div class="pr-sec-title">At a Glance</div>
+          <div class="pr-stats">${statsHtml}</div>
+        </div>
+        <div class="pr-sec">
+          <div class="pr-sec-title">Summary</div>
+          <div style="font-size:7.5pt;color:#3d533d;line-height:1.55">${esc(summaryMain)}</div>
+        </div>
+        <div class="pr-divider"></div>
+        <div class="pr-sec">
+          <div class="pr-sec-title">Core Competencies</div>
+          ${skillsHtml}
+        </div>
+        <div class="pr-divider"></div>
+        <div class="pr-sec">
+          <div class="pr-sec-title">Education</div>
+          ${eduHtml}
+        </div>
+        <div class="pr-divider"></div>
+        <div class="pr-sec">
+          <div class="pr-sec-title">Certifications</div>
+          ${certsHtml}
+        </div>
+        <div class="pr-divider"></div>
+        <div class="pr-sec">
+          <div class="pr-sec-title">Technologies &amp; Standards</div>
+          ${techHtml}
+        </div>
+        <div class="pr-divider"></div>
+        <div class="pr-sec">
+          <div class="pr-sec-title">Travel</div>
+          <div style="font-size:7pt;color:#3d533d">${esc(travel)}</div>
+        </div>
+      </div>
+      <!-- RIGHT PANEL -->
+      <div class="pr-right">
+        <div class="pr-sec-title-right">Key Competency Areas</div>
+        ${summaryBlocksHtml}
+        <div class="pr-divider"></div>
+        <div class="pr-sec-title-right">Experience</div>
+        ${expHtml}
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 2: Projects + Clients + Awards + Interests -->
+  <div class="pr-page">
+    <div class="pr-header" style="padding:5mm 10mm">
+      <div class="pr-header-info">
+        <h1 style="font-size:14pt">${esc(tx('.profile-info h1'))} — Projects, Clients &amp; Recognition</h1>
+        <div class="pr-header-contacts" style="margin-top:3px">
+          <span>✉ ${esc(email)}</span><span>✆ ${esc(phone)}</span><span>in ${esc(linkedin)}</span>
+        </div>
+      </div>
+    </div>
+    <div class="pr-p2-body">
+      <div style="margin-bottom:2mm">
+        <div class="pr-sec-title-right">Projects Delivered</div>
+        <div class="pr-proj-grid">${projHtml}</div>
+      </div>
+      <div class="pr-divider"></div>
+      <div class="pr-p2-grid">
+        <div>
+          <div class="pr-sec-title-right" style="margin-bottom:4px">Key Accounts &amp; Clients</div>
+          <div class="pr-clients-grid" style="margin-bottom:5mm">${clientsHtml}</div>
+          <div class="pr-divider"></div>
+          <div class="pr-sec-title-right" style="margin-bottom:4px">Interests &amp; Volunteering</div>
+          ${intHtml}
+          <div style="margin-top:3mm">${volHtml}</div>
+        </div>
+        <div>
+          <div class="pr-sec-title-right" style="margin-bottom:4px">Awards &amp; Recognition</div>
+          ${awardsHtml}
+        </div>
+      </div>
+    </div>
+  </div>
+  `;
+}
+
+/* ── QR code ── */
 function generateQR(){
-  /* Minimal QR-like visual pointing to cv.ravisghosh.com
-     Uses a real QR via Google Charts API fallback as an img */
   var canvas=document.getElementById('qr-canvas');
   if(!canvas)return;
   var img=document.createElement('img');
@@ -939,7 +1605,6 @@ function generateQR(){
     ctx.drawImage(img,0,0,96,96);
   };
   img.onerror=function(){
-    /* If blocked, draw a placeholder */
     var ctx=canvas.getContext('2d');
     ctx.fillStyle='#f7f9f7';ctx.fillRect(0,0,96,96);
     ctx.fillStyle='#2e6b3e';ctx.font='bold 9px sans-serif';
@@ -949,80 +1614,122 @@ function generateQR(){
   img.crossOrigin='anonymous';
 }
 
-/* ── Text download ── */
+/* ── Text download — fully dynamic ── */
 function downloadText(){
-  var txt=`RAVI S GHOSH
-Senior Manager – Healthcare & Life Sciences Analytics
-Bangalore, India | mail@ravisghosh.com | +91-805 015 8015
-WhatsApp: wa.me/918050158015
-LinkedIn: linkedin.com/in/ravisghosh | Web: ravisghosh.com | CV: cv.ravisghosh.com
+  function line(ch,len){return ch.repeat(len||60);}
+  function getText(sel){var el=document.querySelector(sel);return el?el.textContent.trim():'';}
 
-─────────────────────────────────────────────────────
-SUMMARY
-─────────────────────────────────────────────────────
-Service Delivery Manager with 20+ years in healthcare IT. Expertise in data engineering, interoperability, data migration, and product implementation. Led global teams (80+), managed $8M+ annual portfolios, driven pre-sales and CoE initiatives.
+  var txt='';
+  txt += getText('.profile-info h1')+'\n';
+  txt += getText('.profile-tagline')+'\n';
+  txt += getText('.profile-loc')+'\n';
 
-─────────────────────────────────────────────────────
-EXPERIENCE
-─────────────────────────────────────────────────────
-Tredence Inc | Oct 2025 – Present
-Senior Manager – Healthcare & Life Sciences, Analytics
-• Manage IT service delivery for data analytics and AI/ML projects in the HLS vertical.
+  var contacts=[];
+  document.querySelectorAll('.sb-contact-row a').forEach(function(a){contacts.push(a.textContent.trim());});
+  txt += contacts.filter(function(v,i,a){return a.indexOf(v)===i;}).join(' | ')+'\n';
+  txt += '\n'+line('─')+'\nSUMMARY\n'+line('─')+'\n';
+  txt += getText('#t-home > p')+'\n';
 
-GSK plc | Sep 2024 – Oct 2025
-Data Analytics Manager, R&D Division
-• Product ownership of enterprise request management system (GSK Bronze Award, Apr 2025).
-• Medical and Safety review tool implementation across 7 geographies.
+  document.querySelectorAll('#t-home .summary-block').forEach(function(block){
+    var h=block.querySelector('h3');
+    if(h) txt += '\n'+h.textContent.trim()+'\n';
+    block.querySelectorAll('li').forEach(function(li){txt += '• '+li.textContent.trim()+'\n';});
+  });
 
-Emids Technologies | Feb 2016 – Aug 2024
-Group PM (Jan 2023 – Aug 2024): ~$8M portfolio, 12 projects, ~80 people. Led Data Integration CoE.
-Senior PM (Jan 2021 – Dec 2022): ~$2M portfolio. CEO's Award – Innovation & Execution Excellence (2021).
-PM (Jan 2019 – Dec 2020): ~$1M portfolio, 2 projects.
-Associate Manager (Jul 2017 – Dec 2018): Patient access product implementation.
-Team Lead (Feb 2016 – Jun 2017): Legacy to web migration (Change Healthcare PAA).
+  txt += '\n'+line('─')+'\nEXPERIENCE\n'+line('─')+'\n';
+  document.querySelectorAll('.org-card').forEach(function(orgCard){
+    var orgName=orgCard.querySelector('.org-name');
+    var orgTenure=orgCard.querySelector('.org-tenure');
+    if(!orgName) return;
+    txt += '\n'+orgName.textContent.trim();
+    if(orgTenure) txt += ' | '+orgTenure.textContent.trim();
+    txt += '\n';
+    orgCard.querySelectorAll('.role-item').forEach(function(role){
+      var rt=role.querySelector('.role-title'),rp=role.querySelector('.role-period');
+      if(rt) txt += '  '+rt.textContent.trim();
+      if(rp) txt += ' · '+rp.textContent.trim();
+      txt += '\n';
+      role.querySelectorAll('.role-detail li').forEach(function(li){txt += '    → '+li.textContent.trim()+'\n';});
+    });
+  });
 
-M*Modal Global Services | May 2013 – Feb 2016
-Lead Implementation Services / Implementation Executive
-• Led team of 15 on speech recognition platforms. Migrated 86% of total volume.
+  txt += '\n'+line('─')+'\nPROJECTS\n'+line('─')+'\n';
+  document.querySelectorAll('.proj-card').forEach(function(card){
+    var title=card.querySelector('.proj-title'),meta=card.querySelector('.proj-meta'),detail=card.querySelector('.proj-detail');
+    if(!title) return;
+    txt += '\n'+title.textContent.trim()+'\n';
+    if(meta) txt += '  '+meta.textContent.trim()+'\n';
+    if(detail) txt += '  '+detail.textContent.trim()+'\n';
+  });
 
-Transcend / Heartland → Nuance | Dec 2001 – May 2013
-Team Lead – Implementation / Production Support / Medical Transcriptionist
-• GEMSTAR V10/V11 BA & UAT lead. Errors 1.45%→0.65%, TAT +36%, productivity +42%.
+  txt += '\n'+line('─')+'\nKEY ACCOUNTS / CLIENTS\n'+line('─')+'\n';
+  document.querySelectorAll('.client-card').forEach(function(card){
+    var name=card.querySelector('.client-name'),desc=card.querySelector('.client-desc');
+    if(!name) return;
+    txt += '\n'+name.textContent.trim()+'\n';
+    if(desc) txt += '  '+desc.textContent.trim()+'\n';
+  });
 
-─────────────────────────────────────────────────────
-EDUCATION
-─────────────────────────────────────────────────────
-Business Management – MicroMasters | IIM Bangalore | 2019
-Bachelor of Science – Botany | IGNOU | 2010
+  txt += '\n'+line('─')+'\nEDUCATION\n'+line('─')+'\n';
+  document.querySelectorAll('#t-education .card').forEach(function(card){
+    var name=card.querySelector('.edu-name'),inst=card.querySelector('.edu-inst'),period=card.querySelector('.edu-period');
+    if(!name) return;
+    txt += name.textContent.trim();
+    if(inst) txt += ' | '+inst.textContent.trim();
+    if(period) txt += ' | '+period.textContent.trim();
+    txt += '\n';
+  });
 
-─────────────────────────────────────────────────────
-CERTIFICATIONS
-─────────────────────────────────────────────────────
-Lean Six Sigma Green Belt | Agile Scrum Master (EXIN) | Blockchain For Business (Linux Foundation)
-Platform Cooperatives Now | Economic Democracy (Edinburgh) | WINFluence Leadership | Lead for Success
+  txt += '\n'+line('─')+'\nCERTIFICATIONS\n'+line('─')+'\n';
+  document.querySelectorAll('.cert-item').forEach(function(item){
+    var name=item.querySelector('.cert-name'),org=item.querySelector('.cert-org'),link=item.querySelector('.cert-link');
+    if(!name) return;
+    txt += name.textContent.trim();
+    if(org) txt += ' | '+org.textContent.trim();
+    if(link) txt += ' | '+link.getAttribute('href');
+    txt += '\n';
+  });
 
-─────────────────────────────────────────────────────
-SKILLS
-─────────────────────────────────────────────────────
-Delivery Management | Programme Management | Client Relationship Management | People Management
-Presales & Solution Design | Contract Management | US Healthcare Domain | HL7 / FHIR
-Interoperability | GCP / BigQuery | Azure Data Factory | Oracle PL/SQL | Python | Tableau
+  txt += '\n'+line('─')+'\nSKILLS\n'+line('─')+'\n';
+  document.querySelectorAll('#t-skills h2').forEach(function(h2){
+    txt += '\n'+h2.textContent.trim()+'\n';
+    var sibling=h2.nextElementSibling;
+    if(!sibling) return;
+    sibling.querySelectorAll('.skill-name').forEach(function(s){txt += '• '+s.textContent.trim()+'\n';});
+    sibling.querySelectorAll('.tag').forEach(function(t){txt += '• '+t.textContent.trim()+'\n';});
+  });
 
-─────────────────────────────────────────────────────
-AWARDS
-─────────────────────────────────────────────────────
-GSK Bronze Award (2025) | Gratitude Award, Emids (2023) | CEO Award Innovation (2021)
-Star Awards (2016, 2018) | CEO Award Customer Success (2017) | Clause for Applause (2016)
+  txt += '\n'+line('─')+'\nAWARDS & RECOGNITION\n'+line('─')+'\n';
+  document.querySelectorAll('.award-card').forEach(function(card){
+    var title=card.querySelector('.award-title'),meta=card.querySelector('.award-meta'),body=card.querySelector('.award-body');
+    if(!title) return;
+    txt += '\n'+title.textContent.trim()+'\n';
+    if(meta) txt += '  '+meta.textContent.trim()+'\n';
+    if(body) txt += '  '+body.textContent.trim()+'\n';
+  });
 
-─────────────────────────────────────────────────────
-TRAVEL
-─────────────────────────────────────────────────────
-Indian Passport valid till 2031 | US B1/B2 Visa valid till 2036
-`;
-  var blob=new Blob([txt],{type:'text/plain'});
+  txt += '\n'+line('─')+'\nINTERESTS & VOLUNTEERING\n'+line('─')+'\n';
+  txt += '\nAreas of Interest\n';
+  document.querySelectorAll('.int-name').forEach(function(el){txt += '• '+el.textContent.trim()+'\n';});
+  txt += '\nVolunteering\n';
+  document.querySelectorAll('.vol-card').forEach(function(card){
+    var h3=card.querySelector('h3'),period=card.querySelector('div[style*="color:var(--acc)"]'),p=card.querySelector('p');
+    if(h3) txt += h3.textContent.trim()+'\n';
+    if(period) txt += '  '+period.textContent.trim()+'\n';
+    if(p) txt += '  '+p.textContent.trim()+'\n';
+  });
+
+  txt += '\n'+line('─')+'\nCONTACT & TRAVEL\n'+line('─')+'\n';
+  document.querySelectorAll('.contact-item').forEach(function(item){
+    var label=item.querySelector('.contact-label'),val=item.querySelector('.contact-val');
+    if(label&&val) txt += label.textContent.trim()+': '+val.textContent.trim()+'\n';
+  });
+
+  var name=getText('.profile-info h1').replace(/\s+/g,'-')||'Resume';
+  var blob=new Blob([txt],{type:'text/plain;charset=utf-8'});
   var a=document.createElement('a');
   a.href=URL.createObjectURL(blob);
-  a.download='Ravi-S-Ghosh-Resume.txt';
+  a.download=name+'-Resume-Full.txt';
   a.click();
 }
 </script>
