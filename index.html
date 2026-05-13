@@ -1108,10 +1108,14 @@ function copyText(text,btn){
 
 /* ═══════════════════════════════════════════════════
    COMPACT VIEW
-═══════════════════════════════════════════════════ */
-function openCompact(){
-  buildCompactCV();
-  document.getElementById('compact-overlay').classList.add('open');
+═══════════════════════════════════════════════════ */function openCompact(){
+  try{
+    buildCompactCV();
+    document.getElementById('compact-overlay').classList.add('open');
+  } catch(err){
+    console.error('Compact CV error:', err);
+    alert(err.message);
+  }
 }
 function closeCompact(){document.getElementById('compact-overlay').classList.remove('open');}
 
