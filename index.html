@@ -284,74 +284,177 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
 .qr-text h3{font-size:13px;font-weight:600;margin-bottom:4px}
 .qr-text p{font-size:12px;margin-bottom:0}
 
-/* Compact view (item 20) */
-#compact-overlay{display:none;position:fixed;inset:0;background:var(--bg);
-  z-index:500;overflow-y:auto;padding:32px 40px}
+/* Compact view (item 20) *//* Compact view (item 20) — landscape one-page */
+#compact-overlay{display:none;position:fixed;inset:0;background:#f0f4f0;
+  z-index:500;overflow-y:auto;padding:0}
 #compact-overlay.open{display:block}
-.compact-close{position:fixed;top:16px;right:20px;background:var(--acc);color:#fff;
-  border:none;border-radius:6px;padding:7px 14px;font-size:12px;font-weight:600;
-  cursor:pointer;z-index:501}
-.cv-page{max-width:780px;margin:0 auto;font-size:11.5px;line-height:1.5;color:var(--fg)}
-.cv-page h1{font-size:20px;font-weight:700;margin-bottom:2px}
-.cv-page .cv-tagline{font-size:12px;color:var(--fg2);margin-bottom:3px}
-.cv-page .cv-contacts{font-size:11px;color:var(--fg3);margin-bottom:16px;display:flex;gap:12px;flex-wrap:wrap}
-.cv-page .cv-section{margin-bottom:14px}
-.cv-page .cv-section-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
-  color:var(--acc2);border-bottom:1px solid var(--border2);padding-bottom:3px;margin-bottom:8px}
-.cv-page .cv-role{margin-bottom:8px}
-.cv-page .cv-role-header{display:flex;justify-content:space-between;font-weight:600;font-size:12px}
-.cv-page .cv-role-sub{font-size:11px;color:var(--fg3);margin-bottom:3px}
-.cv-page .cv-role ul{list-style:none;padding:0}
-.cv-page .cv-role ul li{position:relative;padding-left:12px;font-size:11px;color:var(--fg2);line-height:1.5}
-.cv-page .cv-role ul li::before{content:'•';position:absolute;left:0;color:var(--acc)}
-.cv-page .cv-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
-.cv-page .cv-tag{font-size:10px;background:var(--bg2);color:var(--fg3);
-  padding:1px 7px;border-radius:8px;border:1px solid var(--border)}
-.cv-page .cv-two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.compact-close{position:fixed;top:12px;right:16px;background:var(--acc);color:#fff;
+  border:none;border-radius:6px;padding:6px 12px;font-size:11px;font-weight:600;
+  cursor:pointer;z-index:501;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.compact-actions{position:fixed;top:12px;right:130px;display:flex;gap:8px;z-index:501}
+.compact-print-btn{background:var(--acc2);color:#fff;border:none;border-radius:6px;
+  padding:6px 12px;font-size:11px;font-weight:600;cursor:pointer;
+  box-shadow:0 2px 8px rgba(0,0,0,.2)}
+/* The A4 landscape page container */
+.cv-landscape-wrap{
+  width:297mm;min-height:210mm;margin:20px auto;
+  background:#fff;box-shadow:0 4px 24px rgba(0,0,0,.18);
+  display:grid;grid-template-columns:68mm 1fr 58mm;
+  font-size:8.5pt;line-height:1.45;color:#1c2b1c;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  overflow:hidden;border-radius:4px}
+/* LEFT column */
+.cvl-left{background:#2e6b3e;color:#fff;padding:16px 12px;display:flex;flex-direction:column;gap:10px}
+.cvl-photo{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:center top;
+  border:2px solid rgba(255,255,255,.4);display:block;margin:0 auto 8px}
+.cvl-avatar{width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;font-weight:700;color:#fff;margin:0 auto 8px}
+.cvl-name{font-size:13pt;font-weight:700;color:#fff;text-align:center;line-height:1.2;margin-bottom:2px}
+.cvl-title{font-size:7.5pt;color:rgba(255,255,255,.8);text-align:center;line-height:1.35;margin-bottom:4px}
+.cvl-divider{height:1px;background:rgba(255,255,255,.2);margin:2px 0}
+.cvl-section-title{font-size:7pt;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
+  color:rgba(255,255,255,.65);margin-bottom:5px}
+.cvl-contact-row{display:flex;align-items:flex-start;gap:6px;font-size:7.5pt;color:rgba(255,255,255,.9);margin-bottom:3px;line-height:1.35}
+.cvl-contact-row svg{width:9px;height:9px;flex-shrink:0;margin-top:1px;opacity:.75}
+.cvl-contact-row a{color:rgba(255,255,255,.9);text-decoration:none}
+.cvl-skill-name{font-size:7.5pt;color:rgba(255,255,255,.85);margin-bottom:2px}
+.cvl-bar{height:3px;background:rgba(255,255,255,.2);border-radius:2px;margin-bottom:5px;overflow:hidden}
+.cvl-bar-fill{height:100%;background:rgba(255,255,255,.75);border-radius:2px}
+.cvl-tag{display:inline-block;background:rgba(255,255,255,.15);color:rgba(255,255,255,.9);
+  font-size:6.5pt;padding:1px 5px;border-radius:8px;margin:1px 1px}
+.cvl-cert-name{font-size:7pt;color:rgba(255,255,255,.9);line-height:1.3;margin-bottom:1px}
+.cvl-cert-org{font-size:6.5pt;color:rgba(255,255,255,.6);margin-bottom:4px}
+/* MIDDLE column */
+.cvl-mid{padding:14px 14px;display:flex;flex-direction:column;gap:0;border-right:1px solid #deeade}
+.cvl-section{margin-bottom:9px}
+.cvl-sec-head{font-size:7pt;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
+  color:#2e6b3e;border-bottom:1px solid #c5d9c5;padding-bottom:2px;margin-bottom:5px}
+.cvl-summary{font-size:7.5pt;color:#3d533d;line-height:1.5}
+.cvl-role{margin-bottom:6px}
+.cvl-role-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0}
+.cvl-role-org{font-size:8pt;font-weight:700;color:#1c2b1c}
+.cvl-role-dates{font-size:6.5pt;color:#6b856b;white-space:nowrap;margin-left:6px}
+.cvl-role-title{font-size:7pt;color:#2e6b3e;font-weight:600;margin-bottom:1px}
+.cvl-role-ul{list-style:none;padding:0;margin:0}
+.cvl-role-ul li{position:relative;padding-left:9px;font-size:7pt;color:#3d533d;line-height:1.4;margin-bottom:1px}
+.cvl-role-ul li::before{content:'›';position:absolute;left:0;color:#4a9960;font-size:9pt;line-height:1.1}
+/* RIGHT column */
+.cvl-right{padding:14px 12px;display:flex;flex-direction:column;gap:0;background:#f7fcf7}
+.cvl-award{margin-bottom:6px;padding-bottom:5px;border-bottom:1px solid #deeade}
+.cvl-award:last-child{border-bottom:none}
+.cvl-award-title{font-size:7.5pt;font-weight:600;color:#1c2b1c;line-height:1.3}
+.cvl-award-org{font-size:6.5pt;color:#2e6b3e;margin-bottom:1px}
+.cvl-award-body{font-size:6.5pt;color:#3d533d;line-height:1.35}
+.cvl-edu{margin-bottom:5px}
+.cvl-edu-name{font-size:7.5pt;font-weight:600;color:#1c2b1c}
+.cvl-edu-inst{font-size:6.5pt;color:#2e6b3e}
+.cvl-edu-yr{font-size:6.5pt;color:#6b856b}
+.cvl-interest{font-size:7pt;color:#3d533d;padding:1px 0;line-height:1.35}
+.cvl-interest::before{content:'◆ ';color:#4a9960;font-size:5pt}
+
+@media print and (orientation:landscape){
+  .compact-close,.compact-actions{display:none!important}
+  .cv-landscape-wrap{margin:0;width:100%;min-height:100vh;box-shadow:none;border-radius:0;
+    grid-template-columns:68mm 1fr 58mm}
+}
 
 /* ── PRINT / PDF ── */
 @media print{
-  @page{margin:12mm 10mm;size:A4}
-  body{background:#fff;color:#000;font-size:10.5px}
+  @page{margin:10mm 10mm;size:A4}
+  /* Remove browser-injected header/footer (date, title, URL) */
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{background:#fff;color:#000;font-size:10px;margin:0}
+  /* Hide all chrome */
   #sidebar,#back-to-top,#compact-overlay,.dl-bar,.qlinks,.org-chevron,
-  .qr-wrap,.copy-btn,.copy-contact,.sb-bottom{display:none!important}
+  .qr-wrap,.copy-btn,.copy-contact,.sb-bottom,
+  .page-sub,.profile-loc,.stat-grid{display:none!important}
   #app{display:block}
   #main{padding:0;max-width:100%}
   .tiddler{display:block!important}
-  .page-title{font-size:16px;page-break-after:avoid}
-  h2{font-size:9.5px;margin:10px 0 5px}
-  .profile-hero{border:none;box-shadow:none;padding:0;margin-bottom:12px;gap:14px}
-  .profile-photo{width:58px;height:58px}
-  .profile-info h1{font-size:17px}
-  .stat-grid{display:none}
-  .summary-block{border:none;box-shadow:none;padding:0 0 4px}
-  .summary-block h3{font-size:9.5px}
-  .summary-block ul li{font-size:10px}
+  /* Tighten page section spacing */
+  .tiddler + .tiddler{margin-top:0}
+  .page-title{font-size:13px;font-weight:700;margin:6px 0 2px;
+    border-bottom:1.5px solid #2e6b3e;padding-bottom:3px;color:#1c2b1c}
+  h2{font-size:8.5px;margin:6px 0 3px;padding-bottom:2px;letter-spacing:.06em}
+  p{font-size:9.5px;margin-bottom:4px;line-height:1.55}
+  /* Profile hero — compact */
+  .profile-hero{border:none;box-shadow:none;padding:0;margin-bottom:8px;
+    gap:12px;background:none}
+  .profile-photo{width:52px;height:52px}
+  .profile-info h1{font-size:16px;margin-bottom:1px}
+  .profile-tagline{font-size:10px}
+  /* Summary blocks — tighter */
+  .summary-block{border:none;box-shadow:none;padding:2px 0 2px;margin-bottom:4px;background:none}
+  .summary-block h3{font-size:8.5px;margin-bottom:3px}
+  .summary-block ul li{font-size:9px;padding:1px 0 1px 12px;line-height:1.4}
+  /* Career timeline */
   .career-timeline .tl-spine{display:none}
-  .org-card{grid-template-columns:44px 12px 1fr}
-  .org-year-label{font-size:9px}
-  .org-inner{border:none;box-shadow:none;border-left:2px solid var(--acc3)}
-  .org-header{padding:4px 8px}
-  .org-name{font-size:11px}
-  .org-tenure{font-size:9px;border:none;background:none;padding:0}
+  .org-card{grid-template-columns:40px 10px 1fr;margin-bottom:4px}
+  .org-year-label{font-size:8px}
+  .org-inner{border:none;box-shadow:none;border-left:2px solid #4a9960;margin-left:6px}
+  .org-header{padding:3px 6px;background:none!important}
+  .org-name{font-size:10.5px}
+  .org-tenure{font-size:8px;border:none;background:none;padding:0}
+  .org-logo-wrap{display:none}
   .org-roles{display:block!important;border:none}
-  .role-item{padding:3px 0 3px 8px;border:none}
-  .role-title{font-size:10px}
-  .role-period{font-size:9px;margin-bottom:1px}
-  .role-detail li{font-size:9.5px}
-  .proj-grid{grid-template-columns:1fr 1fr}
-  .proj-card{box-shadow:none;padding:5px 7px}
-  .proj-detail{display:block!important}
-  .cert-grid{grid-template-columns:1fr 1fr}
-  .cert-item{padding:4px 7px}
-  .award-card{padding:5px 10px;margin-bottom:5px}
-  .contact-grid{grid-template-columns:1fr 1fr}
-  .contact-item{padding:5px 10px}
-  .card{box-shadow:none;padding:6px 10px}
-  .tag,.cv-tag{font-size:8.5px;padding:0 5px}
-  #t-career,#t-projects,#t-education,#t-skills,#t-awards,
-  #t-clients,#t-interests-volunteer,#t-contact{page-break-before:always}
+  .role-item{padding:2px 0 2px 6px;border-bottom:none}
+  .role-title{font-size:9.5px;margin-bottom:0}
+  .role-period{font-size:8px;margin-bottom:1px}
+  .role-detail li{font-size:9px;padding:1px 0 1px 12px;line-height:1.4}
+  /* Projects */
+  .proj-grid{grid-template-columns:1fr 1fr;gap:4px}
+  .proj-card{box-shadow:none;padding:4px 6px;border:1px solid #c5d9c5}
+  .proj-title{font-size:9.5px}
+  .proj-meta{font-size:8.5px}
+  .proj-detail{display:block!important;font-size:8.5px;padding-top:4px;margin-top:4px}
+  /* Certs */
+  .cert-grid{grid-template-columns:1fr 1fr;gap:4px}
+  .cert-item{padding:3px 6px}
+  .cert-name{font-size:9.5px}
+  .cert-org{font-size:8.5px}
+  .cert-link{font-size:8px}
+  /* Awards */
+  .award-card{padding:4px 8px;margin-bottom:4px}
+  .award-title{font-size:10px}
+  .award-meta{font-size:8.5px;margin-bottom:2px}
+  .award-body{font-size:8.5px;line-height:1.45}
+  /* Contact */
+  .contact-grid{grid-template-columns:1fr 1fr;gap:4px}
+  .contact-item{padding:4px 8px}
+  .contact-label{font-size:8.5px}
+  .contact-val{font-size:9.5px}
+  /* Clients */
+  .clients-grid{grid-template-columns:1fr 1fr 1fr;gap:4px}
+  .client-card{padding:4px 8px}
+  .client-name{font-size:9.5px}
+  .client-desc{font-size:8.5px}
+  .client-logo-wrap{height:22px;margin-bottom:4px}
+  /* General card */
+  .card{box-shadow:none;padding:4px 8px}
+  .tag,.cv-tag{font-size:7.5px;padding:0 4px}
+  /* Edu */
+  .edu-name{font-size:10px}
+  .edu-inst{font-size:9px}
+  .edu-period{font-size:8.5px}
+  /* Interests */
+  .int-vol-grid{grid-template-columns:1fr 1fr;gap:4px}
+  .int-card{padding:5px 8px}
+  .int-name{font-size:9px}
+  .vol-card{padding:5px 8px;margin-bottom:4px}
+  /* Page breaks — only where truly needed */
   #t-home{page-break-before:avoid}
+  #t-career{page-break-before:always}
+  #t-projects{page-break-before:always}
+  #t-education{page-break-before:always}
+  #t-skills{page-break-before:avoid}
+  #t-awards{page-break-before:avoid}
+  #t-clients{page-break-before:avoid}
+  #t-interests-volunteer{page-break-before:avoid}
+  #t-contact{page-break-before:avoid}
+  /* Avoid breaks inside cards */
+  .org-inner,.award-card,.cert-item,.proj-card,.card,.contact-item{
+    page-break-inside:avoid;break-inside:avoid}
 }
 
 @media(max-width:720px){
@@ -378,61 +481,90 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18,15 12,9 6,15"/></svg>
 </button>
 
-<!-- Compact CV overlay (item 20) -->
+<!-- Compact CV overlay (item 20) — dynamic, landscape, 3-col -->
 <div id="compact-overlay">
-  <button class="compact-close" onclick="closeCompact()">✕ Close compact view</button>
-  <div class="cv-page">
-    <h1>Ravi S Ghosh</h1>
-    <div class="cv-tagline">Senior Manager — Healthcare &amp; Life Sciences Analytics</div>
-    <div class="cv-contacts">
-      <span>mail@ravisghosh.com</span><span>+91-805 015 8015</span>
-      <span>linkedin.com/in/ravisghosh</span><span>ravisghosh.com</span>
-      <span>Bangalore, India</span>
-    </div>
+  <div class="compact-actions">
+    <button class="compact-print-btn" onclick="printCompact()">🖨 Save as PDF</button>
+  </div>
+  <button class="compact-close" onclick="closeCompact()">✕ Close</button>
+  <div class="cv-landscape-wrap" id="cv-landscape">
 
-    <div class="cv-section">
-      <div class="cv-section-title">Summary</div>
-      <p style="font-size:11px;color:var(--fg2)">Service Delivery Manager with 23+ years in healthcare IT. Expertise in data engineering, interoperability, AI/ML, and product implementation. Led global teams of 80+, managed $8M+ annual delivery portfolios, and driven CoE and pre-sales initiatives across HLS vertical.</p>
-    </div>
-
-    <div class="cv-section">
-      <div class="cv-section-title">Experience</div>
-      <div class="cv-role"><div class="cv-role-header"><span>Tredence Inc</span><span>Oct 2025 – Present</span></div><div class="cv-role-sub">Senior Manager — Healthcare &amp; Life Sciences, Analytics · Bangalore</div><ul><li>Manage IT service delivery for data analytics and AI/ML projects in the HLS vertical.</li></ul></div>
-      <div class="cv-role"><div class="cv-role-header"><span>GSK plc</span><span>Sep 2024 – Oct 2025</span></div><div class="cv-role-sub">Data Analytics Manager, R&amp;D Division · Bangalore</div><ul><li>Product ownership of enterprise request management system. GSK Bronze Award (Apr 2025).</li><li>Medical and Safety review tool implementation across 7 geographies.</li></ul></div>
-      <div class="cv-role"><div class="cv-role-header"><span>Emids Technologies Pvt. Ltd.</span><span>Feb 2016 – Aug 2024</span></div><div class="cv-role-sub">Group PM → Senior PM → PM → Associate Manager → Team Lead</div><ul><li>Group PM: ~$8M portfolio, 12 projects, ~80 people. Led Data Integration CoE. Gratitude Award (2023).</li><li>Senior PM: ~$2M portfolio. CEO's Award — Innovation &amp; Execution Excellence (2021).</li><li>PM: ~$1M portfolio, full project lifecycle, risk monitoring.</li><li>Team Lead/AM: Patient access product implementation. Star Awards (2016, 2018), CEO Award (2017).</li></ul></div>
-      <div class="cv-role"><div class="cv-role-header"><span>M*Modal Global Services</span><span>May 2013 – Feb 2016</span></div><div class="cv-role-sub">Lead – Implementation Services / Implementation Executive</div><ul><li>Led team of 15 implementing speech recognition platforms. Migrated 86% of total volume.</li></ul></div>
-      <div class="cv-role"><div class="cv-role-header"><span>Transcend / Heartland → Nuance</span><span>Dec 2001 – May 2013</span></div><div class="cv-role-sub">Team Lead – Implementation / Production Support / Medical Transcriptionist</div><ul><li>GEMSTAR V10/V11 platform BA &amp; UAT lead. Errors 1.45%→0.65%, TAT +36%, productivity +42%.</li></ul></div>
-    </div>
-
-    <div class="cv-two-col">
+    <!-- LEFT COLUMN -->
+    <div class="cvl-left">
       <div>
-        <div class="cv-section">
-          <div class="cv-section-title">Education</div>
-          <div style="font-size:11px;margin-bottom:4px"><strong>Business Management — MicroMasters</strong><br><span style="color:var(--fg3)">IIM Bangalore · 2019</span></div>
-          <div style="font-size:11px"><strong>Bachelor of Science — Botany</strong><br><span style="color:var(--fg3)">IGNOU · 2010</span></div>
-        </div>
-        <div class="cv-section">
-          <div class="cv-section-title">Certifications</div>
-          <div style="font-size:10.5px;line-height:1.8;color:var(--fg2)">
-            Lean Six Sigma Green Belt · Agile Scrum Master (EXIN) · Blockchain For Business (Linux Foundation) · Platform Cooperatives Now · Economic Democracy (Edinburgh) · WINFluence Leadership · Lead for Success
-          </div>
-        </div>
+        <img id="cvl-photo" class="cvl-photo"
+          src="https://raw.githubusercontent.com/ravisghosh/cv/main/photo-headshot.jpg"
+          alt="Ravi S Ghosh"
+          onerror="this.style.display='none';document.getElementById('cvl-avatar').style.display='flex'"/>
+        <div id="cvl-avatar" style="display:none" class="cvl-avatar">RG</div>
+        <div class="cvl-name" id="cvl-name">Ravi S Ghosh</div>
+        <div class="cvl-title" id="cvl-role-title">Delivery Manager · Healthcare &amp; Life Sciences Analytics</div>
       </div>
+      <div class="cvl-divider"></div>
       <div>
-        <div class="cv-section">
-          <div class="cv-section-title">Skills</div>
-          <div class="cv-tags">
-            <span class="cv-tag">Delivery Management</span><span class="cv-tag">Programme Management</span><span class="cv-tag">Client Relationships</span><span class="cv-tag">People Management</span><span class="cv-tag">Presales</span><span class="cv-tag">Contract Management</span><span class="cv-tag">US Healthcare Domain</span><span class="cv-tag">HL7 / FHIR</span><span class="cv-tag">Interoperability</span><span class="cv-tag">GCP / BigQuery</span><span class="cv-tag">Azure Data Factory</span><span class="cv-tag">Oracle PL/SQL</span><span class="cv-tag">Python</span><span class="cv-tag">Tableau</span><span class="cv-tag">Agile / Scrum</span><span class="cv-tag">Lean Six Sigma</span>
-          </div>
-        </div>
-        <div class="cv-section">
-          <div class="cv-section-title">Awards</div>
-          <div style="font-size:10.5px;line-height:1.8;color:var(--fg2)">
-            GSK Bronze Award (2025) · Gratitude Award, Emids (2023) · CEO Award Innovation (2021) · Star Awards (2016, 2018) · CEO Award Customer Success (2017)
-          </div>
-        </div>
+        <div class="cvl-section-title">Contact</div>
+        <div class="cvl-contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span id="cvl-email">mail@ravisghosh.com</span></div>
+        <div class="cvl-contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.06 1.18 2 2 0 012.03 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg><span id="cvl-phone">+91-805 015 8015</span></div>
+        <div class="cvl-contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg><a id="cvl-linkedin" href="https://linkedin.com/in/ravisghosh" target="_blank">linkedin.com/in/ravisghosh</a></div>
+        <div class="cvl-contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg><a id="cvl-web" href="https://cv.ravisghosh.com" target="_blank">cv.ravisghosh.com</a></div>
+        <div class="cvl-contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span id="cvl-loc">Bangalore, India</span></div>
+      </div>
+      <div class="cvl-divider"></div>
+      <div>
+        <div class="cvl-section-title">Core Skills</div>
+        <div id="cvl-skills-bars"></div>
+      </div>
+      <div class="cvl-divider"></div>
+      <div>
+        <div class="cvl-section-title">Technologies</div>
+        <div id="cvl-tech-tags" style="line-height:1.8"></div>
+      </div>
+      <div class="cvl-divider"></div>
+      <div>
+        <div class="cvl-section-title">Certifications</div>
+        <div id="cvl-certs"></div>
       </div>
     </div>
+
+    <!-- MIDDLE COLUMN -->
+    <div class="cvl-mid">
+      <div class="cvl-section">
+        <div class="cvl-sec-head">Professional Summary</div>
+        <div class="cvl-summary" id="cvl-summary"></div>
+      </div>
+      <div class="cvl-section">
+        <div class="cvl-sec-head">Experience</div>
+        <div id="cvl-experience"></div>
+      </div>
+      <div class="cvl-section">
+        <div class="cvl-sec-head">Key Accounts</div>
+        <div id="cvl-clients" style="display:flex;flex-wrap:wrap;gap:2px"></div>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="cvl-right">
+      <div class="cvl-section">
+        <div class="cvl-sec-head">Education</div>
+        <div id="cvl-education"></div>
+      </div>
+      <div class="cvl-divider" style="background:#c5d9c5;margin:4px 0 8px"></div>
+      <div class="cvl-section">
+        <div class="cvl-sec-head">Awards &amp; Recognition</div>
+        <div id="cvl-awards"></div>
+      </div>
+      <div class="cvl-divider" style="background:#c5d9c5;margin:4px 0 8px"></div>
+      <div class="cvl-section">
+        <div class="cvl-sec-head">Interests</div>
+        <div id="cvl-interests"></div>
+      </div>
+      <div class="cvl-divider" style="background:#c5d9c5;margin:4px 0 8px"></div>
+      <div class="cvl-section">
+        <div class="cvl-sec-head">Travel Readiness</div>
+        <div id="cvl-travel" style="font-size:7pt;color:#3d533d;line-height:1.6"></div>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -800,7 +932,7 @@ p{color:var(--fg2);font-size:13px;line-height:1.75;margin-bottom:8px}
       Download Text
     </button>
   </div>
-  <p style="font-size:11px;color:var(--fg3);margin-bottom:24px">PDF: click "Save / Print as PDF" → choose "Save as PDF" in the print dialog. &nbsp;|&nbsp; Compact view: a traditional 1–2 page resume layout.</p>
+  <p style="font-size:11px;color:var(--fg3);margin-bottom:24px">PDF: click "Save / Print as PDF" → choose "Save as PDF" in the print dialog. In print settings, set <strong>Margins: None</strong> and uncheck <strong>Headers and footers</strong> for a clean output. &nbsp;|&nbsp; Compact view: 1-page landscape layout with photo.</p>
 
   <!-- QR Code (item 19) -->
   <div class="qr-wrap">
@@ -910,21 +1042,185 @@ function copyText(text,btn){
   });
 }
 
-/* ── Compact view (item 20) ── */
-function openCompact(){document.getElementById('compact-overlay').classList.add('open');}
+/* ── Compact view (item 20) — dynamic population ── */
+function openCompact(){
+  buildCompactCV();
+  document.getElementById('compact-overlay').classList.add('open');
+}
 function closeCompact(){document.getElementById('compact-overlay').classList.remove('open');}
+
+function printCompact(){
+  var overlay = document.getElementById('compact-overlay');
+  var wrap = document.getElementById('cv-landscape');
+  // Temporarily make landscape wrap fill page for print
+  var origStyle = wrap.getAttribute('style')||'';
+  wrap.style.cssText = 'margin:0;width:100%;border-radius:0;box-shadow:none;';
+  var head = document.querySelector('head');
+  var printStyle = document.createElement('style');
+  printStyle.id = 'compact-print-style';
+  printStyle.textContent = '@page{size:A4 landscape;margin:0} body > *:not(#compact-overlay){display:none!important} #compact-overlay{position:static!important;padding:0!important} .compact-close,.compact-actions{display:none!important} .cv-landscape-wrap{width:100%!important;margin:0!important;min-height:100vh!important;}';
+  head.appendChild(printStyle);
+  window.print();
+  setTimeout(function(){
+    var s = document.getElementById('compact-print-style');
+    if(s) s.remove();
+    wrap.setAttribute('style', origStyle);
+  }, 1200);
+}
+
+/* Dynamically read DOM and populate compact CV */
+function buildCompactCV(){
+  /* ── Summary ── */
+  var summaryEl = document.querySelector('#t-home > p');
+  document.getElementById('cvl-summary').textContent = summaryEl ? summaryEl.textContent.trim() : '';
+
+  /* ── Contact fields from sidebar ── */
+  var sbLinks = document.querySelectorAll('.sb-contact-row a');
+  sbLinks.forEach(function(a){
+    var href = a.getAttribute('href')||'';
+    if(href.startsWith('mailto:')) document.getElementById('cvl-email').textContent = a.textContent.trim();
+    else if(href.startsWith('tel:')) document.getElementById('cvl-phone').textContent = a.textContent.trim();
+    else if(href.includes('linkedin')) document.getElementById('cvl-linkedin').textContent = a.textContent.trim();
+    else if(href.includes('ravisghosh.com')) document.getElementById('cvl-web').textContent = a.textContent.trim();
+  });
+
+  /* ── Profile name & title from hero ── */
+  var h1 = document.querySelector('.profile-info h1');
+  var tagline = document.querySelector('.profile-tagline');
+  if(h1) document.getElementById('cvl-name').textContent = h1.textContent.trim();
+  if(tagline) document.getElementById('cvl-role-title').textContent = tagline.textContent.trim();
+
+  /* ── Location from contact page ── */
+  var locEls = document.querySelectorAll('.contact-val');
+  locEls.forEach(function(el){
+    if(el.previousElementSibling && el.previousElementSibling.textContent.trim()==='Location'){
+      document.getElementById('cvl-loc').textContent = el.textContent.trim();
+    }
+  });
+
+  /* ── Travel from contact page ── */
+  var travelEl = document.querySelector('#t-contact .contact-val[style*="font-size:11.5px"]');
+  if(travelEl) document.getElementById('cvl-travel').textContent = travelEl.textContent.trim();
+
+  /* ── Skills bars (read from skills page) ── */
+  var skillsBarsHtml = '';
+  document.querySelectorAll('#t-skills .skill-row').forEach(function(row){
+    var name = row.querySelector('.skill-name');
+    var fill = row.querySelector('.skill-fill');
+    if(!name || !fill) return;
+    var w = fill.dataset.w || fill.style.width || '70';
+    var pct = parseInt(w);
+    skillsBarsHtml += '<div class="cvl-skill-name">'+name.textContent.trim()+'</div>'
+      +'<div class="cvl-bar"><div class="cvl-bar-fill" style="width:'+pct+'%"></div></div>';
+  });
+  document.getElementById('cvl-skills-bars').innerHTML = skillsBarsHtml;
+
+  /* ── Tech tags ── */
+  var techHtml = '';
+  document.querySelectorAll('#t-skills h2').forEach(function(h){
+    if(h.textContent.includes('Technologies')){
+      var sibling = h.nextElementSibling;
+      if(sibling) sibling.querySelectorAll('.tag').forEach(function(t){
+        techHtml += '<span class="cvl-tag">'+t.textContent.trim()+'</span>';
+      });
+    }
+  });
+  document.getElementById('cvl-tech-tags').innerHTML = techHtml;
+
+  /* ── Certifications ── */
+  var certsHtml = '';
+  document.querySelectorAll('.cert-item').forEach(function(item){
+    var name = item.querySelector('.cert-name');
+    var org = item.querySelector('.cert-org');
+    if(name) certsHtml += '<div class="cvl-cert-name">'+name.textContent.trim()+'</div>';
+    if(org) certsHtml += '<div class="cvl-cert-org">'+org.textContent.trim()+'</div>';
+  });
+  document.getElementById('cvl-certs').innerHTML = certsHtml;
+
+  /* ── Experience (from career timeline) ── */
+  var expHtml = '';
+  document.querySelectorAll('.org-card').forEach(function(orgCard){
+    var orgName = orgCard.querySelector('.org-name');
+    var orgTenure = orgCard.querySelector('.org-tenure');
+    if(!orgName) return;
+    expHtml += '<div class="cvl-role">';
+    expHtml += '<div class="cvl-role-header"><span class="cvl-role-org">'+orgName.textContent.trim()+'</span>';
+    if(orgTenure) expHtml += '<span class="cvl-role-dates">'+orgTenure.textContent.trim()+'</span>';
+    expHtml += '</div>';
+    // First role only (most senior)
+    var firstRole = orgCard.querySelector('.role-item');
+    if(firstRole){
+      var rt = firstRole.querySelector('.role-title');
+      if(rt) expHtml += '<div class="cvl-role-title">'+rt.textContent.trim()+'</div>';
+      expHtml += '<ul class="cvl-role-ul">';
+      firstRole.querySelectorAll('.role-detail li').forEach(function(li, i){
+        if(i < 2) expHtml += '<li>'+li.textContent.trim()+'</li>';
+      });
+      expHtml += '</ul>';
+    }
+    expHtml += '</div>';
+  });
+  document.getElementById('cvl-experience').innerHTML = expHtml;
+
+  /* ── Key clients ── */
+  var clientsHtml = '';
+  document.querySelectorAll('.client-card').forEach(function(card){
+    var name = card.querySelector('.client-name');
+    if(name) clientsHtml += '<span class="cvl-tag" style="background:#e6f4e6;color:#1a5c1a;font-size:7pt;padding:1px 6px;">'+name.textContent.trim()+'</span>';
+  });
+  document.getElementById('cvl-clients').innerHTML = clientsHtml;
+
+  /* ── Education ── */
+  var eduHtml = '';
+  document.querySelectorAll('#t-education .card').forEach(function(card){
+    var name = card.querySelector('.edu-name');
+    var inst = card.querySelector('.edu-inst');
+    var period = card.querySelector('.edu-period');
+    if(!name) return;
+    eduHtml += '<div class="cvl-edu">';
+    eduHtml += '<div class="cvl-edu-name">'+name.textContent.trim()+'</div>';
+    if(inst) eduHtml += '<div class="cvl-edu-inst">'+inst.textContent.trim()+'</div>';
+    if(period) eduHtml += '<div class="cvl-edu-yr">'+period.textContent.trim()+'</div>';
+    eduHtml += '</div>';
+  });
+  document.getElementById('cvl-education').innerHTML = eduHtml;
+
+  /* ── Awards ── */
+  var awardsHtml = '';
+  document.querySelectorAll('.award-card').forEach(function(card, i){
+    if(i > 4) return; // top 5 to fit column
+    var title = card.querySelector('.award-title');
+    var meta = card.querySelector('.award-meta');
+    var body = card.querySelector('.award-body');
+    awardsHtml += '<div class="cvl-award">';
+    if(title) awardsHtml += '<div class="cvl-award-title">'+title.textContent.trim()+'</div>';
+    if(meta) awardsHtml += '<div class="cvl-award-org">'+meta.textContent.trim()+'</div>';
+    awardsHtml += '</div>';
+  });
+  document.getElementById('cvl-awards').innerHTML = awardsHtml;
+
+  /* ── Interests ── */
+  var intHtml = '';
+  document.querySelectorAll('.int-name').forEach(function(el){
+    intHtml += '<div class="cvl-interest">'+el.textContent.trim()+'</div>';
+  });
+  document.getElementById('cvl-interests').innerHTML = intHtml;
+}
 
 /* ── Print / PDF ── */
 function printResume(){
   document.querySelectorAll('.org-roles').forEach(r=>r.classList.add('open'));
+  document.querySelectorAll('.proj-detail').forEach(r=>r.classList.add('open'));
   document.querySelectorAll('.tiddler').forEach(t=>t.classList.add('active'));
+  document.getElementById('compact-overlay').classList.remove('open');
   window.print();
   setTimeout(function(){
     document.querySelectorAll('.tiddler').forEach(t=>t.classList.remove('active'));
     document.querySelectorAll('.org-roles').forEach(r=>r.classList.remove('open'));
     document.querySelectorAll('.org-chevron').forEach(c=>c.classList.remove('open'));
+    document.querySelectorAll('.proj-detail').forEach(r=>r.classList.remove('open'));
     show(currentPage);
-  },1000);
+  },1200);
 }
 
 /* ── QR code generator (item 19) — pure canvas, no library ── */
@@ -949,82 +1245,159 @@ function generateQR(){
   img.crossOrigin='anonymous';
 }
 
-/* ── Text download ── */
+/* ── Text download — fully dynamic from DOM ── */
 function downloadText(){
-  var txt=`RAVI S GHOSH
-Senior Manager – Healthcare & Life Sciences Analytics
-Bangalore, India | mail@ravisghosh.com | +91-805 015 8015
-WhatsApp: wa.me/918050158015
-LinkedIn: linkedin.com/in/ravisghosh | Web: ravisghosh.com | CV: cv.ravisghosh.com
+  function line(ch,len){return ch.repeat(len||60);}
+  function getText(sel){var el=document.querySelector(sel);return el?el.textContent.trim():'';}
+  function getAllText(sel){var out=[];document.querySelectorAll(sel).forEach(function(el){out.push(el.textContent.trim());});return out;}
 
-─────────────────────────────────────────────────────
-SUMMARY
-─────────────────────────────────────────────────────
-Service Delivery Manager with 20+ years in healthcare IT. Expertise in data engineering, interoperability, data migration, and product implementation. Led global teams (80+), managed $8M+ annual portfolios, driven pre-sales and CoE initiatives.
+  var txt = '';
+  /* Header */
+  txt += getText('.profile-info h1') + '\n';
+  txt += getText('.profile-tagline') + '\n';
+  txt += getText('.profile-loc') + '\n';
 
-─────────────────────────────────────────────────────
-EXPERIENCE
-─────────────────────────────────────────────────────
-Tredence Inc | Oct 2025 – Present
-Senior Manager – Healthcare & Life Sciences, Analytics
-• Manage IT service delivery for data analytics and AI/ML projects in the HLS vertical.
+  /* Contact */
+  var contacts = [];
+  document.querySelectorAll('.sb-contact-row a').forEach(function(a){contacts.push(a.textContent.trim());});
+  document.querySelectorAll('.sb-contact-row').forEach(function(row){
+    var wa = row.querySelector('a[href*="wa.me"]');
+    if(wa) contacts.push('WhatsApp: wa.me/918050158015');
+  });
+  txt += contacts.filter(function(v,i,a){return a.indexOf(v)===i;}).join(' | ') + '\n';
+  txt += '\n' + line('─') + '\nSUMMARY\n' + line('─') + '\n';
+  txt += getText('#t-home > p') + '\n';
 
-GSK plc | Sep 2024 – Oct 2025
-Data Analytics Manager, R&D Division
-• Product ownership of enterprise request management system (GSK Bronze Award, Apr 2025).
-• Medical and Safety review tool implementation across 7 geographies.
+  /* Summary blocks */
+  document.querySelectorAll('#t-home .summary-block').forEach(function(block){
+    var h = block.querySelector('h3');
+    if(h) txt += '\n' + h.textContent.trim() + '\n';
+    block.querySelectorAll('li').forEach(function(li){txt += '• ' + li.textContent.trim() + '\n';});
+  });
 
-Emids Technologies | Feb 2016 – Aug 2024
-Group PM (Jan 2023 – Aug 2024): ~$8M portfolio, 12 projects, ~80 people. Led Data Integration CoE.
-Senior PM (Jan 2021 – Dec 2022): ~$2M portfolio. CEO's Award – Innovation & Execution Excellence (2021).
-PM (Jan 2019 – Dec 2020): ~$1M portfolio, 2 projects.
-Associate Manager (Jul 2017 – Dec 2018): Patient access product implementation.
-Team Lead (Feb 2016 – Jun 2017): Legacy to web migration (Change Healthcare PAA).
+  /* Career */
+  txt += '\n' + line('─') + '\nEXPERIENCE\n' + line('─') + '\n';
+  document.querySelectorAll('.org-card').forEach(function(orgCard){
+    var orgName = orgCard.querySelector('.org-name');
+    var orgTenure = orgCard.querySelector('.org-tenure');
+    var orgDesc = orgCard.querySelector('.org-header div > div > div:nth-child(2)');
+    if(!orgName) return;
+    txt += '\n' + orgName.textContent.trim();
+    if(orgTenure) txt += ' | ' + orgTenure.textContent.trim();
+    txt += '\n';
+    orgCard.querySelectorAll('.role-item').forEach(function(role){
+      var rt = role.querySelector('.role-title');
+      var rp = role.querySelector('.role-period');
+      if(rt) txt += '  ' + rt.textContent.trim();
+      if(rp) txt += ' · ' + rp.textContent.trim();
+      txt += '\n';
+      role.querySelectorAll('.role-detail li').forEach(function(li){
+        txt += '    → ' + li.textContent.trim() + '\n';
+      });
+    });
+  });
 
-M*Modal Global Services | May 2013 – Feb 2016
-Lead Implementation Services / Implementation Executive
-• Led team of 15 on speech recognition platforms. Migrated 86% of total volume.
+  /* Projects */
+  txt += '\n' + line('─') + '\nPROJECTS\n' + line('─') + '\n';
+  document.querySelectorAll('.proj-card').forEach(function(card){
+    var title = card.querySelector('.proj-title');
+    var meta = card.querySelector('.proj-meta');
+    var detail = card.querySelector('.proj-detail');
+    if(!title) return;
+    txt += '\n' + title.textContent.trim() + '\n';
+    if(meta) txt += '  ' + meta.textContent.trim() + '\n';
+    if(detail) txt += '  ' + detail.textContent.trim() + '\n';
+  });
 
-Transcend / Heartland → Nuance | Dec 2001 – May 2013
-Team Lead – Implementation / Production Support / Medical Transcriptionist
-• GEMSTAR V10/V11 BA & UAT lead. Errors 1.45%→0.65%, TAT +36%, productivity +42%.
+  /* Key Clients */
+  txt += '\n' + line('─') + '\nKEY ACCOUNTS / CLIENTS\n' + line('─') + '\n';
+  document.querySelectorAll('.client-card').forEach(function(card){
+    var name = card.querySelector('.client-name');
+    var desc = card.querySelector('.client-desc');
+    if(!name) return;
+    txt += '\n' + name.textContent.trim() + '\n';
+    if(desc) txt += '  ' + desc.textContent.trim() + '\n';
+  });
 
-─────────────────────────────────────────────────────
-EDUCATION
-─────────────────────────────────────────────────────
-Business Management – MicroMasters | IIM Bangalore | 2019
-Bachelor of Science – Botany | IGNOU | 2010
+  /* Education */
+  txt += '\n' + line('─') + '\nEDUCATION\n' + line('─') + '\n';
+  document.querySelectorAll('#t-education .card').forEach(function(card){
+    var name = card.querySelector('.edu-name');
+    var inst = card.querySelector('.edu-inst');
+    var period = card.querySelector('.edu-period');
+    if(!name) return;
+    txt += name.textContent.trim();
+    if(inst) txt += ' | ' + inst.textContent.trim();
+    if(period) txt += ' | ' + period.textContent.trim();
+    txt += '\n';
+  });
 
-─────────────────────────────────────────────────────
-CERTIFICATIONS
-─────────────────────────────────────────────────────
-Lean Six Sigma Green Belt | Agile Scrum Master (EXIN) | Blockchain For Business (Linux Foundation)
-Platform Cooperatives Now | Economic Democracy (Edinburgh) | WINFluence Leadership | Lead for Success
+  /* Certifications */
+  txt += '\n' + line('─') + '\nCERTIFICATIONS\n' + line('─') + '\n';
+  document.querySelectorAll('.cert-item').forEach(function(item){
+    var name = item.querySelector('.cert-name');
+    var org = item.querySelector('.cert-org');
+    var link = item.querySelector('.cert-link');
+    if(!name) return;
+    txt += name.textContent.trim();
+    if(org) txt += ' | ' + org.textContent.trim();
+    if(link) txt += ' | ' + link.getAttribute('href');
+    txt += '\n';
+  });
 
-─────────────────────────────────────────────────────
-SKILLS
-─────────────────────────────────────────────────────
-Delivery Management | Programme Management | Client Relationship Management | People Management
-Presales & Solution Design | Contract Management | US Healthcare Domain | HL7 / FHIR
-Interoperability | GCP / BigQuery | Azure Data Factory | Oracle PL/SQL | Python | Tableau
+  /* Skills */
+  txt += '\n' + line('─') + '\nSKILLS\n' + line('─') + '\n';
+  document.querySelectorAll('#t-skills h2').forEach(function(h2){
+    txt += '\n' + h2.textContent.trim() + '\n';
+    var sibling = h2.nextElementSibling;
+    if(!sibling) return;
+    sibling.querySelectorAll('.skill-name').forEach(function(s){txt += '• ' + s.textContent.trim() + '\n';});
+    sibling.querySelectorAll('.tag').forEach(function(t){txt += '• ' + t.textContent.trim() + '\n';});
+  });
 
-─────────────────────────────────────────────────────
-AWARDS
-─────────────────────────────────────────────────────
-GSK Bronze Award (2025) | Gratitude Award, Emids (2023) | CEO Award Innovation (2021)
-Star Awards (2016, 2018) | CEO Award Customer Success (2017) | Clause for Applause (2016)
+  /* Awards */
+  txt += '\n' + line('─') + '\nAWARDS & RECOGNITION\n' + line('─') + '\n';
+  document.querySelectorAll('.award-card').forEach(function(card){
+    var title = card.querySelector('.award-title');
+    var meta = card.querySelector('.award-meta');
+    var body = card.querySelector('.award-body');
+    if(!title) return;
+    txt += '\n' + title.textContent.trim() + '\n';
+    if(meta) txt += '  ' + meta.textContent.trim() + '\n';
+    if(body) txt += '  ' + body.textContent.trim() + '\n';
+  });
 
-─────────────────────────────────────────────────────
-TRAVEL
-─────────────────────────────────────────────────────
-Indian Passport valid till 2031 | US B1/B2 Visa valid till 2036
-`;
-  var blob=new Blob([txt],{type:'text/plain'});
-  var a=document.createElement('a');
-  a.href=URL.createObjectURL(blob);
-  a.download='Ravi-S-Ghosh-Resume.txt';
+  /* Interests & Volunteering */
+  txt += '\n' + line('─') + '\nINTERESTS & VOLUNTEERING\n' + line('─') + '\n';
+  txt += '\nAreas of Interest\n';
+  document.querySelectorAll('.int-name').forEach(function(el){txt += '• ' + el.textContent.trim() + '\n';});
+  txt += '\nVolunteering\n';
+  document.querySelectorAll('.vol-card').forEach(function(card){
+    var h3 = card.querySelector('h3');
+    var period = card.querySelector('div[style*="color:var(--acc)"]');
+    var p = card.querySelector('p');
+    if(h3) txt += h3.textContent.trim() + '\n';
+    if(period) txt += '  ' + period.textContent.trim() + '\n';
+    if(p) txt += '  ' + p.textContent.trim() + '\n';
+  });
+
+  /* Contact page */
+  txt += '\n' + line('─') + '\nCONTACT & TRAVEL\n' + line('─') + '\n';
+  document.querySelectorAll('.contact-item').forEach(function(item){
+    var label = item.querySelector('.contact-label');
+    var val = item.querySelector('.contact-val');
+    if(label && val) txt += label.textContent.trim() + ': ' + val.textContent.trim() + '\n';
+  });
+
+  var name = getText('.profile-info h1').replace(/\s+/g,'-') || 'Resume';
+  var blob = new Blob([txt],{type:'text/plain;charset=utf-8'});
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = name + '-Resume-Full.txt';
   a.click();
 }
+
+  
 </script>
 </body>
 </html>
