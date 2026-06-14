@@ -1130,36 +1130,26 @@ function copyText(text,btn){
 function closeCompact(){document.getElementById('compact-overlay').classList.remove('open');}
 
 function printCompact(){
-  var head = document.querySelector('head');
-  var printStyle = document.createElement('style');
-  printStyle.id = 'compact-print-style';
-  printStyle.textContent = `
-    @page { size: A4 landscape; margin: 0; }
-    @media print {
-      #app, #sidebar, #main, #back-to-top, #print-shell { display: none !important; }
-      #compact-overlay {
-        display: block !important;
-        position: static !important;
-        overflow: visible !important;
-        background: #fff !important;
-        padding: 0 !important;
-      }
-      .compact-close, .compact-actions { display: none !important; }
-      .cv-landscape-wrap {
-        width: 100% !important;
-        min-height: 100vh !important;
-        margin: 0 !important;
-        border-radius: 0 !important;
-        box-shadow: none !important;
-      }
-    }
-  `;
-  head.appendChild(printStyle);
-  window.print();
-  setTimeout(function(){
-    var s = document.getElementById('compact-print-style');
-    if(s) s.remove();
-  }, 1200);
+  var wrap = document.getElementById('cv-landscape');
+  var styles = document.querySelector('style').textContent;
+  var win = window.open('', '_blank');
+  win.document.write(`<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<style>
+@page { size: A4 landscape; margin: 0; }
+body { margin: 0; padding: 0; background: #fff; }
+` + styles + `
+</style>
+</head>
+<body>
+` + wrap.outerHTML + `
+</body>
+</html>`);
+  win.document.close();
+  win.focus();
+  setTimeout(function(){ win.print(); win.close(); }, 800);
 }
 
 function buildCompactCV(){
