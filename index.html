@@ -1130,60 +1130,35 @@ function copyText(text,btn){
 function closeCompact(){document.getElementById('compact-overlay').classList.remove('open');}
 
 function printCompact(){
-  var wrap = document.getElementById('cv-landscape');
-  var origStyle = wrap.getAttribute('style')||'';
-  wrap.style.cssText = 'margin:0;width:100%;border-radius:0;box-shadow:none;';
   var head = document.querySelector('head');
   var printStyle = document.createElement('style');
   printStyle.id = 'compact-print-style';
-  /* printStyle.textContent = '@page{size:A4 landscape;margin:0} body > *:not(#compact-overlay){display:none!important} #compact-overlay{position:static!important;padding:0!important} .compact-close,.compact-actions{display:none!important} .cv-landscape-wrap{width:100%!important;margin:0!important;min-height:100vh!important;}';*/
   printStyle.textContent = `
-  @page{
-    size:A4 landscape;
-    margin:0;
-  }
-
-  html,body{
-    margin:0!important;
-    padding:0!important;
-    background:#fff!important;
-  }
-
-  #app,
-  #sidebar,
-  #main,
-  #back-to-top{
-    display:none!important;
-  }
-
-  #compact-overlay{
-    display:block!important;
-    position:static!important;
-    inset:auto!important;
-    overflow:visible!important;
-    background:#fff!important;
-    padding:0!important;
-  }
-
-  .compact-close,
-  .compact-actions{
-    display:none!important;
-  }
-
-  .cv-landscape-wrap{
-    width:100%!important;
-    min-height:100vh!important;
-    margin:0!important;
-    border-radius:0!important;
-    box-shadow:none!important;
-  }
-`;
+    @page { size: A4 landscape; margin: 0; }
+    @media print {
+      #app, #sidebar, #main, #back-to-top, #print-shell { display: none !important; }
+      #compact-overlay {
+        display: block !important;
+        position: static !important;
+        overflow: visible !important;
+        background: #fff !important;
+        padding: 0 !important;
+      }
+      .compact-close, .compact-actions { display: none !important; }
+      .cv-landscape-wrap {
+        width: 100% !important;
+        min-height: 100vh !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+      }
+    }
+  `;
   head.appendChild(printStyle);
   window.print();
   setTimeout(function(){
     var s = document.getElementById('compact-print-style');
     if(s) s.remove();
-    wrap.setAttribute('style', origStyle);
   }, 1200);
 }
 
